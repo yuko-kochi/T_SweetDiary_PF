@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col post_title">
+      <h2>投稿</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col post_new">
+      <table class="table table-borderless">
+        <tbody class="title">
+          <%= form_with model: @post, local:true do |f| %>
+          <tr>
+            <td><%= f.label :image, "画像を登録" %></td>
+            <td><%= f.attachment_field :image %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :introduction, "商品説明" %></td>
+            <td><%= f.text_area :introduction, size: "35x5" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :address, "住所" %></td>
+            <td><%= f.text_field :address, size: "35x20" %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <%= f.submit @post_button, class: 'btn btn-success btn-lg' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
