@@ -1,42 +1,24 @@
-<div class="container">
-  <div class="row">
-    <div class="col post_title">
-      <h2>投稿</h2>
-    </div>
+<h2>新規投稿</h2>
+<%= form_with(url: new_post_path, model: @post,  local: true) do |f| %>
+  <div class="actions">
+    <%= f.label :image, "画像を登録" %>
+    <%= f.attachment_field :image %><br />
+    <%= f.label :introduction,"内容" %>
+    <%= f.text_area :introduction %><br />
+    <%= f.label :address,"住所" %>
+    <%= f.text_field :address, id: :address %><br />
+    <input type="button" value="検索" onclick="codeAddress()">
+    <h2>Map</h2>
+    <div id='map'></div>
+    <%= f.submit %>
   </div>
-  <div class="row">
-    <div class="col post_new">
-      <table class="table table-borderless">
-        <tbody class="title">
-          <%= form_with model: @post, local:true do |f| %>
-          <tr>
-            <td><%= f.label :image, "画像を登録" %></td>
-            <td><%= f.attachment_field :image %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :introduction, "商品説明" %></td>
-            <td><%= f.text_area :introduction, size: "35x5" %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :address, "住所" %></td>
-            <td><%= f.text_field :address, size: "35x20" %></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <%= f.submit @post_button, class: 'btn btn-success btn-lg' %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    </div>
-  </div>
-</div>
+<% end %>
 
+<script>
+  initMap();
+</script>
 
-
-
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap" async defer></script>
 
 
 
