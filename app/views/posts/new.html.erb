@@ -1,0 +1,15 @@
+<h2>新規投稿</h2>
+<%= form_with model: @post, local: true do |f| %>
+  <div class="actions">
+    <%= f.label :image, "画像を登録" %>
+    <%= f.attachment_field :image %><br />
+    <%= f.label :introduction,"内容" %>
+    <%= f.text_area :introduction %><br />
+    <%= f.label :address,"住所" %>
+    <%= f.text_field :address, id: "address" %><br />
+    <input type="button" value="検索" onclick="codeAddress()">
+    <div id='map'></div>
+    <%= f.submit %>
+  </div>
+<% end %>
+

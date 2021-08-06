@@ -70,3 +70,6 @@ gem "refile-mini_magick"
 gem 'kaminari','~> 1.2.1'
 gem 'pry-byebug'
 gem 'geocoder'
+gem 'gmaps4rails'
+gem "dotenv-rails"
+gem "gon"

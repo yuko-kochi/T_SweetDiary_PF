@@ -1,0 +1,16 @@
+<h2>詳細</h2>
+
+<div>
+  <P>画像：<%=  attachment_image_tag @post, :image, format: 'jpg', size: "100x100" %></P>
+  <p>説明：<%= @post.introduction %></p>
+
+</div>
+
+<% if @post.user == current_user %>
+  <%= link_to "edit" , edit_post_path(@post) %>
+  <%= link_to "destroy" , post_path(@post),  method: :delete, data: { confirm: '本当に消しますか？' } %>
+<% end %>
+<% if @post.address.present? %>
+  <p>住所：<%= @post.address %></p>
+  <div id="show_map"></div>
+<% end %>
