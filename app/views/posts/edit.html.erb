@@ -5,6 +5,8 @@
     <%= f.attachment_field :image %><br />
     <%= f.label :introduction,"内容" %>
     <%= f.text_area :introduction %><br />
+    <%= f.label"タグ (スペースで区切ると複数タグ登録できます)" %><br />
+    <%= f.text_field :tag_name, value: @tag_list  %><br />
     <%= f.label :address,"住所" %>
     <%= f.text_field :address, id: "address" %><br />
     <input type="button" value="検索" onclick="codeAddress()">

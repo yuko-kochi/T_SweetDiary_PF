@@ -1,3 +1,10 @@
+
+  <% @tag_list.each do |list|%>
+    <%=list.tag_name %>
+  <% end %>
+
+
+
 <% @posts.each do |post| %>
 <div>
   <%= link_to post_path(post.id) do %>

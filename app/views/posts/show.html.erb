@@ -3,8 +3,12 @@
 <div>
   <P>画像：<%=  attachment_image_tag @post, :image, format: 'jpg', size: "100x100" %></P>
   <p>説明：<%= @post.introduction %></p>
+  <% @post_tags.each do |tag| %>
+    <p>タグ：<%= tag.tag_name %></p>
+  <% end %>
 
 </div>
+
 
 <% if @post.user == current_user %>
   <%= link_to "edit" , edit_post_path(@post) %>
