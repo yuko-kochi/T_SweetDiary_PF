@@ -1,19 +1,36 @@
-// 初期マップの設定
 let map
 let marker
+let geocoder
+let aft
+
+// 初期マップの設定
+//コールバック関数
 function initMap(){
   geocoder = new google.maps.Geocoder()
+  if(document.getElementById('map')){ //'map'というidを取得できたら実行
   // new google.maps.MapはGoogleMapを表示するために、new google.maps.MarkerはGoogleMap上にピンを表示するために必要
   // それぞれの第2引数に指定されているオプションcenter、zoomは必ず設定が必要なので忘れずに設定する
   map = new google.maps.Map(document.getElementById('map'), {
     center:  {lat: 35.6803997, lng:139.7690174},  //東京
-    zoom: 15,
+    zoom: 15, //拡大率（1〜21まで設定可能）
   });
+  }else{ //'map'というidが無かった場合
+    map = new google.maps.Map(document.getElementById('show_map'), {
+      center: {lat: gon.lat, lng: gon.lng}, //controllerで定義した変数を緯度・経度の値とする（値はDBに入っている）
+      zoom: 15,
+    });
+      marker = new google.maps.Marker({
+      // コントローラーで定義した変数から緯度経度を呼び出し、マーカーを立てる
+      position: {
+        lat: gon.lat,
+        lng: gon.lng
+      },
+      map: map
+    });
+  }
 }
 
 // 検索後のマップ作成
-let geocoder
-let aft
 function codeAddress(){
 // getElementByIdはHTMLタグで指定したIDにマッチするドキュメント要素を取得するメソッド。
 // valueプロパティを使うことで、value属性の値を取得、変更できる
@@ -48,3 +65,5 @@ function codeAddress(){
     }
   });
 }
+
+

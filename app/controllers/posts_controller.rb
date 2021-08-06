@@ -27,6 +27,14 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @lat = @post.latitude
+    @lng = @post.longitude
+    gon.lat = @lat
+    gon.lng = @lng
+    puts '=========='
+    puts gon.lat
+    puts gon.lng
+    puts '=========='
   end
 
   def edit
