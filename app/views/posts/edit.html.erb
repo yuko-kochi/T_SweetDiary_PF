@@ -1,4 +1,4 @@
-<h2>新規投稿</h2>
+<h2>投稿編集</h2>
 <%= form_with model: @post, local: true do |f| %>
   <div class="actions">
     <%= f.label :image, "画像を登録" %>
@@ -8,8 +8,7 @@
     <%= f.label :address,"住所" %>
     <%= f.text_field :address, id: "address" %><br />
     <input type="button" value="検索" onclick="codeAddress()">
-    <div id='map'></div>
+    <div id='show_map'></div>
     <%= f.submit %>
   </div>
 <% end %>
-

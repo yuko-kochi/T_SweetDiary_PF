@@ -27,15 +27,37 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @lat = @post.latitude
+    @lng = @post.longitude
+    gon.lat = @lat
+    gon.lng = @lng
+    puts '=========='
+    puts gon.lat
+    puts gon.lng
+    puts '=========='
   end
 
   def edit
+    @post = Post.find(params[:id])
+    @lat = @post.latitude
+    @lng = @post.longitude
+    gon.lat = @lat
+    gon.lng = @lng
   end
 
   def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      redirect_to post_path(@post)
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
   end
 
   private

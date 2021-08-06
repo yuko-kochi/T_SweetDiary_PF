@@ -17,10 +17,6 @@ Geocoder.configure(
   # always_raise: [],
 
   # Calculation options
-  units: :km,                 # :km for kilometers or :mi for miles
+  # units: :mi,                 # :km for kilometers or :mi for miles
   # distances: :linear          # :spherical or :linear
 )
-
-puts '========'
-puts ENV['GOOGLE_MAP_API_KEY']
-puts '========'
