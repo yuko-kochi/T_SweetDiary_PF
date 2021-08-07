@@ -21,7 +21,7 @@ class Post < ApplicationRecord
     # 今回ではtagsテーブルからtag_nameカラムを取得するクエリを送信
     # selectと異なり、pluckはデータベースから受け取った結果を直接Rubyの配列に変換してくれる
     # unless~は、「タグが存在しているか」を確認
-    current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
+    current_tags = self.tags.pluck(:name) unless self.tags.nil?
     # 現在取得した@postに存在するタグから、送信されてきたタグを除いたタグをold_tagsする
     # 文字列の配列でも下記のように引き算できる。
     # a = ["first", "second", "third"]　 b = ["first", "third", "forth"]
@@ -31,12 +31,12 @@ class Post < ApplicationRecord
 
     # 古いタグを削除する
     old_tags.each do |old|
-      self.tags.delete　Tag.find_by(tag_name: old)
+      self.tags.delete Tag.find_by(name: old)
     end
 
     # 新しいタグを追加しデータベースに保存
     new_tags.each do |new|
-      new_post_tag = Tag.find_or_create_by(tag_name: new)
+      new_post_tag = Tag.find_or_create_by(name: new)
       self.tags << new_post_tag
     end
   end

@@ -5,13 +5,14 @@
     <%= f.attachment_field :image %><br />
     <%= f.label :introduction,"内容" %>
     <%= f.text_area :introduction %><br />
-    <%= f.label"タグ (スペースで区切ると複数タグ登録できます)" %><br />
-    <%= f.text_field :tag_name %><br />
+    <%= f.label"タグ (,で区切ると複数タグ登録できます)" %><br />
+    <%= f.text_field :tag_ids, class: "form-control", id:'tag_ids',\
+    placeholder: "タグをつける。複数つけるには','で区切ってください。" %>
     <%= f.label :address,"住所" %>
     <%= f.text_field :address, id: "address" %><br />
     <input type="button" value="検索" onclick="codeAddress()">
     <div id='map'></div>
     <%= f.submit %>
-  </div>z
+  </div>
 <% end %>
 
