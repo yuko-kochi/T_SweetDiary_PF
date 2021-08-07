@@ -14,6 +14,11 @@ class Post < ApplicationRecord
   # これを行うことで、Post.tagsとすればPostに紐付けられたTagの取得が可能になる
   has_many :tags, through: :post_tags
 
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :category
+  #ジャンルの選択が「--」の時は保存できないようにする
+  validates :category_id, numericality: { other_than: 1 }
+
   def save_tag(sent_tags)
     # self.メソッド名は
     # createアクションにて保存した@postに紐付いているタグが存在する場合、「タグの名前を配列として」全て取得

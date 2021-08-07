@@ -5,6 +5,8 @@
     <%= f.attachment_field :image %><br />
     <%= f.label :introduction,"内容" %>
     <%= f.text_area :introduction %><br />
+    <%= f.label :category_idn,"カテゴリー" %>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, {}, ) %>
     <%= f.label"タグ (,で区切ると複数タグ登録できます)" %><br />
     <%= f.text_field :tag_ids, class: "form-control", id:'tag_ids',\
     placeholder: "タグをつける。複数つけるには','で区切ってください。" %>
