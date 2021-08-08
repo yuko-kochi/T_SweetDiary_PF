@@ -45,13 +45,4 @@ class Post < ApplicationRecord
       self.tags << new_post_tag
     end
   end
-
-  def self.search_for(content)
-    Post.where(['introduction LIKE ?', "%#{content}%"])
-  end
-
-  def self.search_category_for(category)#ここがかてごりー検索
-    Post.where(category_id: category)
-  end
-
 end

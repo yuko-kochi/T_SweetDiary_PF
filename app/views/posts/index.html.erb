@@ -1,6 +1,6 @@
   カテゴリー検索
   <% @category.each do |category| %>
-    <%= link_to category.name, search_path('search[category]': category.id) %>
+    <%= link_to category.name, search_path('search[value]': category.id, 'search[how]': "match_category") %>
   <% end %><br />
 
 タグ検索
@@ -8,6 +8,10 @@
     <%=link_to "#{tag.name}", search_path('search[value]': tag.id, 'search[how]': "match_tag")  %>
     <%="(#{tag.posts.count})" %>
 <% end %>
+
+
+
+
 
 
 <% @posts.each do |post| %>
