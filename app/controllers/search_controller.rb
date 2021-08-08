@@ -27,21 +27,13 @@ def match_category(value)
   Post.where(category_id: value)
 end
 
-def match_tag(value)
-  #PostTagテーブルのpost_idカラムのデータを取得
-  Post.where(id: PostTag.select(:post_id)
-  .where(tag_id: value) # 重複したpost_idも含め、パラメーターのvalueと同じtag_idを持つデータを検索
-  .group(:post_id)) # post_idでグループ化して重複したphoto_idはまとめる
-end
 
-  def search_for(how, value)
-    #パラメーターのhowによって検索アクションを条件分岐させる
-    case how
-    when 'match_category'
-      match_category(value)
-    when 'match_tag'
-      match_tag(value)
-    else
-      keyword(value)
-    end
+def search_for(how, value)
+  #パラメーターのhowによって検索アクションを条件分岐させる
+  case how
+  when 'match_category'
+    match_category(value)
+  else
+    keyword(value)
   end
+end

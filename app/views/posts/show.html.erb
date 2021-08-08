@@ -4,11 +4,13 @@
   <P>画像：<%=  attachment_image_tag @post, :image, format: 'jpg', size: "100x100" %></P>
   <p>説明：<%= @post.introduction %></p>
   <p>カテゴリー：<%= @post.category.name %></p>
-<% @post.tags.each do |tag| %>
-   <%= link_to tag.name, tag_path(tag.id) %>
-<% end %>
-
+  <% @post.tags.each do |tag| %>
+     <%= link_to tag.name, tag_path(tag.id) %>
+  <% end %>
 </div>
+ <div id="likes_buttons_<%= @post.id %>">
+   <%= render partial: 'likes/likes', locals: {post: @post} %>
+ </div>
 
 
 <% if @post.user == current_user %>
