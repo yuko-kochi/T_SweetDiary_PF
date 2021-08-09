@@ -11,18 +11,18 @@
   <p>説明：<%= @post.introduction %></p>
   <p>カテゴリー：<%= @post.category.name %></p>
   <% @post.tags.each do |tag| %>
-      <%= link_to tag.name, tag_path(tag.id) %>
+    <%= link_to tag.name, tag_path(tag.id) %>
   <% end %>
 </div>
 
 <!--いいね機能-->
 <div id="likes_buttons_<%= @post.id %>">
-    <%= render partial: 'likes/likes', locals: { post: @post } %>
+  <%= render partial: 'likes/likes', locals: { post: @post } %>
 </div>
 
 <!--コメント機能-->
 <div id="comments-area">
-    <%= render partial: "post_comments/post_comments", locals: { post: @post, post_comment: @post_comment } %>
+  <%= render partial: "post_comments/post_comments", locals: { post: @post, post_comment: @post_comment } %>
 </div>
 
 
