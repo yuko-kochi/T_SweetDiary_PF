@@ -1,16 +1,24 @@
 <h2>詳細</h2>
 
 <div>
-  <P>画像：<%=  attachment_image_tag @post, :image, format: 'jpg', size: "100x100" %></P>
-  <p>説明：<%= @post.introduction %></p>
-  <p>カテゴリー：<%= @post.category.name %></p>
-  <% @post.tags.each do |tag| %>
-     <%= link_to tag.name, tag_path(tag.id) %>
-  <% end %>
+    <P>画像：<%=  attachment_image_tag @post, :image, format: 'jpg', size: "100x100" %></P>
+    <p>説明：<%= @post.introduction %></p>
+    <p>カテゴリー：<%= @post.category.name %></p>
+    <% @post.tags.each do |tag| %>
+        <%= link_to tag.name, tag_path(tag.id) %>
+    <% end %>
 </div>
- <div id="likes_buttons_<%= @post.id %>">
-   <%= render partial: 'likes/likes', locals: {post: @post} %>
- </div>
+
+<!--いいね機能-->
+<div id="likes_buttons_<%= @post.id %>">
+    <%= render partial: 'likes/likes', locals: { post: @post } %>
+</div>
+
+<!--コメント機能-->
+<div id="comments-area">
+    <%= render partial: "post_comments/post_comments", locals: { post: @post, post_comment: @post_comment } %>
+</div>
+
 
 
 <% if @post.user == current_user %>

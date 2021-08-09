@@ -46,6 +46,7 @@ class PostsController < ApplicationController
     puts gon.lat
     puts gon.lng
     puts '=========='
+    @post_comment = PostComment.new
   end
 
   def edit

@@ -7,4 +7,5 @@ class User < ApplicationRecord
   # dependent: :destroy 親モデルを削除する際に、その親モデルに紐づく「子モデル」も一緒に削除できる
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
 end
