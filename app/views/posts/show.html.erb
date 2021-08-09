@@ -1,17 +1,40 @@
 <h2>詳細</h2>
 
 <div>
-  <P>画像：<%=  attachment_image_tag @post, :image, format: 'jpg', size: "100x100" %></P>
-  <p>説明：<%= @post.introduction %></p>
-  <p>カテゴリー：<%= @post.category.name %></p>
-  <% @post.tags.each do |tag| %>
-     <%= link_to tag.name, tag_path(tag.id) %>
-  <% end %>
+    <P>画像：<%=  attachment_image_tag @post, :image, format: 'jpg', size: "100x100" %></P>
+    <p>説明：<%= @post.introduction %></p>
+    <p>カテゴリー：<%= @post.category.name %></p>
+    <% @post.tags.each do |tag| %>
+        <%= link_to tag.name, tag_path(tag.id) %>
+    <% end %>
 </div>
- <div id="likes_buttons_<%= @post.id %>">
-   <%= render partial: 'likes/likes', locals: {post: @post} %>
- </div>
 
+<!--いいね機能-->
+<div id="likes_buttons_<%= @post.id %>">
+    <%= render partial: 'likes/likes', locals: {post: @post} %>
+</div>
+
+<!--コメント機能-->
+<div class="comments">
+    <p>コメント件数：<%= @post.post_comments.count %></p>
+    <% @post.post_comments.each do |comment| %>
+        <%= comment.user.name %>
+        <%= comment.comment %>
+        <%= comment.created_at.strftime('%Y/%m/%d') %>
+        <br />
+         <% if comment.user == current_user %>
+            <div class="comment-delete">
+                <%= link_to "削除", post_post_comment_path(comment.post, comment), method: :delete %>
+            </div>
+        <% end %>
+    <% end %>
+</div>
+<div class="new-comment">
+    <%= form_with(model:[@post, @post_comment], local: true) do |f| %>
+        <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+        <%= f.submit "送信する" %>
+    <% end %>
+</div>
 
 <% if @post.user == current_user %>
   <%= link_to "edit" , edit_post_path(@post) %>
