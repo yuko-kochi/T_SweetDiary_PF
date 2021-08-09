@@ -47,6 +47,7 @@ class PostsController < ApplicationController
     puts gon.lng
     puts '=========='
     @post_comment = PostComment.new
+    @user = @post.user
   end
 
   def edit

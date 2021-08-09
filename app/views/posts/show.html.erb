@@ -1,12 +1,18 @@
 <h2>詳細</h2>
 
 <div>
-    <P>画像：<%=  attachment_image_tag @post, :image, format: 'jpg', size: "100x100" %></P>
-    <p>説明：<%= @post.introduction %></p>
-    <p>カテゴリー：<%= @post.category.name %></p>
-    <% @post.tags.each do |tag| %>
-        <%= link_to tag.name, tag_path(tag.id) %>
-    <% end %>
+  <%= link_to user_path(@user.id) do %>
+    <%= attachment_image_tag( @user, :profile_image, format: 'jpg', size: "100x100", fallback: "no-image.png" ) %>
+    <%= @user.name %>
+  <% end %>
+  ♡<%= @post.likes.count %>
+  投稿日時:<%= @post.created_at.strftime('%Y/%m/%d') %>
+  <P>画像：<%=  attachment_image_tag @post, :image, format: 'jpg', size: "100x100" %></P>
+  <p>説明：<%= @post.introduction %></p>
+  <p>カテゴリー：<%= @post.category.name %></p>
+  <% @post.tags.each do |tag| %>
+      <%= link_to tag.name, tag_path(tag.id) %>
+  <% end %>
 </div>
 
 <!--いいね機能-->
