@@ -1,5 +1,9 @@
 class Post < ApplicationRecord
 
+  validates :image, presence: true
+  validates :introduction, presence: true
+  validates :category_id, presence: true
+
   belongs_to :user
   attachment :image
   # addressカラムを基準に緯度経度を算出する。
@@ -69,9 +73,9 @@ class Post < ApplicationRecord
         action: 'like'
       )
       # 自分の投稿に対するいいねの場合は、通知済みとする
-      if notification.visitor_id == notification.visited_id
-        notification.checked = true
-      end
+    if notification.visitor_id == notification.visited_id
+      notification.checked = true
+    end
       notification.save if notification.valid?
     end
 

@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require simple_calendar
  *= require_tree .
  *= require_self
  */
@@ -27,20 +28,12 @@
 .header {
   display: flex;
   width: 100%;
-  padding: 29px 40px 20px;
   justify-content: center;
   border-bottom: 1px solid #d9d9d9;
 }
 
 .header__logo {
   width: 300px;
-}
-
-.header__container {
-  display: flex;
-  padding: 9px 0 0;
-  flex: 1;
-  justify-content: flex-end;
 }
 
 .header__navbar {

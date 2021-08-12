@@ -1,4 +1,5 @@
 class PostCommentsController < ApplicationController
+  before_action :authenticate_user!
 
   def create
     @post = Post.find(params[:post_id])
@@ -6,7 +7,7 @@ class PostCommentsController < ApplicationController
     @post_comment.post_id = @post.id
     if @post_comment.save
       @post_comment.post.create_notification_comment(current_user, @post_comment.id)
-      
+
     end
   end
 
