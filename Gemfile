@@ -74,3 +74,4 @@ gem 'dotenv-rails'
 gem 'gon'
 gem 'active_hash'
 gem "simple_calendar", "~> 2.0"
+gem 'rails-i18n', '~> 5.1'
