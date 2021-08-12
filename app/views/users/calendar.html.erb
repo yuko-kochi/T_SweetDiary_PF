@@ -1,0 +1,8 @@
+<%= month_calendar events: @posts do |date, posts| %>
+  <%= date.day %>
+   <% posts.each do |post| %>
+    <%= link_to post_path(post.id) do %>
+      <%= attachment_image_tag post, :image, format: 'jpg', size: "100x100"  %>
+    <% end %>
+  <% end %>
+<% end %>

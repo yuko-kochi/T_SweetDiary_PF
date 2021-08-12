@@ -73,3 +73,4 @@ gem 'gmaps4rails'
 gem 'dotenv-rails'
 gem 'gon'
 gem 'active_hash'
+gem "simple_calendar", "~> 2.0"

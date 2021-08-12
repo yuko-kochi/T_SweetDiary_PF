@@ -1,7 +1,7 @@
-  カテゴリー検索
-  <% @category.each do |category| %>
-    <%= link_to category.name, search_path('search[value]': category.id, 'search[how]': "match_category") %>
-  <% end %><br />
+カテゴリー検索
+<% @category.each do |category| %>
+  <%= link_to category.name, search_path('search[value]': category.id, 'search[how]': "match_category") %>
+<% end %><br />
 
 タグ検索
 <% @tag_list.each do |tag| %>
