@@ -1,24 +1,36 @@
-<h2>ログイン</h2>
-
-<%= form_with model: @user, url: user_session_path, local: true do |f| %>
-  <div class="field signup-field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
-  </div>
-
-  <div class="field signup-field">
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード (6文字以上) " %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="signin">
+  <div class="signin-header">
+    <div class="signin-header__title">
+      <h2>ログイン</h2>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
+  <div class="signin-body">
+    <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= render "devise/shared/links" %>
+      <div class="field signin-field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: 'sign-form' %>
+      </div>
+
+      <div class="field signin-field">
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード (6文字以上) ", class: 'sign-form' %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+      <div class="actions signin-actions">
+        <%= f.submit "Log in" ,class: 'btn btn-signin'%>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="signup-link">
+    <p>アカウントをお持ちでない方はこちらから</p>
+  </div>
+  <%= render "devise/shared/links" %>
+</div>
