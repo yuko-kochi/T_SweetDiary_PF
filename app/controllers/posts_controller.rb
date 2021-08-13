@@ -32,8 +32,10 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    @tag_list = Tag.all
+    @tag_list = Tag.all.order(rank_point: :desc)
     @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
+    @post_count = Post.count
+    # @tag_ranks = PostTag.find(PostTag.group(:post_tag_id).order('count(post_tag_id)desc').limit(4).pluck(:post_tag_id))
   end
 
   def show
