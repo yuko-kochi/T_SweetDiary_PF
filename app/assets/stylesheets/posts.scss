@@ -2,6 +2,98 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.main-post {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.main-post-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.post-index {
+  width: calc(100% - 200px);
+  padding: 0 40px 0 0;
+}
+
+.posts-index__title {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.8px;
+  color: #000;
+  font-weight: 700;
+  margin: 0 0 4px;
+  text-align: center;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+
+.posts-index__posts-list {
+  margin: 16px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.posts-index__posts {
+  background: #f6f6f6;
+  margin: 15px 0;
+}
+
+.posts-index__posts-image {
+  width: 100%;
+  height: auto;
+}
+
+.posts-index__posts-introduction {
+  box-sizing: border-box;
+  padding: 20px 30px;
+}
+
+.posts-index__posts-title {
+  height: 50px;
+  font-family: "メイリオ","Meiryo";
+  font-weight: bold;
+  color: #9f886e;
+}
+
+.posts-index__posts-create {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.side-var {
+  width: 200px;
+}
+
+.category, .tag {
+  margin-bottom: 40px;
+}
+
+.category__list, .tag__list {
+  border-bottom: 1px solid #2d2926;
+  font-size: 20px;
+  text-align: center;
+}
+
+.category__list-title, .tag__list-title {
+  font-size: 15px;
+  margin: 5px;
+}
+
+.category__lists, .tag__lists {
+  margin: 0 10px;
+}
+
 #map{
   height: 400px;
   width: 400px;

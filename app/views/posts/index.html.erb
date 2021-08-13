@@ -1,21 +1,56 @@
-カテゴリー検索
-<% @category.each do |category| %>
-  <%= link_to category.name, search_path('search[value]': category.id, 'search[how]': "match_category") %>
-<% end %><br />
+<div class="main-post">
+  <div class="main-post-row">
 
-タグ検索
-<% @tag_list.each do |tag| %>
-   <%= link_to tag.name, tag_path(tag) %>
-   <%="(#{tag.posts.count})" %>
-<% end %>
-
-
-<% @posts.each do |post| %>
-<div>
-  <%= link_to post_path(post.id) do %>
-    <%= attachment_image_tag post, :image, format: 'jpg', size: "100x100"  %>
-  <% end %>
-  <p>説明：<%= post.introduction %></p>
+    <div class="post-index">
+      <div class="posts-index__title">
+        投稿一覧
+      </div>
+      <div class="posts-index__posts-list">
+        <% @posts.each do |post| %>
+          <div class="posts-index__posts">
+            <%= link_to post_path(post.id) do %>
+              <div class="posts-index__posts-image">
+                <%= attachment_image_tag post, :image, format: 'jpg', size: "300x200"  %>
+              </div>
+              <div class="posts-index__posts-introduction">
+                <p class="posts-index__posts-title">
+                  <%= post.introduction  %>
+                </p>
+                <p class="posts-index__posts-create">
+                  <%= post.created_at.strftime('%Y.%m.%d') %>
+                </p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="side-var">
+      <div class="category">
+        <p class="category__list">
+          カテゴリー検索
+        </p>
+        <ul class="category__lists">
+          <% @category.each do |category| %>
+            <li class="category__list-title">
+              <%= link_to category.name, search_path('search[value]': category.id, 'search[how]': "match_category") %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="tag">
+        <p class="tag__list">
+            タグ検索
+        </p>
+        <ul class="tag__lists">
+          <% @tag_list.each do |tag| %>
+            <li class="tag__list-title">
+              <%= link_to tag.name, tag_path(tag) %>
+              <%="(#{tag.posts.count})" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
-<% end %>
-
