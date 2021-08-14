@@ -1,24 +1,61 @@
-<h2>詳細</h2>
+<div class="main-post">
+  <div class="post-show">
+    <div class="post-show__imag">
+      <%=  attachment_image_tag @post, :image, format: 'jpg', size: "640x360" %>
+    </div>
+    <!--showページhaeder-->
+    <div class="post-show__info">
+      <!--ユーザー-->
+      <div class="post-show__info-user">
+        <%= link_to(user_path(@user.id), class: 'post-show__info-user-link') do %>
+            <%= attachment_image_tag  @user, :profile_image, format: 'jpg', fallback: "no_image.jpeg" , class: "post-show__info-user-image" %>
+          <div class="post-show__info-user-name">
+            <%= @user.name %>
+          </div>
+        <% end %>
+      </div>
 
-<div>
-  <%= link_to user_path(@user.id) do %>
-    <%= attachment_image_tag( @user, :profile_image, format: 'jpg', size: "100x100", fallback: "no-image.png" ) %>
-    <%= @user.name %>
-  <% end %>
-  ♡<%= @post.likes.count %>
-  投稿日時:<%= @post.created_at.strftime('%Y/%m/%d') %>
-  <P>画像：<%=  attachment_image_tag @post, :image, format: 'jpg', size: "100x100" %></P>
-  <p>説明：<%= @post.introduction %></p>
-  <p>カテゴリー：<%= @post.category.name %></p>
-  <% @post.tags.each do |tag| %>
-    <%= link_to tag.name, tag_path(tag.id) %>
-  <% end %>
-</div>
 
-<!--いいね機能-->
-<div id="likes_buttons_<%= @post.id %>">
-  <%= render partial: 'likes/likes', locals: { post: @post } %>
-</div>
+      <div class="post-show__info-list">
+
+        <!--いいね機能-->
+        <div class="post-show__info-like">
+          <div id="likes_buttons_<%= @post.id %>", class: "post-show__info-like">
+            <%= render partial: 'likes/likes', locals: { post: @post } %>
+          </div>
+        </div>
+        <!--カテゴリーリンク-->
+        <div class="post-show__info-category">
+          <span class="post-show__info-list-name">カテゴリー：</span>
+          <%= link_to @post.category.name, search_path('search[value]': @post.category.id, 'search[how]': "match_category")  %>
+        </div>
+        <!--投稿日-->
+        <div class="post-show__info-creat">
+          <span class="post-show__info-list-name">投稿日時：</span>
+          <%= @post.created_at.strftime('%Y.%m.%d') %>
+        </div>
+      </div>
+
+    </div>
+    <!--showページmain-->
+    <div class="post-show__content">
+      <%= @post.introduction %>
+      <br>
+      <% @post.tags.each do |tag| %>
+        <%= link_to tag.name, tag_path(tag.id) %>
+      <% end %>
+    </div>
+    <!--showページ地図機能-->
+    <% if @post.address.present? %>
+      <p>住所：<%= @post.address %></p>
+      <div id="show_map"></div>
+    <% end %>
+
+    <!--showページ編集・削除機能-->
+    <% if @post.user == current_user %>
+      <%= link_to "edit" , edit_post_path(@post) %>
+      <%= link_to "destroy" , post_path(@post),  method: :delete, data: { confirm: '本当に消しますか？' } %>
+    <% end %>
 
 <!--コメント機能-->
 <div id="comments-area">
@@ -27,11 +64,7 @@
 
 
 
-<% if @post.user == current_user %>
-  <%= link_to "edit" , edit_post_path(@post) %>
-  <%= link_to "destroy" , post_path(@post),  method: :delete, data: { confirm: '本当に消しますか？' } %>
-<% end %>
-<% if @post.address.present? %>
-  <p>住所：<%= @post.address %></p>
-  <div id="show_map"></div>
-<% end %>
+
+
+  </div>
+</div>

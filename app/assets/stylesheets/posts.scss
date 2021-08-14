@@ -4,8 +4,7 @@
 
 .main-post {
   max-width: 1200px;
-  margin: 0 auto;
-  margin-top: 30px;
+  margin: 30px auto;
 }
 
 .main-post-row {
@@ -91,6 +90,66 @@
 
 }
 
+.post-show {
+  text-align: center;
+  margin: auto;
+
+  &__content {
+    width: 600px;
+    margin: auto;
+  }
+
+  &__info {
+    width: 640px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px auto;
+    padding: 0 15px 10px;
+    border-bottom: 1px solid #e7e7e7;
+
+  }
+
+  &__info-user-link{
+    display: flex;
+    align-items: center;
+
+  }
+
+  &__info-user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 8px 0 0;
+  }
+
+  &__info-user-name {
+    font-size: 13px;
+  }
+
+  &__info-list {
+    display: flex;
+  }
+
+  &__info-like, &__info-category, &__info-creat {
+    font-size: 13px;
+    color: #999;
+    margin-right: 10px;
+  }
+
+  &__info-category, &__info-creat {
+    padding-left: 10px;
+    border-left: 1px solid #e7e7e7;
+  }
+
+  &__info-list-name {
+    font-size: 10px;
+  }
+
+
+}
+
 #map{
   height: 400px;
   width: 400px;
@@ -98,5 +157,6 @@
 
 #show_map{
   height: 400px;
-  width: 400px;
+  width: 600px;
+  margin: auto;
 }
