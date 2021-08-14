@@ -39,23 +39,34 @@
     </div>
     <!--showページmain-->
     <div class="post-show__content">
-      <%= @post.introduction %>
-      <br>
-      <% @post.tags.each do |tag| %>
-        <%= link_to tag.name, tag_path(tag.id) %>
-      <% end %>
+      <div class="post-show__content-main">
+        <%= safe_join(@post.introduction.split("\n"),tag(:br))%>
+      </div>
+      <div class="post-show__content-tag">
+        <% @post.tags.each do |tag| %>
+          #<%= link_to tag.name, tag_path(tag.id) %>
+        <% end %>
+      </div>
     </div>
+
+
     <!--showページ地図機能-->
+
     <% if @post.address.present? %>
-      <p>住所：<%= @post.address %></p>
+      <div class="post-show__adress">
+        住所：<%= @post.address %>
+      </div>
       <div id="show_map"></div>
     <% end %>
 
+
     <!--showページ編集・削除機能-->
-    <% if @post.user == current_user %>
-      <%= link_to "edit" , edit_post_path(@post) %>
-      <%= link_to "destroy" , post_path(@post),  method: :delete, data: { confirm: '本当に消しますか？' } %>
-    <% end %>
+    <div class="post-show__edit-destroy">
+      <% if @post.user == current_user %>
+        <%= link_to "編集" , edit_post_path(@post), class: "post-show__edit" %>
+        <%= link_to "削除" , post_path(@post),  method: :delete, data: { confirm: '本当に消しますか？' }, class: "post-show__destroy" %>
+      <% end %>
+    </div>
 
 <!--コメント機能-->
 <div id="comments-area">
