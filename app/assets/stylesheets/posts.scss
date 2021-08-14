@@ -94,7 +94,7 @@
   text-align: center;
   margin: auto;
 
-  &__content {
+  &__content, &__adress, &__edit-destroy {
     width: 600px;
     margin: auto;
   }
@@ -147,6 +147,41 @@
     font-size: 10px;
   }
 
+  &__content {
+    width: 500px;
+    margin: 20px auto;
+  }
+
+  &__content-main {
+    margin-bottom: 10px;
+  }
+
+  &__content-tag{
+    text-align: start;
+    color: #666666
+  }
+
+  &__adress {
+    border-top: 1px solid #e7e7e7;
+    padding: 15px 0;
+    text-align: start;
+    color: #666666
+  }
+
+  &__edit-destroy {
+    text-align: end;
+    margin: 10px auto;
+    font-size: 15px;
+  }
+
+  &__edit {
+    padding-right: 10px;
+  }
+
+  &__destroy {
+    padding-left: 10px;
+    border-left: 1px solid #e7e7e7;
+  }
 
 }
 
