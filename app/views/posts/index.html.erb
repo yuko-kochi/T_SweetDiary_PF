@@ -2,56 +2,16 @@
   <div class="main-post-row">
 
     <div class="post-index">
-      <div class="posts-index__title">
+      <div class="post-index__title">
         投稿一覧
       </div>
-      <div class="posts-index__posts-list">
-        <% @posts.each do |post| %>
-          <div class="posts-index__posts">
-            <%= link_to post_path(post.id) do %>
-              <div class="posts-index__posts-image">
-                <%= attachment_image_tag post, :image, format: 'jpg', size: "300x200"  %>
-              </div>
-              <div class="posts-index__posts-introduction">
-                <p class="posts-index__posts-title">
-                  <%= post.introduction  %>
-                </p>
-                <p class="posts-index__posts-create">
-                  <%= post.created_at.strftime('%Y.%m.%d') %>
-                </p>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
+      <div class="post-index__posts">
+        <%= render 'index', posts: @posts %>
       </div>
     </div>
     <div class="side-var">
-      <div class="category">
-        <p class="category__list">
-          カテゴリー検索
-        </p>
-        <ul class="category__lists">
-          <% @category.each do |category| %>
-            <li class="category__list-title">
-              <%= link_to category.name, search_path('search[value]': category.id, 'search[how]': "match_category") %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-      <div class="tag">
-        <p class="tag__list">
-            タグ検索
-        </p>
-        <ul class="tag__lists">
-          <% @tag_list.each do |tag| %>
-            <li class="tag__list-title">
-              <%= link_to tag.name, tag_path(tag) %>
-              <%="(#{tag.posts.count})" %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+      <%= render 'side-var', category: @category, tag_list: @tag_list %>
     </div>
-    
+
   </div>
 </div>

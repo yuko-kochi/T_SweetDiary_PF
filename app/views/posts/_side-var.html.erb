@@ -1,0 +1,25 @@
+<div class="side-var__list">
+  <p class="side-var__title">
+    カテゴリー検索
+  </p>
+  <ul class="side-var__list-name">
+    <% category.each do |category| %>
+      <li class="side-var__list-link">
+        <%= link_to category.name, search_path('search[value]': category.id, 'search[how]': "match_category") %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div class="side-var__list">
+  <p class="side-var__title">
+      タグ検索
+  </p>
+  <ul class="side-var__list-name">
+    <% tag_list.each do |tag| %>
+      <li class="side-var__list-link">
+        <%= link_to tag.name, tag_path(tag) %>
+        <%="(#{tag.posts.count})" %>
+      </li>
+    <% end %>
+  </ul>
+</div>
