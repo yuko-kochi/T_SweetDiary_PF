@@ -1,26 +1,67 @@
-<!--プロフィール-->
-<%= attachment_image_tag @user, :profile_image, format: 'jpg', size: "100x100", fallback: "no-image.png" %>
-<%= @user.name %>
-<%= @user.introduction %>
-<% if @user.id == current_user.id %>
-  <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-  <p><%= link_to "カレンダー", user_calendar_path(@user) %></p>
-<% end %>
+<div class="user-show">
+  <!--プロフィール-->
+  <div class="user-show__header">
+    <div class="user-show__profile">
+      <%= attachment_image_tag @user, :profile_image, format: 'jpg', fallback: "no_image.jpeg", class: "user-show__profile-image" %>
+      <div class="user-show__profile-tile">
+        <h7 class="user-show__profile-name">
+          <%= @user.name %>
+        </h7>
+        <div class="user-show__profile-introduction">
+          <%= @user.introduction %>
+        </div>
+      </div>
+      <!--フォロー機能-->
+      <div class="user-show__usercount">
+        <ul class="user-show__usercountall">
+          <li class="user-show__useritem">
+            <%= link_to user_followings_path(@user) do %>
+              <%= @user.followings.count %><span class="itemname">フォロー</span>
+            <% end %>
+          </li>
+          <li class="user-show__useritem">
+            <%= link_to user_followers_path(@user) do %>
+              <%= @user.followers.count %><span class="itemname">フォワー</span>
+            <% end %>
+          </li>
+          <li class="user-show__useritem">
+            <%= @user.posts.count %><span class="itemname">投稿</span>
+          </li>
+          <li class="user-show__useritem">
+            <div class="user-show__follwing">
+              <div id="relationship_<%= @user.id %>">
+                <%= render partial: "relationships/relationships", locals: { user: @user } %>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
 
-<!--フォロー機能-->
-<div id="relationship_<%= @user.id %>">
-  <%= render partial: "relationships/relationships", locals: { user: @user } %>
-</div>
+      <div class="user-show__edit-area">
+        <% if @user.id == current_user.id %>
+          <div>
+            <%= link_to "プロフィール編集", edit_user_path(@user), class: "user-show__edit-btn" %>
+          </div>
+          <div>
+            <%= link_to "カレンダー", user_calendar_path(@user), class: "user-show__calendar-btn" %>
+          </div>
+        <% end %>
+       </div>
+    </div>
+  </div>
+
+
+
+
+
+
 
 
 <!--投稿一覧-->
-<% @posts.each do |post| %>
-  <div>
-    <%= link_to post_path(post.id) do %>
-      <%= attachment_image_tag post, :image, format: 'jpg', size: "100x100"  %>
-    <% end %>
-    <p>説明：<%= post.introduction %></p>
-  </div>
-<% end %>
+<div class="post-index__posts">
+  <%= render 'posts/index', posts: @posts %>
+</div>
+
+</div>
 
 
