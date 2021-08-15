@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  
+
  validates :name, presence: true
  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -10,6 +10,7 @@ class User < ApplicationRecord
   # dependent: :destroy 親モデルを削除する際に、その親モデルに紐づく「子モデル」も一緒に削除できる
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :post
   has_many :post_comments, dependent: :destroy
 
   # 自分がフォローされる（被フォロー）側の関係性

@@ -24,6 +24,7 @@ class Post < ApplicationRecord
   validates :category_id, numericality: { other_than: 1 }
 
   has_many :likes, dependent: :destroy
+  has_many :liked_users, through: :likes, source: :user
   has_many :post_comments, dependent: :destroy
 
   has_many :notifications, dependent: :destroy
@@ -106,6 +107,6 @@ class Post < ApplicationRecord
     end
     notification.save if notification.valid?
    end
-
    # ------------------------------------------------
+
 end

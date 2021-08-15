@@ -5,6 +5,7 @@
       <div class="post-index__title">
         投稿一覧
       </div>
+        <%= link_to "新しい順" %> | <%= link_to "いいね数順", sort: 'likes_count desc' %> | <%= link_to "フォロワー", sort: 'followings desc' %>
       <div class="post-index__posts">
         <%= render 'index', posts: @posts %>
       </div>
@@ -12,6 +13,5 @@
     <div class="side-var">
       <%= render 'side-var', category: @category, tag_list: @tag_list %>
     </div>
-
   </div>
 </div>
