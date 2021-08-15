@@ -12,17 +12,9 @@ class PostsController < ApplicationController
     # split(",")は送信されてきた値を、スペースで区切って配列化する
     tag_list = params[:post][:tag_ids].split(',')
     if @post.save
-      puts '=========='
-      puts @post.address
-      puts @post.latitude
-      puts @post.longitude
-      puts '=========='
       # 先ほど取得したタグの配列をsave_tagというインスタンスメソッドを使ってデータベースに保存する処理
       # save_tagインスタンスメソッドの中身はpost.rbで定義
       @post.save_tag(tag_list)
-      puts '=========='
-      puts @post.tags
-      puts '=========='
       flash[:notice] = "新規投稿が完了しました。"
       redirect_to post_path(@post)
     else
@@ -31,11 +23,18 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    if params[:sort] == 'likes_count desc'
+      to  = Time.current.at_end_of_day
+      from  = (to - 6.day).at_beginning_of_day
+      @posts = Post.includes(:liked_users).sort {|a,b| b.liked_users.where(created_at: from...to).size <=> a.liked_users.where(created_at: from...to).size}
+    elsif params[:sort] == 'followings desc'
+      @posts = Post.where(user_id: [current_user.id, *current_user.following_ids]).order(created_at: :desc)
+    else
+      @posts = Post.all.order(created_at: :desc)
+    end
     @tag_list = Tag.all.order(rank_point: :desc)
     @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
     @post_count = Post.count
-    # @tag_ranks = PostTag.find(PostTag.group(:post_tag_id).order('count(post_tag_id)desc').limit(4).pluck(:post_tag_id))
   end
 
   def show
@@ -44,10 +43,6 @@ class PostsController < ApplicationController
     @lng = @post.longitude
     gon.lat = @lat
     gon.lng = @lng
-    puts '=========='
-    puts gon.lat
-    puts gon.lng
-    puts '=========='
     @post_comment = PostComment.new
     @user = @post.user
   end
