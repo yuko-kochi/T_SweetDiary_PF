@@ -1,0 +1,11 @@
+<% notifications.each do |notification| %>
+<% visitor = notification.visitor %>
+<% post = notification.post %>
+<div>
+  <%= link_to user_path(visitor) do %>
+    <%= attachment_image_tag visitor, :profile_image, format: 'jpg', size: "100x100", fallback: "no-image.png", size: "50x50"  %>
+  <% end %>
+  <%= notification_form(notification) %><%= " (#{time_ago_in_words(notification.created_at)} 前)" %>
+  <br />
+</div>
+<% end %>

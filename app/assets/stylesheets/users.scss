@@ -1,0 +1,152 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.user-show {
+  width: 90%;
+  margin:  30px auto;
+
+  &__header {
+    margin: 0 0 32px;
+  }
+
+  &__profile {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 184px 1fr;
+    position: relative;
+    grid-template-areas:
+        "profIcon title"
+        "profIcon userCount"
+  }
+
+  &__profile-image{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: auto;
+  }
+
+  &__profile-title {
+    grid-area: title;
+    height: 30px;
+  }
+
+  &__profile-name{
+    margin: 10px 0 4px;
+    display: block;
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: 0.8px;
+    color: #000;
+    font-weight: 700;
+  }
+
+  &__profile-introduction{
+    display: inline-block;
+    letter-spacing: 0.4px;
+    color: #999;
+    font-weight: 400;
+  }
+
+  &__usercount {
+    grid-area: userCount;
+  }
+
+  &__useritem {
+    display: inline-block;
+    font-size: 18px;
+    padding: 0 10px;
+    border-left: 1px solid #e7e7e7;
+  }
+
+  &__useritem:first-child {
+    border: none;
+    padding-left: 0;
+  }
+
+  .itemname {
+    font-size: 13px;
+    margin-left: 5px;
+  }
+
+  &__edit-area {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .btn-following {
+    text-decoration: none;
+    color: #ed7483;
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0;
+    color: #ed7483;
+    font-weight: 400;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ed7483;
+  }
+
+  .btn-following:hover {
+    background: #ff7f7f;
+    color: white;
+  }
+
+  .btn-followed {
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0;
+    font-weight: 400;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ed7483;
+    background: #ff7f7f;
+  }
+
+  &__edit-btn {
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0;
+    font-weight: 400;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ed7483;
+    background: #ff7f7f;
+    margin: 10px;
+    text-align: center;
+  }
+
+  &__calendar-btn {
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0;
+    font-weight: 400;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ed7483;
+    background: #ff7f7f;
+    margin: 10px;
+    text-align: center;
+  }
+}
+
+.calendar-table {
+  margin-top: 12px;
+  width: 100%;
+}
+
+

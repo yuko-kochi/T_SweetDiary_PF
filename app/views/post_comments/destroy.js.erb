@@ -1,0 +1,5 @@
+$('#comments-area').html("<%= j(render partial: "post_comments/post_comments",locals: { post: @post, post_comment: @post_comment }) %>");
+
+$("textarea").val('');
+
+alert('destroyアクション');

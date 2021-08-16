@@ -1,0 +1,136 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require simple_calendar
+ *= require_tree .
+ *= require_self
+ */
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ }
+
+.signup, .signin {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.signup-body, .signin-body {
+  margin-top: 48px;
+  overflow: hidden;
+  font-family: system-ui, sans-serif;
+  position: relative;
+}
+
+.field {
+  padding: 0;
+  margin: 0 auto 10px;
+}
+
+.sign-form {
+  height: 36px;
+  width: 300px;
+  border: 0.5px solid #988d8d;
+  font-size: 14px;
+  color: #5f5354;
+  padding: 8px 16px;
+}
+
+.submit {
+  background-color: #white;
+}
+
+.btn-sign {
+  margin-top: 10px;
+  height: 30px;
+  width: 300px;
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #67c5ff;
+  border: solid 2px #67c5ff;
+  border-radius: 3px;
+  transition: .4s;
+  background-color: white;
+}
+
+.btn-sign:hover {
+  background: #67c5ff;
+  color: white;
+}
+
+.btn-signin {
+  margin-top: 10px;
+  height: 30px;
+  width: 300px;
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #ff7f7f;;
+  border: solid 2px #ff7f7f;;
+  border-radius: 3px;
+  transition: .4s;
+  background-color: white;
+}
+
+.btn-signin:hover {
+  background: #ff7f7f;;
+  color: white;
+}
+
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: #666666;
+}
+
+
+header {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+}
+
+.header__logo {
+  padding: 10px 20px;
+  display: inline-block;
+}
+
+nav {
+  display: flex;
+  margin-left: auto;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li a {
+  padding: 0 20px;
+  color: #666666;
+}

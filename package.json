@@ -1,5 +1,6 @@
 {
   "name": "T_SweetDiary",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {}
 }

@@ -1,0 +1,81 @@
+<div class="main-post">
+  <div class="post-show">
+    <div class="post-show__imag">
+      <%=  attachment_image_tag @post, :image, format: 'jpg', size: "640x360" %>
+    </div>
+    <!--showページhaeder-->
+    <div class="post-show__info">
+      <!--ユーザー-->
+      <div class="post-show__info-user">
+        <%= link_to(user_path(@user.id), class: 'post-show__info-user-link') do %>
+            <%= attachment_image_tag  @user, :profile_image, format: 'jpg', fallback: "no_image.jpeg" , class: "post-show__info-user-image" %>
+          <div class="post-show__info-user-name">
+            <%= @user.name %>
+          </div>
+        <% end %>
+      </div>
+
+
+      <div class="post-show__info-list">
+
+        <!--いいね機能-->
+        <div class="post-show__info-like">
+          <div id="likes_buttons_<%= @post.id %>", class: "post-show__info-like">
+            <%= render partial: 'likes/likes', locals: { post: @post } %>
+          </div>
+        </div>
+        <!--カテゴリーリンク-->
+        <div class="post-show__info-category">
+          <span class="post-show__info-list-name">カテゴリー：</span>
+          <%= link_to @post.category.name, search_path('search[value]': @post.category.id, 'search[how]': "match_category")  %>
+        </div>
+        <!--投稿日-->
+        <div class="post-show__info-creat">
+          <span class="post-show__info-list-name">投稿日時：</span>
+          <%= @post.created_at.strftime('%Y.%m.%d') %>
+        </div>
+      </div>
+
+    </div>
+    <!--showページmain-->
+    <div class="post-show__content">
+      <div class="post-show__content-main">
+        <%= safe_join(@post.introduction.split("\n"),tag(:br))%>
+      </div>
+      <div class="post-show__content-tag">
+        <% @post.tags.each do |tag| %>
+          #<%= link_to tag.name, tag_path(tag.id) %>
+        <% end %>
+      </div>
+    </div>
+
+
+    <!--showページ地図機能-->
+
+    <% if @post.address.present? %>
+      <div class="post-show__adress">
+        住所：<%= @post.address %>
+      </div>
+      <div id="show_map"></div>
+    <% end %>
+
+
+    <!--showページ編集・削除機能-->
+    <div class="post-show__edit-destroy">
+      <% if @post.user == current_user %>
+        <%= link_to "編集" , edit_post_path(@post), class: "post-show__edit" %>
+        <%= link_to "削除" , post_path(@post),  method: :delete, data: { confirm: '本当に消しますか？' }, class: "post-show__destroy" %>
+      <% end %>
+    </div>
+
+<!--コメント機能-->
+<div id="comments-area">
+  <%= render partial: "post_comments/post_comments", locals: { post: @post, post_comment: @post_comment } %>
+</div>
+
+
+
+
+
+  </div>
+</div>
