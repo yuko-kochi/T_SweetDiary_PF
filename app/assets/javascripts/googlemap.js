@@ -1,7 +1,7 @@
-let geocoder
-let map
-let marker
-let aft
+var geocoder
+var map
+var marker
+var aft
 
 // 初期マップの設定
 //コールバック関数
