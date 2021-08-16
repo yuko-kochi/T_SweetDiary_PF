@@ -2,7 +2,7 @@
   <!--プロフィール-->
   <div class="user-show__header">
     <div class="user-show__profile">
-      <%= attachment_image_tag @user, :profile_image, format: 'jpg', fallback: "no_image.jpeg", class: "user-show__profile-image" %>
+      <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpeg", class: "user-show__profile-image" %>
       <div class="user-show__profile-tile">
         <h7 class="user-show__profile-name">
           <%= @user.name %>
