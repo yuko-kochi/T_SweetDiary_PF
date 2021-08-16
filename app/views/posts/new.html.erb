@@ -2,7 +2,7 @@
 <%= form_with model: @post, local: true do |f| %>
   <div class="actions">
     <%= f.label :image, "画像を登録" %>
-    <%= f.attachment_field :image %><br />
+    <%= f.attachment_field :image, format: 'jpg' %><br />
     <%= f.label :introduction,"内容" %>
     <%= f.text_area :introduction, id: 'my-text-area'%><br />
     <%= f.label :category_id,"カテゴリー" %>

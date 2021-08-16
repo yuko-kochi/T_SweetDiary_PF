@@ -32,7 +32,7 @@ class PostsController < ApplicationController
     else
       @posts = Post.all.order(created_at: :desc)
     end
-    @tag_list = Tag.all.order(rank_point: :desc)
+    @tag_list = Tag.all
     @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
     @post_count = Post.count
   end

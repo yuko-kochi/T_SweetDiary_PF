@@ -6,4 +6,5 @@ describe '[STEP1] ユーザログイン前のテスト' do
       visit root_path
     end
   end
+  
 end
