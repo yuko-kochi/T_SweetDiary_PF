@@ -35,7 +35,7 @@ function initMap(){
 function codeAddress(){
 // getElementByIdはHTMLタグで指定したIDにマッチするドキュメント要素を取得するメソッド。
 // valueプロパティを使うことで、value属性の値を取得、変更できる
-  let inputAddress = document.getElementById('address').value;
+  var inputAddress = document.getElementById('address').value;
   // geocoder.geocode();はGeocodingにリクエストを送ってレスポンスを受け取るために必要なコード
   // 第1引数の{ 'address': inputAddress}でフォームに入力した文字列をaddressの形でリクエスト
   // 第2引数のfunction(results, status)はレスポンスで受け取った結果を処理するために必要なコールバック関数
