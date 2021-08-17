@@ -1,0 +1,49 @@
+<%= form_with model: post, local: true do |f| %>
+  <div class="post-actions__form-field image-field">
+    <p class="actions-title">画像を登録</p>
+    <%= attachment_image_tag post, :image, fallback: "no-image.png", id: "img_prev", size: "520x293" %><br />
+    <%= f.attachment_field :image %>
+  </div>
+  <div class="post-actions__form-field introduction-field">
+    <p class="actions-title">投稿追加</p>
+    <%= f.text_area :introduction, class: "actions-introduction" %>
+  </div>
+
+  <div class="post-actions__form-field category-field">
+    <p class="actions-title">カテゴリー選択</p>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, {}, class: "actions-category" ) %>
+  </div>
+
+  <div class="post-actions__form-field tag-field">
+    <p class="actions-title">タグを追加</p>
+  <%= f.text_field :tag_ids, value: @tag_list, class: "form-control", id: 'tag_ids',\
+  placeholder: "タグをつける。複数つけるには','で区切ってください。", class: "actions-tag" %>
+  </div>
+
+  <div class="post-actions__form-field calemdar-field">
+    <p class="actions-title">カレンダーの日付登録</p>
+    <%= f.date_field :start_time, class: "actions-calemdar" %>
+  </div>
+  <div class="post-actions__form-field address-field">
+    <p class="actions-title">住所を登録</p>
+    <%= f.text_field :address, id: "address", class: "actions-address" %>
+    <input type="button" value="検索" onclick="codeAddress()" class="form-btn">
+  </div>
+
+  <% if post.address.blank? %>
+    <div id='map'></div>
+  <% else %>
+    <div id='show_map'></div>
+  <% end %>
+
+  <% if post.status == "下書きする" %>
+    <div class="status-field">
+      <%= f.radio_button :status, "投稿する" %>
+      <%= f.label :status_0, '投稿する' , class: "status_0" %>
+      <%= f.radio_button :status, "下書きする"%>
+      <%= f.label :status_1, '下書きする' %>
+    </div>
+  <% end %>
+
+  <%= f.submit post_button, class: "actions-btn" %>
+<% end %>

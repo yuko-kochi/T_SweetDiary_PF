@@ -1,8 +1,9 @@
 class Post < ApplicationRecord
 
   validates :image, presence: true
-  validates :introduction, presence: true
+  validates :introduction, presence: true, length: { in: 2..300 }
   validates :category_id, presence: true
+  validates :start_time, presence: true
 
   belongs_to :user
   attachment :image
@@ -28,6 +29,8 @@ class Post < ApplicationRecord
   has_many :post_comments, dependent: :destroy
 
   has_many :notifications, dependent: :destroy
+
+  enum status: { 投稿する: 0, 下書きする: 1 }
 
   def liked_by?(user)
     likes.where(user_id: user.id).exists?

@@ -1,6 +1,6 @@
 <% @users.each do |user| %>
   <%= link_to user_path(user.id) do %>
-    <%= attachment_image_tag( user, :profile_image, format: 'jpg', size: "100x100", fallback: "no-image.png" ) %>
+    <%= attachment_image_tag( user, :profile_image, size: "100x100", fallback: "no_image.jpeg", class: "user-show__profile-image" ) %>
   <% end %>
   <%= user.name %>
 <div id="relationship_<%= user.id %>">

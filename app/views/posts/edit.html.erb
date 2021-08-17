@@ -1,27 +1,27 @@
-<h2>投稿編集</h2>
-<%= form_with model: @post, local: true do |f| %>
-  <div class="actions">
-    <%= f.label :image, "画像を登録" %>
-    <%= f.attachment_field :image %><br />
-    <%= f.label :introduction,"内容" %>
-    <%= f.text_area :introduction, id: 'my-text-area'%><br />
-    <%= f.label :category_idn,"カテゴリー" %>
-    <%= f.collection_select(:category_id, Category.all, :id, :name, {}, ) %>
-    <%= f.label"タグ" %><br />
-    <%= f.text_field :tag_ids, value: @tag_list, class: "form-control", id:'tag_ids',\
-    placeholder: "タグをつける。複数つけるには','で区切ってください。" %>
-    <%= f.label :address,"住所" %>
-    <%= f.text_field :address, id: "address" %><br />
-    <input type="button" value="検索" onclick="codeAddress()">
-    <div id='show_map'></div>
-    <%= f.submit %>
+<div class="main-post">
+  <div class="post-actions">
+    <div class="post-actions__title">
+      <h2 class="title">Sweet投稿</h2>
+    </div>
+    <div class="post-actions__form">
+      <%= render 'form',  post: @post %>
+    </div>
   </div>
-<% end %>
-
-
-<link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
-<script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
+</div>
 
 <script>
-var easyMDE = new EasyMDE({element: document.getElementById('my-text-area')});
+$(document).on("turbolinks:load", function(){
+  function readURL(input) {
+    if(input.files && input.files[0]){
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('#img_prev').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#post_image").change(function(){
+    readURL(this);
+  });
+});
 </script>

@@ -1,10 +1,10 @@
 class User < ApplicationRecord
 
- validates :name, presence: true
+ validates :name, presence: true, length: { in: 2..15 }, uniqueness: true
  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
+  validates :introduction, length: { maximum: 50 }
   attachment :profile_image
 
   # dependent: :destroy 親モデルを削除する際に、その親モデルに紐づく「子モデル」も一緒に削除できる

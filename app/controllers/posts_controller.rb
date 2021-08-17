@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :ensure_correct_user, only: [:update, :edit, :destroy]
+   before_action :post_draft, only: [:show]
 
   def new
     @post = Post.new
@@ -26,13 +27,13 @@ class PostsController < ApplicationController
     if params[:sort] == 'likes_count desc'
       to  = Time.current.at_end_of_day
       from  = (to - 6.day).at_beginning_of_day
-      @posts = Post.includes(:liked_users).sort {|a,b| b.liked_users.where(created_at: from...to).size <=> a.liked_users.where(created_at: from...to).size}
+      @posts = Post.where(status: 0).includes(:liked_users).sort {|a,b| b.liked_users.where(created_at: from...to).size <=> a.liked_users.where(created_at: from...to).size}
     elsif params[:sort] == 'followings desc'
-      @posts = Post.where(user_id: [current_user.id, *current_user.following_ids]).order(created_at: :desc)
+      @posts = Post.where(user_id: [current_user.id, *current_user.following_ids], status: 0).order(created_at: :desc)
     else
-      @posts = Post.all.order(created_at: :desc)
+      @posts = Post.all.order(created_at: :desc).where(status: 0)
     end
-    @tag_list = Tag.all.order(rank_point: :desc)
+    @tag_list = Tag.all
     @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
     @post_count = Post.count
   end
@@ -76,13 +77,22 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:image, :introduction, :category_id, :address, :latitude, :longitude, :start_time)
+    params.require(:post).permit(:image, :introduction, :category_id, :address, :latitude, :longitude, :start_time, :status)
   end
 
   def ensure_correct_user
     @post = Post.find(params[:id])
     unless @post.user == current_user
       redirect_to posts_path
+    end
+  end
+
+  def post_draft
+    @post = Post.find(params[:id])
+    unless @post.status == "投稿する"
+      unless @post.user == current_user
+        redirect_to posts_path
+      end
     end
   end
 
