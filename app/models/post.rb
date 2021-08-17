@@ -30,6 +30,8 @@ class Post < ApplicationRecord
 
   has_many :notifications, dependent: :destroy
 
+  enum status: { 投稿する: 0, 下書きする: 1 }
+
   def liked_by?(user)
     likes.where(user_id: user.id).exists?
   end

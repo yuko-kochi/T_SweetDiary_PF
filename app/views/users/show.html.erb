@@ -49,18 +49,13 @@
        </div>
     </div>
   </div>
-
-
-
-
-
-
-
-
-<!--投稿一覧-->
-<div class="post-index__posts">
-  <%= render 'posts/index', posts: @posts %>
-</div>
+  <div class="user-show__posts-link">
+    <%= link_to "新着順" %> | <%= link_to "いいね数順", sort: 'likes_count desc' %><% if @user == current_user %> | <%= link_to "下書き", sort: 'draft desc' %><% end %>
+  </div>
+  <!--投稿一覧-->
+  <div class="post-index__posts">
+    <%= render 'posts/index', posts: @posts %>
+  </div>
 
 </div>
 
