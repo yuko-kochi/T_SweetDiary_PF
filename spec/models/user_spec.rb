@@ -21,11 +21,11 @@ RSpec.describe 'Userモデルのテスト', type: :model do
         is_expected.to eq true
       end
       it '20文字以下であること: 15文字は〇' do
-        user.name = Faker::Lorem.characters(number: 20)
+        user.name = Faker::Lorem.characters(number: 15)
         is_expected.to eq true
       end
       it '20文字以下であること: 16文字は×' do
-        user.name = Faker::Lorem.characters(number: 21)
+        user.name = Faker::Lorem.characters(number: 16)
         is_expected.to eq false
       end
       it '一意性があること' do
@@ -44,6 +44,13 @@ RSpec.describe 'Userモデルのテスト', type: :model do
         is_expected.to eq false
       end
     end
+  end
 
+  describe 'アソシエーションのテスト' do
+    context 'Postモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(User.reflect_on_association(:posts).macro).to eq :has_many
+      end
+    end
   end
 end

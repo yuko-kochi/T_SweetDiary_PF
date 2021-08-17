@@ -1,8 +1,9 @@
 class Post < ApplicationRecord
 
   validates :image, presence: true
-  validates :introduction, presence: true
+  validates :introduction, presence: true, length: { in: 2..300 }
   validates :category_id, presence: true
+  validates :start_time, presence: true
 
   belongs_to :user
   attachment :image
