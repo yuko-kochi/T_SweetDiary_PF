@@ -35,7 +35,6 @@ class PostsController < ApplicationController
     end
     @tag_list = Tag.all
     @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
-    @post_count = Post.count
   end
 
   def show
@@ -73,7 +72,6 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to posts_path
   end
-
 
   private
   def post_params

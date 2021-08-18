@@ -1,0 +1,13 @@
+<ul>
+  <li class="post-index__posts-links--item">
+    <%= link_to "新着順" %>
+  </li>
+  <li class="post-index__posts-links--item">
+    <%= link_to "いいね数順", sort: 'likes_count desc' %>
+  </li>
+  <li class="post-index__posts-links--item">
+    <% if user_signed_in? %>
+      <%= link_to "フォロワー", sort: 'followings desc' %>
+    <% end %>
+  </li>
+</ul>

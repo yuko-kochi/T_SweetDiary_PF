@@ -3,9 +3,13 @@
 
     <div class="post-index">
       <div class="post-index__title">
-        投稿一覧
+        <h2 class="title">投稿一覧</h2>
       </div>
-        <%= link_to "新しい順" %> | <%= link_to "いいね数順", sort: 'likes_count desc' %> | <%= link_to "フォロワー", sort: 'followings desc' %>
+      <!--投稿並べ替えリンク-->
+      <div class="post-index__posts-links">
+        <%= render 'post-links' %>
+      </div>
+      <!--投稿一覧-->
       <div class="post-index__posts">
         <%= render 'index', posts: @posts %>
       </div>
