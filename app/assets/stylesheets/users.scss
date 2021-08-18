@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+// ユーザー詳細画面（マイページ）
 .user-show {
   width: 90%;
   margin:  30px auto;
@@ -23,7 +23,6 @@
 
   &__profile-image{
     width: 100px;
-    height: 100px;
     object-fit: cover;
     border-radius: 50%;
     margin: auto;
@@ -31,40 +30,44 @@
 
   &__profile-title {
     grid-area: title;
-    height: 30px;
-  }
+    margin-top: 10px;
+    width: 60%;
 
-  &__profile-name{
-    margin: 10px 0 4px;
-    display: block;
-    font-size: 20px;
-    line-height: 32px;
-    letter-spacing: 0.8px;
-    color: #000;
-    font-weight: 700;
-  }
+    &--name{
+      margin: 10px 0 4px;
+      display: block;
+      font-size: 20px;
+      line-height: 32px;
+      letter-spacing: 0.8px;
+      color: #000;
+      font-weight: 700;
+    }
 
-  &__profile-introduction{
-    display: inline-block;
-    letter-spacing: 0.4px;
-    color: #999;
-    font-weight: 400;
+    &--introduction{
+      display: inline-block;
+      letter-spacing: 0.4px;
+      color: #999;
+      font-weight: 400;
+    }
   }
 
   &__usercount {
     grid-area: userCount;
-  }
+    height: 40px;
+    margin-top: 15px;
 
-  &__useritem {
-    display: inline-block;
-    font-size: 18px;
-    padding: 0 10px;
-    border-left: 1px solid #e7e7e7;
-  }
+    &--item {
+      margin-top: 5px;
+      display: inline-block;
+      font-size: 18px;
+      padding: 0 10px;
+      border-left: 1px solid #e7e7e7;
+    }
 
-  &__useritem:first-child {
-    border: none;
-    padding-left: 0;
+    &--item:first-child {
+      border: none;
+      padding-left: 0;
+    }
   }
 
   .itemname {
@@ -142,11 +145,111 @@
     margin: 10px;
     text-align: center;
   }
+
+  &__posts-link {
+    border-top: 1px solid #e7e7e7;
+    margin: 15px 10px;
+
+
+    &--item {
+      margin: 20px 0 0;
+      display: inline-block;
+      font-size: 18px;
+      padding: 0 10px;
+      border-left: 1px solid #e7e7e7;
+    }
+
+    &--item:first-child {
+      border: none;
+      padding-left: 0;
+    }
+  }
+
 }
 
 .calendar-table {
   margin-top: 12px;
   width: 100%;
+}
+
+// ユーザー編集画面
+.userinfo {
+  text-align: center;
+  margin: 30px auto;
+  max-width: 700px;
+
+  &__title {
+    font-family: system-ui, sans-serif;
+    border-bottom: 0.5px solid #c7bcbc;
+    margin-bottom: 32px;
+    text-align: start;
+
+    &--name {
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      line-height: 29px;
+      color: #5f5354;
+      margin: 0 40px 12px;
+    }
+  }
+
+  &__form {
+    max-width: 600px;
+    margin: auto;
+
+    &-field {
+      margin-bottom: 48px;
+
+      &--title {
+        line-height: 35px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #5f5354;
+      }
+
+      &--image {
+        object-fit: cover;
+      }
+
+      &--name {
+        width: 70%;
+        height: 40px;
+        text-align: center;
+      }
+
+      &--introduction {
+        width: 70%;
+        height: 130px;
+        padding: 16px;
+        border: 1px solid #988d8d;
+        font-size: 14px;
+        border-radius: 3px;
+        resize: none;
+        font-weight: 400;
+        text-align: center;
+      }
+    }
+
+    .actions-btn {
+      height: 30px;
+      width: 300px;
+      padding: 0.3em 1em;
+      text-decoration: none;
+      color: #ff7f7f;;
+      border: solid 2px #ff7f7f;;
+      border-radius: 3px;
+      transition: .4s;
+      background-color: white;
+    }
+
+    .actions-btn:hover {
+      background: #ff7f7f;;
+      color: white;
+    }
+  }
+
+
 }
 
 

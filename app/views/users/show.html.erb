@@ -3,31 +3,31 @@
   <div class="user-show__header">
     <div class="user-show__profile">
       <%= attachment_image_tag @user, :profile_image,format: 'jpg', fallback: "no_image.jpg", class: "user-show__profile-image" %>
-      <div class="user-show__profile-tile">
-        <h7 class="user-show__profile-name">
+      <div class="user-show__profile-title">
+        <h7 class="user-show__profile-title--name">
           <%= @user.name %>
         </h7>
-        <div class="user-show__profile-introduction">
+        <p class="user-show__profile-title--introduction">
           <%= @user.introduction %>
-        </div>
+        </p>
       </div>
       <!--フォロー機能-->
       <div class="user-show__usercount">
-        <ul class="user-show__usercountall">
-          <li class="user-show__useritem">
+        <ul>
+          <li class="user-show__usercount--item">
             <%= link_to user_followings_path(@user) do %>
               <%= @user.followings.count %><span class="itemname">フォロー</span>
             <% end %>
           </li>
-          <li class="user-show__useritem">
+          <li class="user-show__usercount--item">
             <%= link_to user_followers_path(@user) do %>
               <%= @user.followers.count %><span class="itemname">フォワー</span>
             <% end %>
           </li>
-          <li class="user-show__useritem">
+          <li class="user-show__usercount--item">
             <%= @user.posts.count %><span class="itemname">投稿</span>
           </li>
-          <li class="user-show__useritem">
+          <li class="user-show__usercount--item">
             <div class="user-show__follwing">
               <div id="relationship_<%= @user.id %>">
                 <%= render partial: "relationships/relationships", locals: { user: @user } %>
@@ -49,8 +49,21 @@
        </div>
     </div>
   </div>
+  <!--投稿並べ替えリンク-->
   <div class="user-show__posts-link">
-    <%= link_to "新着順" %> | <%= link_to "いいね数順", sort: 'likes_count desc' %><% if @user == current_user %> | <%= link_to "下書き", sort: 'draft desc' %><% end %>
+    <ul>
+      <li class="user-show__posts-link--item">
+        <%= link_to "新着順" %>
+      </li>
+      <li class="user-show__posts-link--item">
+        <%= link_to "いいね数順", sort: 'likes_count desc' %>
+      </li>
+      <li class="user-show__posts-link--item">
+        <% if @user == current_user %>
+          <%= link_to "下書き", sort: 'draft desc' %>
+        <% end %>
+      </li>
+    </ul>
   </div>
   <!--投稿一覧-->
   <div class="post-index__posts">
@@ -58,5 +71,3 @@
   </div>
 
 </div>
-
-

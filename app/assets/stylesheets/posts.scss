@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.main-post, .new-post {
+.main-post {
   max-width: 1200px;
   margin: 30px auto;
 }
@@ -12,6 +12,7 @@
   flex-direction: row;
 }
 
+// 投稿一覧
 .post-index {
   width: calc(100% - 200px);
   padding: 0 40px 0 0;
@@ -32,18 +33,31 @@
     margin: 16px 0;
     display: flex;
     flex-wrap: wrap;
-
   }
 
   &__posts-link {
     background: #f6f6f6;
-    margin: 10px;
-    width: 300px;
+    margin: 5px;
+    width: 310px;
+    padding: 5px;
   }
 
   &__posts-introduction {
     box-sizing: border-box;
-    padding: 20px 30px;
+    padding: 10px 15px;
+  }
+
+  &__posts-user {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+
+  &__posts-user-image {
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10px;
   }
 
   &__posts-title {
@@ -66,6 +80,7 @@
   }
 }
 
+// サイドバー検索
 .side-var {
   width: 200px;
 
@@ -90,6 +105,7 @@
 
 }
 
+// 投稿詳細画面
 .post-show, .post-actions {
   text-align: center;
   margin: auto;
@@ -107,44 +123,45 @@
     margin: 10px auto;
     padding: 0 15px 10px;
     border-bottom: 1px solid #e7e7e7;
-
   }
 
-  &__info-user-link{
-    display: flex;
-    align-items: center;
+  &__info-user {
 
-  }
+    &--link{
+      display: flex;
+      align-items: center;
+    }
 
-  &__info-user-image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 0 8px 0 0;
-  }
+    &--image {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 8px 0 0;
+    }
 
-  &__info-user-name {
-    font-size: 13px;
+    &--name {
+      font-size: 13px;
+    }
   }
 
   &__info-list {
     display: flex;
-  }
 
-  &__info-like, &__info-category, &__info-creat {
-    font-size: 13px;
-    color: #999;
-    margin-right: 10px;
-  }
+    &--like, &--category, &--creat {
+      font-size: 13px;
+      color: #999;
+      margin-right: 10px;
+    }
 
-  &__info-category, &__info-creat {
-    padding-left: 10px;
-    border-left: 1px solid #e7e7e7;
-  }
+    &--category, &--creat {
+      padding-left: 10px;
+      border-left: 1px solid #e7e7e7;
+    }
 
-  &__info-list-name {
-    font-size: 10px;
+    &--name {
+      font-size: 10px;
+    }
   }
 
   &__content {
@@ -185,9 +202,9 @@
 
 }
 
+// 投稿登録、編集画面
 .post-actions {
   max-width: 700px;
-  margin: 8px auto 0;
 
   &__title {
     font-family: system-ui, sans-serif;
@@ -211,44 +228,48 @@
 
     &-field {
     margin-bottom: 48px;
+
+      &--title {
+        line-height: 46px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #5f5354;
+        text-align: start;
+      }
+
+      &--image {
+        object-fit: cover;
+      }
+
+      &--introduction {
+        width: 100%;
+        height: 200px;
+        padding: 16px;
+        border: 1px solid #988d8d;
+        font-size: 14px;
+        border-radius: 3px;
+        resize: none;
+        font-weight: 400;
+        text-align: center;
+      }
+
+      &--category, &--tag, &--calemdar {
+        width: 60%;
+        height: 40px;
+        text-align: center;
+      }
+
+      &--category, &--calemdar {
+        font-size: 15px;
+      }
+
+      &--address {
+        width: 75%;
+        height: 40px;
+        text-align: center;
+        font-size: 15px;
+      }
     }
-  }
-
-  .actions-title {
-    line-height: 46px;
-    font-size: 14px;
-    font-weight: 700;
-    color: #5f5354;
-    text-align: start;
-  }
-
-  .actions-introduction {
-    width: 100%;
-    height: 200px;
-    padding: 16px;
-    border: 1px solid #988d8d;
-    font-size: 14px;
-    border-radius: 3px;
-    resize: none;
-    font-weight: 400;
-    text-align: center;
-  }
-
-  .actions-category, .actions-tag, .actions-calemdar {
-    width: 60%;
-    height: 40px;
-    text-align: center;
-  }
-
-  .actions-category, .actions-calemdar {
-    font-size: 15px;
-  }
-
-  .actions-address {
-    width: 75%;
-    height: 40px;
-    text-align: center;
-    font-size: 15px;
   }
 
   .status_0 {
@@ -305,7 +326,7 @@
 
 }
 
-
+// 地図表示
 #map{
   height: 400px;
   width: 600px;
