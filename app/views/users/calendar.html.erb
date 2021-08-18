@@ -1,8 +1,19 @@
-<%= month_calendar events: @posts do |date, posts| %>
-  <%= date.day %>
-   <% posts.each do |post| %>
-    <%= link_to post_path(post.id) do %>
-      <%= attachment_image_tag post, :image, format: 'jpg', size: "100x100"  %>
+<div class="usercalendar">
+  <div class="usercalendar__headar">
+    <div class="usercalendar__headar--title">
+      <p>カレンダー</p>
+    </div>
+  </div>
+  <div class="usercalendar__main">
+    <%= month_calendar events: @posts do |date, posts| %>
+      <%= date.day %>
+       <% posts.each do |post| %>
+       <div class="usercalendar__main--post">
+          <%= link_to post_path(post.id) do %>
+            <%= attachment_image_tag post, :image, format: 'jpg', size: "130x130" , class: "usercalendar__main--image" %>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-<% end %>
+  </div>
+</div>
