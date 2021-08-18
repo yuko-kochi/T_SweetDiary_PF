@@ -59,18 +59,19 @@
       <li class="user-show__posts-link--item">
         <%= link_to "いいね数順", sort: 'likes_count desc' %>
       </li>
-      <li class="user-show__posts-link--item">
-        <% if @user == current_user %>
+      <% if @user == current_user %>
+        <li class="user-show__posts-link--item">
           <%= link_to "下書き", sort: 'draft desc' %>
-        <% end %>
-      </li>
+        </li>
+        <li class="user-show__posts-link--item">
+          <%= link_to "いいね済み投稿", sort: 'like_post desc' %>
+        </li>
+      <% end %>
     </ul>
   </div>
   <!--投稿一覧-->
-  <div class="user-posts">
-    <div class="post-index__posts user-posts">
-      <%= render 'posts/index', posts: @posts %>
-    </div>
+  <div class="user-posts post-index__posts">
+    <%= render 'posts/index', posts: @posts %>
   </div>
 
 </div>

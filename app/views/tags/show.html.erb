@@ -1,25 +1,30 @@
 <div class="main-post">
   <div class="main-post-row">
-
-    <% if @posts.empty? %>
-      <div class="no_post">
-        <p>検索結果は０件です</p>
-      </div>
-
-    <% else %>
       <div class="post-index">
         <div class="post-index__title">
-          <%= @tag.name %> 一覧<span class="count_body"> (全 <%="#{@posts.count}" %> 件)</span>
+          <h2 class="title"> <%= @tag.name %> 一覧<span class="count_body"> (全 <%="#{@posts.count}" %> 件)</span></h2>
         </div>
-        <div class="post-index__posts">
-          <%= render 'posts/index', posts: @posts %>
-        </div>
+        <% if @posts.empty? %>
+          <div class="post-index__posts-no">
+            <div class="post-index__posts-no--title">
+              <p class="post-index__posts-no--not">Not Found</p>
+              <p class="post-index__posts-no--find">お探しの投稿が見当たりません。</p>
+              <p class="post-index__posts-no--find">変更または削除された可能性があります。</p>
+            </div>
+          </div>
+        <% else %>
+          <!--投稿並べ替えリンク-->
+          <div class="post-index__posts-links">
+            <%= render 'posts/post-links' %>
+          </div>
+          <!--投稿一覧-->
+          <div class="post-index__posts">
+            <%= render 'posts/index', posts: @posts %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-
     <div class="side-var">
       <%= render 'posts/side-var', category: @category, tag_list: @tag_list %>
     </div>
-
   </div>
 </div>

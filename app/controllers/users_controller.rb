@@ -9,6 +9,9 @@ class UsersController < ApplicationController
       @posts = @user.posts.where(status: 0).includes(:liked_users).sort {|a,b| b.liked_users.size <=> a.liked_users.size}
     elsif params[:sort] == 'draft desc'
       @posts = @user.posts.where(status: 1)
+    elsif params[:sort] == 'like_post desc'
+      likes = Like.where(user_id: current_user.id).pluck(:post_id)
+      @posts = @user.posts.find(likes)
     else
       @posts = Post.all.order(created_at: :desc).where(status: 0)
     end

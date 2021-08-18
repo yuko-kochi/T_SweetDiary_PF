@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :post_comments, only: [:create, :destroy, :patch]
   end
   resources :tags, only: [:index, :show]
+  resources :categorys, only: [:show]
   resources :users,only: [:show,:index,:edit,:update] do
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
