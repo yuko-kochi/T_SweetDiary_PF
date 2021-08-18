@@ -3,9 +3,12 @@
     <%= link_to post_path(post.id) do %>
       <%= attachment_image_tag post, :image, size: "300x200"  %>
       <div class="post-index__posts-introduction">
+        <p class="post-index__posts-user">
+          <%= attachment_image_tag post.user, :profile_image, size: "30x30", fallback: "no_image.jpg", class: "post-index__posts-user-image" %>
+          <%= post.user.name %>
+        </p>
         <p class="post-index__posts-title">
           <%= post.introduction.truncate(30)  %>
-
         </p>
         <p class="post-index__posts-create">
           <%= post.created_at.strftime('%Y.%m.%d') %>

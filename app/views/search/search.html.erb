@@ -9,7 +9,7 @@
     <% else %>
       <div class="post-index">
         <div class="post-index__title">
-          <%= @posts.name %>一覧<span class="count_body"> (全 <%=  @post_count %> 件)</span>
+          <%= @value %>一覧<span class="count_body"> (全 <%=  @post_count %> 件)</span>
         </div>
         <div class="post-index__posts">
           <%= render 'posts/index', posts: @posts %>

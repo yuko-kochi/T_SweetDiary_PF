@@ -7,9 +7,9 @@
     <div class="post-show__info">
       <!--ユーザー-->
       <div class="post-show__info-user">
-        <%= link_to(user_path(@user.id), class: 'post-show__info-user-link') do %>
-            <%= attachment_image_tag  @user, :profile_image, format: 'jpg', fallback: "no_image.jpg" , class: "post-show__info-user-image" %>
-          <div class="post-show__info-user-name">
+        <%= link_to(user_path(@user.id), class: 'post-show__info-user--link') do %>
+            <%= attachment_image_tag  @user, :profile_image, format: 'jpg', fallback: "no_image.jpg" , class: "post-show__info-user--image" %>
+          <div class="post-show__info-user--name">
             <%= @user.name %>
           </div>
         <% end %>
@@ -19,19 +19,19 @@
       <div class="post-show__info-list">
 
         <!--いいね機能-->
-        <div class="post-show__info-like">
-          <div id="likes_buttons_<%= @post.id %>", class: "post-show__info-like">
+        <div class="post-show__info-list--like">
+          <div id="likes_buttons_<%= @post.id %>">
             <%= render partial: 'likes/likes', locals: { post: @post } %>
           </div>
         </div>
         <!--カテゴリーリンク-->
-        <div class="post-show__info-category">
-          <span class="post-show__info-list-name">カテゴリー：</span>
+        <div class="post-show__info-list--category">
+          <span class="post-show__info-list--name">カテゴリー：</span>
           <%= link_to @post.category.name, search_path('search[value]': @post.category.id, 'search[how]': "match_category")  %>
         </div>
         <!--投稿日-->
-        <div class="post-show__info-creat">
-          <span class="post-show__info-list-name">投稿日時：</span>
+        <div class="post-show__info-list--creat">
+          <span class="post-show__info-list--name">投稿日時：</span>
           <%= @post.created_at.strftime('%Y.%m.%d') %>
         </div>
       </div>

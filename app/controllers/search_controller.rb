@@ -2,7 +2,7 @@ class SearchController < ApplicationController
 
   def search
     # キーワードが入力されていないとトップページに飛ぶ
-    redirect_to root_path if params['search']['value'] == ""
+    redirect_to posts_path if params['search']['value'] == ""
     #検索時にパラメーターとして送る値を代入
     # 空白で分割
     @value = params['search']['value']
