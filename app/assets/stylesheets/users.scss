@@ -164,12 +164,6 @@
       padding-left: 0;
     }
   }
-
-}
-
-.calendar-table {
-  margin-top: 12px;
-  width: 100%;
 }
 
 // ユーザー編集画面
@@ -248,8 +242,57 @@
       color: white;
     }
   }
-
-
 }
 
+// カレンダー画面
+.usercalendar {
+  width: 90%;
+  margin:  30px auto;
 
+  &__headar {
+    border-bottom: 0.5px solid #c7bcbc;
+    margin-bottom: 32px;
+
+    &--title {
+    font-size: 20px;
+    letter-spacing: 3px;
+    color: #5f5354;
+    margin: 0 40px 5px;
+    }
+
+  }
+
+  &__main {
+    width: 90%;
+    margin:  30px auto;
+
+    &--post{
+      text-align: center;
+    }
+
+    &--image{
+      border-radius: 50%;
+    }
+  }
+
+  .calendar-heading  {
+    margin: 20px 5px;
+
+    .calendar-title {
+      margin: 0 10px;
+    }
+  }
+
+  .simple-calendar th {
+    text-align: center;
+    padding: 20px 6px;
+  }
+
+  .simple-calendar .prev-month, .next-month {
+    background: #c7bcbc;
+  }
+
+  .simple-calendar .day {
+    height: 150px;
+  }
+}

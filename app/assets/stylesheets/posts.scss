@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .main-post {
-  max-width: 1200px;
+  max-width: 85%;
   margin: 30px auto;
 }
 
@@ -33,6 +33,14 @@
     margin: 16px 0;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__posts::after{
+    content:"";
+    display: block;
+    width: 310px;
+    padding: 5px;
   }
 
   &__posts-link {

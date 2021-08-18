@@ -49,6 +49,7 @@
        </div>
     </div>
   </div>
+
   <!--投稿並べ替えリンク-->
   <div class="user-show__posts-link">
     <ul>
@@ -66,8 +67,10 @@
     </ul>
   </div>
   <!--投稿一覧-->
-  <div class="post-index__posts">
-    <%= render 'posts/index', posts: @posts %>
+  <div class="user-posts">
+    <div class="post-index__posts user-posts">
+      <%= render 'posts/index', posts: @posts %>
+    </div>
   </div>
 
 </div>

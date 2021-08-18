@@ -112,7 +112,7 @@ a {
 header {
   display: flex;
   align-items: center;
-  width: 90%;
+  width: 95%;
   margin: auto;
 }
 
@@ -133,4 +133,8 @@ nav ul {
 nav ul li a {
   padding: 0 20px;
   color: #666666;
+}
+
+.image {
+  object-fit: cover;
 }
