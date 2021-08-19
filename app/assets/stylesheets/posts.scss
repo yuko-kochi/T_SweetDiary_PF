@@ -227,13 +227,8 @@
     }
   }
 
-  &__content {
-    width: 500px;
-    margin: 20px auto;
-  }
-
   &__content-main {
-    margin-bottom: 10px;
+    margin: 20px auto;
   }
 
   &__content-tag{
@@ -263,7 +258,139 @@
     border-left: 1px solid #e7e7e7;
   }
 
+  // コメント欄
+  &__comments {
+    width: 640px;
+    border-top: 1px solid #e7e7e7;
+    margin: 20px auto;
+    padding: 10px;
+
+    .comment-count {
+      font-size: 10px;
+      margin-left: 5px;
+      letter-spacing: 5px;
+    }
+
+    &--title {
+      border-left: 3px solid #ed7483;
+      font-size: 20px;
+      line-height: 32px;
+      letter-spacing: 0.8px;
+      color: #2d2926;
+      padding-left: 16px;
+      margin: 15px 0;
+      font-weight: 700;
+      text-align: start;
+    }
+
+    &--list {
+      list-style-type: none;
+      padding: 0 0 24px 16px;
+      margin: 0;
+      border-bottom: 1px solid #e7e7e7;
+      text-align: left;
+
+      .comments-item {
+        display: flex;
+
+        .user-image {
+          margin-top: 10px;
+        }
+
+        .current_user {
+          margin: 30px 0 0 8px;
+        }
+
+        &__contents {
+          background-color: #f5f5f5;
+          border-radius: 8px;
+          padding: 12px 16px;
+          font-size: 14px;
+          line-height: 20px;
+          letter-spacing: 0.4px;
+          font-weight: 400;
+          color: #2d2926;
+          margin: 0;
+          border: 1px solid #eceef0;
+        }
+
+        &__nickname {
+          display: block;
+          font-weight: 500;
+          margin-bottom: 10px;
+          letter-spacing: 0;
+        }
+
+        &__created-at {
+          padding: 8px 0 0 8px;
+          font-size: 11px;
+          line-height: 14px;
+          letter-spacing: 0.4px;
+          color: #999;
+          font-weight: 400;
+        }
+        &__current_user-created-at {
+          padding: 8px 0 0 8px;
+          font-size: 11px;
+          line-height: 14px;
+          letter-spacing: 0.4px;
+          color: #999;
+          font-weight: 400;
+          text-align: end;
+        }
+      }
+
+      .current_user_comment {
+        width: 500px;
+        margin: 24px 0 16px 80px;
+      }
+    }
+
+    .new-comment-area {
+      margin: 0 30px 0 70px;
+    }
+
+    .comment-form {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin: 24px 0 16px;
+    }
+
+    .new-comment {
+      width: 400px;
+      height: 84px;
+      padding: 12px 16px;
+      font-size: 14px;
+      letter-spacing: 0.4px;
+      font-weight: 400;
+      color: #2d2926;
+      border-radius: 4px;
+      border: 1px solid #e7e7e7;
+      resize: none;
+    }
+
+    .actions-btn {
+      margin-top: 30px;
+      height: 30px;
+      width: 100px;
+      padding: 0.3em 1em;
+      text-decoration: none;
+      color: #ff7f7f;;
+      border: solid 2px #ff7f7f;;
+      border-radius: 3px;
+      transition: .4s;
+      background-color: white;
+    }
+
+    .actions-btn:hover {
+      background: #ff7f7f;;
+      color: white;
+    }
+  }
 }
+
+
 
 // 投稿登録、編集画面
 .post-actions {
@@ -390,15 +517,14 @@
 }
 
 // 地図表示
-#map{
+#map {
   height: 400px;
   width: 600px;
-  margin: auto;
-  margin-bottom: 30px;
+  margin: 0 auto 30px;
 }
 
-#show_map{
+#show_map {
   height: 400px;
   width: 600px;
-  margin: auto;
+  margin: 0 auto 30px;
 }

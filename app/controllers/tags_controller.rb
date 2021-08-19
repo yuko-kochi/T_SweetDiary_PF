@@ -6,11 +6,12 @@ class TagsController < ApplicationController
 
   def show
     @tag = Tag.find(params[:id])
-    if params[:sort] == 'likes_count desc'
+    case params[:sort]
+    when "likes_count desc"
       to  = Time.current.at_end_of_day
       from  = (to - 6.day).at_beginning_of_day
       @posts = @tag.posts.where(status: 0).includes(:liked_users).sort {|a,b| b.liked_users.where(created_at: from...to).size <=> a.liked_users.where(created_at: from...to).size}
-    elsif params[:sort] == 'followings desc'
+    when "followings desc"
       @posts = @tag.posts.where(user_id: [current_user.id, *current_user.following_ids], status: 0).order(created_at: :desc)
     else
       @posts = @tag.posts.order(created_at: :desc).where(status: 0)

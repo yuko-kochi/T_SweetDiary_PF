@@ -1,21 +1,42 @@
-<p>コメント件数：<%= post.post_comments.count %></p>
+<h3 class="post-show__comments--title">投稿へのコメント<span class="comment-count">(<%= post.post_comments.count %>件)</span></h3>
+<ul class="post-show__comments--list">
 <% post.post_comments.each do |comment| %>
-  <%= comment.user.name %>
-  <%= comment.comment %>
-  <%= comment.created_at.strftime('%Y/%m/%d') %>
-  <br />
-  <% if comment.user == current_user %>
-    <div class="comment-delete">
-      <%= link_to "削除", post_post_comment_path(comment.post, comment), method: :delete, remote: true %>
+  <li class="comments-item">
+    <% if comment.user == post.user %>
+    <div class="comments-item__container current_user_comment">
+      <p class="comments-item__contents">
+        <span class="comments-item__nickname"><%= comment.user.name %></span>
+        <%= comment.comment %>
+      </p>
+      <p class="comments-item__current_user-created-at"><%= comment.created_at.strftime('%Y.%m.%d') %>
+        <% if comment.user == current_user %>
+          <%= link_to "削除", post_post_comment_path(comment.post, comment), method: :delete, remote: true %>
+        <% end %>
+      </p>
     </div>
-  <% end %>
-<% end %>
-
-<% if user_signed_in? %>
-  <div class="new-comment">
-    <%= form_with(model:[post, post_comment], remote: true ) do |f| %>
-      <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-      <%= f.submit "送信する" %>
+      <%= attachment_image_tag  @user, :profile_image, format: 'jpg', fallback: "no_image.jpg" , class: "post-show__info-user--image user-image current_user" %>
+    <% else %>
+      <%= attachment_image_tag  @user, :profile_image, format: 'jpg', fallback: "no_image.jpg" , class: "post-show__info-user--image user-image" %>
+      <div class="comments-item__container">
+        <p class="comments-item__contents">
+          <span class="comments-item__nickname"><%= comment.user.name %></span>
+          <%= comment.comment %>
+        </p>
+        <p class="comments-item__current_user-created-at"><%= comment.created_at.strftime('%Y.%m.%d') %>
+          <% if comment.user == current_user %>
+            <%= link_to "削除", post_post_comment_path(comment.post, comment), method: :delete, remote: true %>
+          <% end %>
+        </p>
+      </div>
     <% end %>
-  </div>
-<% end %>
+  </li>
+  <% end %>
+</ul>
+<div class="new-comment-area">
+  <% if user_signed_in? %>
+    <%= form_with(model:[post,post_comment], class: "comment-form ") do |f| %>
+      <%= f.text_area :comment,placeholder: "コメントをここに", class: "new-comment" %>
+      <%= f.submit "送信する", class: "actions-btn" %>
+    <% end %>
+  <% end %>
+</div>

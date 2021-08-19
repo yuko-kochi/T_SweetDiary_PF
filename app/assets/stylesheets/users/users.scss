@@ -60,13 +60,13 @@
       margin-top: 5px;
       display: inline-block;
       font-size: 18px;
-      padding: 0 10px;
-      border-left: 1px solid #e7e7e7;
+      padding: 0 15px;
+      border-right: 1px solid #e7e7e7;
     }
 
-    &--item:first-child {
+    &--item:last-child {
       border: none;
-      padding-left: 0;
+      padding-right: 0;
     }
   }
 

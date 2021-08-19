@@ -24,11 +24,12 @@ class PostsController < ApplicationController
   end
 
   def index
-    if params[:sort] == 'likes_count desc'
+    case params[:sort]
+    when "likes_count desc"
       to  = Time.current.at_end_of_day
       from  = (to - 6.day).at_beginning_of_day
       @posts = Post.where(status: 0).includes(:liked_users).sort {|a,b| b.liked_users.where(created_at: from...to).size <=> a.liked_users.where(created_at: from...to).size}
-    elsif params[:sort] == 'followings desc'
+    when "followings desc"
       @posts = Post.where(user_id: [current_user.id, *current_user.following_ids], status: 0).order(created_at: :desc)
     else
       @posts = Post.all.order(created_at: :desc).where(status: 0)

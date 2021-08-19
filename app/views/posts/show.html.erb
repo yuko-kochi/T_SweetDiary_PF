@@ -68,12 +68,12 @@
       <% end %>
     </div>
 
-<!--コメント機能-->
-<div id="comments-area">
-  <%= render partial: "post_comments/post_comments", locals: { post: @post, post_comment: @post_comment } %>
-</div>
-
-
+    <!--コメント機能-->
+    <div class="post-show__comments">
+      <div id="comments-area_<%= @post.id %>">
+        <%= render "post_comments/post_comments", post: @post, post_comment: @post_comment  %>
+      </div>
+    </div>
 
 
 
