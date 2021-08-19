@@ -3,7 +3,6 @@ module NotificationsHelper
  def notification_form(notification)
     @visitor = notification.visitor
     @comment = nil
-    # your_item = link_to 'あなたの投稿', users_post_path(notification)
     @visiter_comment = notification.post_comment_id
     #notification.actionがfollowかlikeかcommentか
     case notification.action
@@ -16,7 +15,7 @@ module NotificationsHelper
       if @visitor == current_user
         tag.a(@visitor.name, href: user_path(@visitor))+"さんがあなたの"+tag.a('投稿', href: post_path(notification.post_id))+"にコメントしました"
       else
-        tag.a(@visitor.name, href: user_path(@visitor))+"さんが"+(@visitor.name)+"さんの"+tag.a('投稿', href: post_path(notification.post_id))+"にコメントしました"
+        tag.a(@visitor.name, href: user_path(@visitor))+"さんが"+()+"さんの"+tag.a('投稿', href: post_path(notification.post_id))+"にコメントしました"
       end
     end
   end

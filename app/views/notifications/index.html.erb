@@ -1,12 +1,21 @@
-<h3>通知</h3>
-<% notifications = @notifications.where.not(visitor_id: current_user.id) %>
-<% if notifications.exists? %>
-    <%= link_to notifications_destroy_all_path, method: :delete do %>
-        <h7>全削除</h7>
-    <% end %>
-    <div>
+<div class="notifications">
+  <div class="notifications__headar">
+    <div class="notifications__headar--title">
+      <p>通知一覧</p>
+    </div>
+  </div>
+    <% if @notifications.present? %>
+    <div class="notifications__index">
+      <div class="notifications__index--destroy_all">
+          <%= link_to notifications_destroy_all_path, method: :delete do %>
+           <p>全削除</p>
+          <% end %>
+      </div>
       <%= render "notifications/notifications", notifications: @notifications %>
     </div>
-<% else %>
-    <p>通知はありません</p>
-<% end %>
+  <% else %>
+    <div class="no-users">
+      <p class="no-user">通知はありません</p>
+    </div>
+　<% end %>
+</div>

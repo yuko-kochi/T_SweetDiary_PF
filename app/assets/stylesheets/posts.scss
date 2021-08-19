@@ -54,7 +54,7 @@
     padding: 5px;
   }
 
-
+  // ソート機能リンク
   &__posts-links {
     margin: 15px auto;
     width: 98%;
@@ -217,15 +217,16 @@
       margin-right: 10px;
     }
 
-    &--category, &--creat {
-      padding-left: 10px;
-      border-left: 1px solid #e7e7e7;
+    &--category, &--like {
+      padding-right: 10px;
+      border-right: 1px solid #e7e7e7;
     }
 
     &--name {
       font-size: 10px;
     }
   }
+
 
   &__content-main {
     margin: 20px auto;
@@ -312,6 +313,7 @@
           color: #2d2926;
           margin: 0;
           border: 1px solid #eceef0;
+          width: 500px;
         }
 
         &__nickname {
@@ -341,7 +343,6 @@
       }
 
       .current_user_comment {
-        width: 500px;
         margin: 24px 0 16px 80px;
       }
     }
