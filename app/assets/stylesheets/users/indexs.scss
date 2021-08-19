@@ -1,0 +1,106 @@
+ .users {
+    width: 90%;
+    margin:  30px auto;
+
+    &__headar {
+    border-bottom: 0.5px solid #c7bcbc;
+    margin-bottom: 32px;
+
+    &--title {
+    font-size: 20px;
+    letter-spacing: 3px;
+    color: #5f5354;
+    margin: 0 40px 5px;
+    }
+
+  }
+ }
+
+.user-index {
+  width: 90%;
+  font-family: 'Roboto', Arial, sans-serif;
+  margin: auto;
+  color: #ffffff;
+  text-align: left;
+  line-height: 1.4em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+ .user-index::after{
+    content:"";
+    display: block;
+    width: 270px;
+    padding: 5px;
+  }
+
+.user-index__card {
+  background-color: #141414;
+  margin: 5px;
+  width: 270px;
+  padding: 5px;
+  height: 470px;
+
+  &--info {
+    padding: 10px 20px;
+  }
+}
+
+.profile-image {
+  margin: 10px 30px;
+}
+
+.user-index__card--name {
+  margin: 0 5px 10px;
+  font-size: 20px;
+}
+
+.user-index__card--introduction {
+  margin: 0 0 10px;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+.user-index__card--follow {
+  text-align: end;
+}
+
+.user-index__card--following {
+    color: #2980b9;
+    padding: 5px;
+    border: 1px solid #2980b9;
+    font-size: 0.7em;
+    text-transform: uppercase;
+    margin: 10px 10px;
+    display: inline-block;
+    opacity: 0.65;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.user-index__card--following:hover {
+  opacity: 1;
+}
+
+.user-index__card--followed {
+    color: #2980b9;
+    padding: 5px;
+    border: 1px solid #2980b9;
+    font-size: 0.7em;
+    text-transform: uppercase;
+    margin: 10px 10px;
+    display: inline-block;
+    opacity: 0.65;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.user-index__card--followed:hover {
+  opacity: 1;
+}

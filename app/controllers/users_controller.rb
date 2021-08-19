@@ -5,15 +5,16 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if params[:sort] == 'likes_count desc'
+    case params[:sort]
+    when "likes_count desc"
       @posts = @user.posts.where(status: 0).includes(:liked_users).sort {|a,b| b.liked_users.size <=> a.liked_users.size}
-    elsif params[:sort] == 'draft desc'
+    when "draft desc"
       @posts = @user.posts.where(status: 1)
-    elsif params[:sort] == 'like_post desc'
+    when "like_post desc"
       likes = Like.where(user_id: current_user.id).pluck(:post_id)
-      @posts = @user.posts.find(likes)
+      @posts = Post.find(likes)
     else
-      @posts = Post.all.order(created_at: :desc).where(status: 0)
+      @posts = @user.posts.order(created_at: :desc).where(status: 0)
     end
   end
 

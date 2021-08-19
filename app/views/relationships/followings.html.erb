@@ -1,13 +1,17 @@
-<h2>Follower Users</h2>
-<% if @users.exists? %>
-  <% @users.each do |user| %>
-    <%= link_to user_path(user.id) do %>
-      <%= attachment_image_tag( user, :profile_image, format: 'jpg', size: "100x100", fallback: "no-image.png" ) %>
-    <% end %>
-    <%= user.name %>
-    フォロー数：<%= user.followings.count %>
-    フォロワー数：<%= user.followers.count %>
-  <% end %>
-<% else %>
-  <p>ユーザーはいません</p>
-<% end %>
+<div class="users">
+  <div class="users__headar">
+    <div class="users__headar--title">
+      <p>フォワー</p>
+    </div>
+  </div>
+  <% if @users.exists? %>
+  <div class="user-index">
+    <%= render 'users/users', users: @users %>
+  </div>
+  <% else %>
+    <div class="no-users">
+      <p class="no-user">まだフォワーはいません</p>
+      <p class="no-userless">フォローされるとここに表示されます</p>
+    </div>
+　<% end %>
+</div>
