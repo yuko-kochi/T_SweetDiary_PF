@@ -3,11 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .main-post {
-  width: 90%;
-  margin: 30px auto;
+  width: 100%;
+  margin: 70px auto 0px;
+  padding-top: 20px;
+
 }
 
 .main-post-row {
+  width: 90%;
+  margin: auto;
   display: flex;
   flex-direction: row;
 }
@@ -54,7 +58,7 @@
     padding: 5px;
   }
 
-
+  // ソート機能リンク
   &__posts-links {
     margin: 15px auto;
     width: 98%;
@@ -97,7 +101,7 @@
   }
 
   &__posts-link {
-    background: #f6f6f6;
+    background: #A6988D;
     margin: 5px;
     width: 310px;
     padding: 5px;
@@ -217,15 +221,16 @@
       margin-right: 10px;
     }
 
-    &--category, &--creat {
-      padding-left: 10px;
-      border-left: 1px solid #e7e7e7;
+    &--category, &--like {
+      padding-right: 10px;
+      border-right: 1px solid #e7e7e7;
     }
 
     &--name {
       font-size: 10px;
     }
   }
+
 
   &__content-main {
     margin: 20px auto;
@@ -251,11 +256,11 @@
 
   &__edit {
     padding-right: 10px;
+    border-right: 1px solid #e7e7e7;
   }
 
   &__destroy {
     padding-left: 10px;
-    border-left: 1px solid #e7e7e7;
   }
 
   // コメント欄
@@ -312,6 +317,7 @@
           color: #2d2926;
           margin: 0;
           border: 1px solid #eceef0;
+          width: 500px;
         }
 
         &__nickname {
@@ -341,7 +347,6 @@
       }
 
       .current_user_comment {
-        width: 500px;
         margin: 24px 0 16px 80px;
       }
     }

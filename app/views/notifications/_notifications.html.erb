@@ -1,11 +1,13 @@
 <% notifications.each do |notification| %>
-<% visitor = notification.visitor %>
-<% post = notification.post %>
-<div>
-  <%= link_to user_path(visitor) do %>
-    <%= attachment_image_tag visitor, :profile_image, format: 'jpg', size: "100x100", fallback: "no-image.png", size: "50x50"  %>
-  <% end %>
-  <%= notification_form(notification) %><%= " (#{time_ago_in_words(notification.created_at)} 前)" %>
-  <br />
-</div>
+  <div class="notifications__index--list">
+    <% visitor = notification.visitor %>
+    <% post = notification.post %>
+    <div class="notifications__index--container">
+      <%= link_to user_path(visitor) do %>
+        <p><%= attachment_image_tag visitor, :profile_image, format: 'jpg', size: "150x150", fallback: "no_image.jpg", size: "50x50", class: "profile_image"  %></p>
+      <% end %>
+      <%= notification_form(notification) %><span class="time"><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span>
+      <%= link_to "" , notification_path(notification), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "far fa-trash-alt"  %>
+    </div>
+  </div>
 <% end %>

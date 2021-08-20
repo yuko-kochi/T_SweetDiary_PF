@@ -57,13 +57,13 @@ ja:
     distance_in_words:
       about_x_hours:
         one: 約1時間
-        other: 約%{count}時間
+        other: "%{count}時間"
       about_x_months:
         one: 約1ヶ月
-        other: 約%{count}ヶ月
+        other: "%{count}ヶ月"
       about_x_years:
         one: 約1年
-        other: 約%{count}年
+        other: "%{count}年"
       almost_x_years:
         one: 1年弱
         other: "%{count}年弱"

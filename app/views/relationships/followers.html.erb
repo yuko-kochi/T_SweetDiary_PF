@@ -1,7 +1,7 @@
 <div class="users">
   <div class="users__headar">
     <div class="users__headar--title">
-      <p>フォローユーザー</p>
+      <p class="fas fa-users">フォワー</p>
     </div>
   </div>
   <% if @users.exists? %>
@@ -10,8 +10,8 @@
   </div>
   <% else %>
     <div class="no-users">
-      <p class="no-user">まだ誰もフォローはしていません</p>
-      <p class="no-userless">フォローするとここに表示され、タイムラインに投稿が表示されます</p>
+      <p class="no-user">まだフォワーはいません</p>
+      <p class="no-userless">フォローされるとここに表示されます</p>
     </div>
 　<% end %>
 </div>

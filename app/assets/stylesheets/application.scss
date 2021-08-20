@@ -24,9 +24,16 @@
   box-sizing: border-box;
  }
 
+ .main {
+    height: 100%;
+    width: 100%;
+    margin: 70px auto 50px;
+    padding-bottom: 20px;
+ }
+
 .signup, .signin {
   max-width: 800px;
-  margin: auto;
+  margin: 80px auto;
   text-align: center;
 }
 
@@ -105,18 +112,33 @@ li {
 
 a {
   text-decoration: none;
-  color: #666666;
+  color: #A6988D;
 }
 
 
-header {
+.header {
   display: flex;
+  height: 70px;
+  background: #D9C7B8;
+  color:　#ffffff;
   align-items: center;
-  width: 95%;
+  width: 100%;
   margin: auto;
+  position: fixed;
+  z-index: 9;
+  top: 0;
+}
+
+.footer {
+  color:　#ffffff;
+  background: #D9C7B8;
+  height: 70px;
+  width: 100%;
+  bottom: 0;
 }
 
 .header__logo {
+  margin-left: 30px;
   padding: 10px 20px;
   display: inline-block;
 }
@@ -124,14 +146,16 @@ header {
 nav {
   display: flex;
   margin-left: auto;
+  margin-right: 40px;
 }
 
 nav ul {
   display: flex;
 }
 
-nav ul li a {
-  padding: 0 20px;
+.header__navbar-men-title{
+  display: inline-block;
+  padding: 3px 10px;
   color: #666666;
 }
 

@@ -27,7 +27,7 @@
         <!--カテゴリーリンク-->
         <div class="post-show__info-list--category">
           <span class="post-show__info-list--name">カテゴリー：</span>
-          <%= link_to @post.category.name, search_path('search[value]': @post.category.id, 'search[how]': "match_category")  %>
+          <%= link_to @post.category.name, category_path(@post.category)  %>
         </div>
         <!--投稿日-->
         <div class="post-show__info-list--creat">
@@ -63,8 +63,8 @@
     <!--showページ編集・削除機能-->
     <div class="post-show__edit-destroy">
       <% if @post.user == current_user %>
-        <%= link_to "編集" , edit_post_path(@post), class: "post-show__edit" %>
-        <%= link_to "削除" , post_path(@post),  method: :delete, data: { confirm: '本当に消しますか？' }, class: "post-show__destroy" %>
+        <%= link_to "" , edit_post_path(@post), class: "post-show__edit far fa-edit fa-lg" %>
+        <%= link_to "" , post_path(@post),  method: :delete, data: { confirm: '本当に消しますか？' }, class: "post-show__destroy far fa-trash-alt fa-lg" %>
       <% end %>
     </div>
 

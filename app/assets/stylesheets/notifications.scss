@@ -1,3 +1,54 @@
 // Place all the styles related to the notifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.notifications {
+  width: 70%;
+  margin:  30px auto;
+
+  &__headar {
+    border-bottom: 0.5px solid #c7bcbc;
+    margin-bottom: 22px;
+
+    &--title {
+    font-size: 20px;
+    letter-spacing: 3px;
+    color: #5f5354;
+    margin: 0 40px 5px;
+    }
+
+  }
+
+  &__index {
+    width: 70%;
+    margin: 10px auto;
+    padding: 10px;
+
+    &--destroy_all {
+      text-align: end;
+      margin: 10px 50px;
+    }
+
+    .profile_image {
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 8px 0 0;
+    }
+
+    &--list {
+      padding: 10px;
+    }
+
+    &--container {
+      align-items: center;
+      display: flex;
+
+      .time {
+        margin: 1px 5px 0 5px;
+        font-size: 12px;
+        letter-spacing: 0.8px;
+      }
+
+    }
+  }
+}

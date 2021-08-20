@@ -1,12 +1,33 @@
-<h3>通知</h3>
-<% notifications = @notifications.where.not(visitor_id: current_user.id) %>
-<% if notifications.exists? %>
-    <%= link_to notifications_destroy_all_path, method: :delete do %>
-        <h7>全削除</h7>
-    <% end %>
-    <div>
-      <%= render "notifications/notifications", notifications: @notifications %>
+<div class="notifications">
+  <div class="notifications__headar">
+    <div class="notifications__headar--title">
+      <p>通知一覧</p>
     </div>
-<% else %>
-    <p>通知はありません</p>
-<% end %>
+  </div>
+
+  <div class="tab1">
+    <% if @notifications.present? %>
+    <div class="notifications__index">
+      <%= render "notifications/notifications", notifications: @notifications,notifications: @checked_notifications  %>
+    </div>
+  <% else %>
+    <div class="no-users">
+      <p class="no-user">通知はありません</p>
+    </div>
+　<% end %>
+</div>
+ <div class="tab2">
+  <% if @checked_notifications.present? %>
+    <div class="notifications__index">
+      <div class="notifications__index--destroy_all">
+          <%= link_to " 全削除" , notifications_destroy_all_path, method: :delete, data: { confirm: '本当に全て削除しますか？' }, class: "fas fa-trash-alt fa-lg"  %>
+      </div>
+      <%= render "notifications/notifications", notifications: @notifications,　notifications: @checked_notifications  %>
+    </div>
+  <% else %>
+    <div class="no-users">
+      <p class="no-user">通知はありません</p>
+    </div>
+　<% end %>
+ </div>
+</div>

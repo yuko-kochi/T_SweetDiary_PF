@@ -4,8 +4,79 @@
 
 .home_image {
   background-image: image-url('5173599_m.jpg');
-  margin: 0;
+  margin-top: 70px;
   width: 100vw;
   height: 80vh;
   background-position: 40% 40%;
+}
+
+.home{
+  width: 100%;
+  text-align: center;
+  margin: 2.5em auto;
+  font-family: "ヒラギノ明朝 ProN";
+  color: #594331;
+  letter-spacing: 1px;
+
+  h1 {
+   margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 20px;
+  }
+}
+
+.home_about {
+  text-align: center;
+  font-family: "ヒラギノ明朝 ProN";
+  color: #59524C;
+  display: flex;
+  margin: 20px 6em;
+
+  .about-image {
+    width: 15em;
+    object-fit: cover;
+  }
+
+}
+
+.container {
+  position: relative;
+  width: 1170px;
+  color: #444;
+  font-size: 14px;
+  font-weight: 300;
+  overflow: hidden;
+  background: #A6988D;
+
+  &__col {
+    float: left;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 23%;
+    margin: 0 1%;
+    letter-spacing: 1px;
+  }
+
+}
+
+
+
+
+.col .icon {
+  border-radius: 50%;
+  height: 85px;
+  width: 85px;
+  line-height: 85px;
+  text-align: center;
+  margin: 0 auto;
+  transition: background 0.25s linear, color 0.25s linear;
+}
+
+
+.col:hover > .icon {
+  background: #F44336;
+  color: white;
 }
