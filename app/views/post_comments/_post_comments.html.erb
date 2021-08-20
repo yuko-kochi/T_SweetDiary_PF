@@ -10,7 +10,7 @@
       </p>
       <p class="comments-item__current_user-created-at"><%= comment.created_at.strftime('%Y.%m.%d') %>
         <% if comment.user == current_user %>
-          <%= link_to "削除", post_post_comment_path(comment.post, comment), method: :delete, remote: true %>
+          <%= link_to "", post_post_comment_path(comment.post, comment), method: :delete, remote: true, class: "far fa-trash-alt" %>
         <% end %>
       </p>
     </div>
@@ -24,7 +24,7 @@
         </p>
         <p class="comments-item__current_user-created-at"><%= comment.created_at.strftime('%Y.%m.%d') %>
           <% if comment.user == current_user %>
-            <%= link_to "削除", post_post_comment_path(comment.post, comment), method: :delete, remote: true %>
+            <%= link_to "", post_post_comment_path(comment.post, comment), method: :delete, remote: true, class: "far fa-trash-alt" %>
           <% end %>
         </p>
       </div>

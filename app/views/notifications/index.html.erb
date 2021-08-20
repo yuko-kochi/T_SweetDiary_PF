@@ -4,18 +4,30 @@
       <p>通知一覧</p>
     </div>
   </div>
+
+  <div class="tab1">
     <% if @notifications.present? %>
     <div class="notifications__index">
-      <div class="notifications__index--destroy_all">
-          <%= link_to notifications_destroy_all_path, method: :delete do %>
-           <p>全削除</p>
-          <% end %>
-      </div>
-      <%= render "notifications/notifications", notifications: @notifications %>
+      <%= render "notifications/notifications", notifications: @notifications,notifications: @checked_notifications  %>
     </div>
   <% else %>
     <div class="no-users">
       <p class="no-user">通知はありません</p>
     </div>
 　<% end %>
+</div>
+ <div class="tab2">
+  <% if @checked_notifications.present? %>
+    <div class="notifications__index">
+      <div class="notifications__index--destroy_all">
+          <%= link_to " 全削除" , notifications_destroy_all_path, method: :delete, data: { confirm: '本当に全て削除しますか？' }, class: "fas fa-trash-alt fa-lg"  %>
+      </div>
+      <%= render "notifications/notifications", notifications: @notifications,　notifications: @checked_notifications  %>
+    </div>
+  <% else %>
+    <div class="no-users">
+      <p class="no-user">通知はありません</p>
+    </div>
+　<% end %>
+ </div>
 </div>
