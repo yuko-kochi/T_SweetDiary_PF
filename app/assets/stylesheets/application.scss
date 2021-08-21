@@ -27,78 +27,10 @@
  .main {
     height: 100%;
     width: 100%;
-    margin: 70px auto 50px;
+    margin: 80px auto 50px;
     padding-bottom: 20px;
  }
 
-.signup, .signin {
-  max-width: 800px;
-  margin: 80px auto;
-  text-align: center;
-}
-
-.signup-body, .signin-body {
-  margin-top: 48px;
-  overflow: hidden;
-  font-family: system-ui, sans-serif;
-  position: relative;
-}
-
-.field {
-  padding: 0;
-  margin: 0 auto 10px;
-}
-
-.sign-form {
-  height: 36px;
-  width: 300px;
-  border: 0.5px solid #988d8d;
-  font-size: 14px;
-  color: #5f5354;
-  padding: 8px 16px;
-}
-
-.submit {
-  background-color: #white;
-}
-
-.btn-sign {
-  margin-top: 10px;
-  height: 30px;
-  width: 300px;
-  display: inline-block;
-  padding: 0.3em 1em;
-  text-decoration: none;
-  color: #67c5ff;
-  border: solid 2px #67c5ff;
-  border-radius: 3px;
-  transition: .4s;
-  background-color: white;
-}
-
-.btn-sign:hover {
-  background: #67c5ff;
-  color: white;
-}
-
-.btn-signin {
-  margin-top: 10px;
-  height: 30px;
-  width: 300px;
-  display: inline-block;
-  padding: 0.3em 1em;
-  text-decoration: none;
-  color: #ff7f7f;;
-  border: solid 2px #ff7f7f;;
-  border-radius: 3px;
-  transition: .4s;
-  background-color: white;
-}
-
-.btn-signin:hover {
-  background: #ff7f7f;;
-  color: white;
-}
 
 
 ul {
@@ -118,7 +50,7 @@ a {
 
 .header {
   display: flex;
-  height: 70px;
+  height: 80px;
   background: #D9C7B8;
   color:　#ffffff;
   align-items: center;
@@ -130,11 +62,35 @@ a {
 }
 
 .footer {
-  color:　#ffffff;
+  color: #fff;
   background: #D9C7B8;
   height: 70px;
   width: 100%;
   bottom: 0;
+  text-align: center;
+
+  .footer-bar {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .copyright {
+    font-size: 12px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+  }
+
+  .sns {
+    font-size: 30px;
+    height: 60px;
+    line-height: 60px;
+    position: absolute;
+
+    li {
+      margin-right: 10px;
+    }
+  }
 }
 
 .header__logo {
@@ -162,3 +118,5 @@ nav ul {
 .image {
   object-fit: cover;
 }
+
+
