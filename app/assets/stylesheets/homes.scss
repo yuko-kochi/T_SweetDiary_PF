@@ -10,73 +10,109 @@
   background-position: 40% 40%;
 }
 
-.home{
+.home {
   width: 100%;
   text-align: center;
-  margin: 2.5em auto;
-  font-family: "ヒラギノ明朝 ProN";
-  color: #594331;
-  letter-spacing: 1px;
 
-  h1 {
-   margin-bottom: 20px;
-  }
-
-  p {
-    font-size: 20px;
-  }
-}
-
-.home_about {
-  text-align: center;
-  font-family: "ヒラギノ明朝 ProN";
-  color: #59524C;
-  display: flex;
-  margin: 20px 6em;
-
-  .about-image {
-    width: 15em;
-    object-fit: cover;
-  }
-
-}
-
-.container {
-  position: relative;
-  width: 1170px;
-  color: #444;
-  font-size: 14px;
-  font-weight: 300;
-  overflow: hidden;
-  background: #A6988D;
-
-  &__col {
-    float: left;
-    padding: 0;
-    margin: 0;
-    position: relative;
-    width: 23%;
-    margin: 0 1%;
+  &__header{
+    margin: 4em auto;
+    font-family: "ヒラギノ明朝 ProN";
+    color: #594331;
     letter-spacing: 1px;
+    padding: 20px;
+
+    h1 {
+     margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+  }
+
+  .home_about {
+    font-family: "ヒラギノ明朝 ProN";
+    margin: 20px auto;
+    background: #5B858C;
+    width: 60%;
+    border: thick double #ffffff;
+    letter-spacing: 1px;
+
+    .about-area{
+      margin: 20px;
+      border: 1px solid #ffffff;
+      display: flex;
+    }
+
+    .about-image {
+      width: 15em;
+      height: 45vh;
+      border-right: none;
+      object-fit: cover;
+    }
+  }
+
+  .container {
+    color: #FFF8F2;
+    font-size: 14px;
+    text-align: start;
+    margin: 20px 20px 10px;
+    padding: 10px;
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 5px;
+    }
+
+    p:last-child {
+      margin-top: 15px;
+    }
+  }
+
+  .home-posts {
+    width: 95%;
+    margin: 6em auto;
+    font-family: "ヒラギノ明朝 ProN";
+
+
+    &__title {
+      font-size: 30px;
+      letter-spacing: 3px;
+      padding: 20px;
+      margin: 20px;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+    }
+
+    .post-index__posts-introduction {
+      text-align: start;
+    }
+
+    &__btn {
+      margin: 30px;
+
+      .btn-more {
+        height: 50px;
+        width: 200px;
+        display: inline-block;
+        padding: 10px;
+        color: #B8D4D9;
+        border: solid 2px #B8D4D9;
+        border-radius: 5px;
+        transition: .5s;
+        background-color: white;
+      }
+
+      .btn-more:hover {
+        background: #B8D4D9;
+        color: white;
+        transition: .4s;
+      }
+    }
   }
 
 }
 
-
-
-
-.col .icon {
-  border-radius: 50%;
-  height: 85px;
-  width: 85px;
-  line-height: 85px;
-  text-align: center;
-  margin: 0 auto;
-  transition: background 0.25s linear, color 0.25s linear;
-}
-
-
-.col:hover > .icon {
-  background: #F44336;
-  color: white;
-}

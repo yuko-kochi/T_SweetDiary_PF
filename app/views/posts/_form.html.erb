@@ -36,14 +36,12 @@
     <div id='show_map'></div>
   <% end %>
 
-  <% if post.status == "下書きする" %>
     <div class="status-field">
       <%= f.radio_button :status, "投稿する" %>
-      <%= f.label :status_0, '投稿する' , class: "status_0" %>
+      <%= f.label :status_0, '投稿する'  %>
       <%= f.radio_button :status, "下書きする"%>
       <%= f.label :status_1, '下書きする' %>
     </div>
-  <% end %>
 
   <%= f.submit post_button, class: "actions-btn" %>
 <% end %>
