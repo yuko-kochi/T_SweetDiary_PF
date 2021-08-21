@@ -1,33 +1,35 @@
 <div class="signup">
   <div class="signup-header">
     <div class="signup-header__title">
-      <h2>新規会員登録</h2>
+      <h2>　Sing Up　</h2>
     </div>
   </div>
-  <div class="signup-body">
+  <div class="form-body">
     <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="field signup-field">
+      <div class="form-body__field">
         <%= f.text_field :name, autofocus: true, placeholder: "ニックネーム", class: 'sign-form' %>
       </div>
 
-      <div class="field signup-field">
+      <div class="form-body__field">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: 'sign-form' %>
       </div>
 
-      <div class="field signup-field">
+      <div class="form-body__field">
         <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード (6文字以上) ", class: 'sign-form' %>
       </div>
 
-      <div class="field signup-field">
+      <div class="form-body__field">
         <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード確認", class: 'sign-form' %>
       </div>
 
-      <div class="actions signup-actions">
+      <div class="actions">
         <%= f.submit "Sign up" ,class: 'btn btn-sign'%>
       </div>
     <% end %>
   </div>
-  <%= render "devise/shared/links" %>
+  <div class="sign-link">
+    アカウントをお持ちの方は<%= link_to "こちらからログイン", new_user_session_path, class: "link" %>してください
+  </div>
 </div>
