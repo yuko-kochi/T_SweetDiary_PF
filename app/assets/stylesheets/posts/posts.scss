@@ -4,9 +4,9 @@
 
 .main-post {
   width: 100%;
-  margin: 70px auto 0px;
+  margin: 100px auto 0px;
   padding-top: 20px;
-
+  font-family: system-ui, sans-serif;
 }
 
 .main-post-row {
@@ -16,149 +16,22 @@
   flex-direction: row;
 }
 
-// 投稿一覧
-.post-index {
-  width: calc(100% - 200px);
-  padding: 0 40px 0 0;
-
-  &__title {
-    font-size: 24px;
-    line-height: 15px;
-    letter-spacing: 0.8px;
-    color: #000;
-    font-weight: 700;
-    margin: 0 0 4px;
-    text-align: center;
-    border-bottom: 1px solid #e7e7e7;
-  }
-
-    &__title {
-    font-family: system-ui, sans-serif;
-    text-align: start;
-  }
-
-  .title {
-    font-size: 25px;
-    letter-spacing: 7px;
-    color: #5f5354;
-    margin: 20px;
-  }
-
-  &__posts {
-    margin: 16px 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  &__posts::after{
-    content:"";
-    display: block;
-    width: 310px;
-    padding: 5px;
-  }
-
-  // ソート機能リンク
-  &__posts-links {
-    margin: 15px auto;
-    width: 98%;
-
-    &--item {
-      margin: 10px 0;
-      display: inline-block;
-      font-size: 18px;
-      padding: 0 20px;
-      border-left: 1px solid #e7e7e7;
-    }
-
-    &--item:first-child {
-      border: none;
-    }
-  }
-
-  &__posts {
-    width: 98%;
-    margin: auto;
-  }
-
-  &__posts-no {
-    width: 50%;
-    margin: 40px auto;
-    font-family: "メイリオ","Meiryo";
-    font-weight: bold;
-    color: #5f5354;
-
-    &--not {
-      font-size: 40px;
-      padding: 10px;
-    }
-
-    &--find {
-      font-size: 20px;
-      padding: 10px;
-    }
-
-  }
-
-  &__posts-link {
-    background: #B8D4D9;
-    margin: 5px;
-    width: 310px;
-    padding: 5px;
-  }
-
-  &__posts-introduction {
-    box-sizing: border-box;
-    padding: 10px 15px;
-  }
-
-  &__posts-user {
-    display: flex;
-    align-items: center;
-    font-size: 15px;
-    margin-bottom: 15px;
-  }
-
-  &__posts-user-image {
-    object-fit: cover;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-
-  &__posts-title {
-    height: 50px;
-    font-family: "メイリオ","Meiryo";
-    font-weight: bold;
-    color: #9f886e;
-    word-wrap: normal;
-  }
-
-  &__posts-create {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    vertical-align: baseline;
-    font-size: 12px;
-    vertical-align: middle;
-    text-align: end;
-  }
-}
 
 // サイドバー検索
 .side-var {
   width: 200px;
-  margin-top: 21px;
+  margin-top: 20px;
 
   &__list {
     margin-bottom: 40px;
   }
 
   &__title {
-    border-bottom: 1px solid #2d2926;
+    border-bottom: 1px solid #8A7566;
     font-size: 20px;
     text-align: center;
     padding-bottom: 10px;
+    color: #8C7969;
   }
 
   &__list-name {
@@ -397,129 +270,7 @@
 
 
 
-// 投稿登録、編集画面
-.post-actions {
-  max-width: 700px;
 
-  &__title {
-    font-family: system-ui, sans-serif;
-    border-bottom: 0.5px solid #c7bcbc;
-    margin-bottom: 32px;
-    text-align: start;
-  }
-
-  .title {
-    font-size: 20px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    line-height: 29px;
-    color: #5f5354;
-    margin: 0 40px 12px;
-  }
-
-  &__form {
-  max-width: 600px;
-  margin: auto;
-
-    &-field {
-    margin-bottom: 48px;
-
-      &--title {
-        line-height: 46px;
-        font-size: 14px;
-        font-weight: 700;
-        color: #5f5354;
-        text-align: start;
-      }
-
-      &--image {
-        object-fit: cover;
-      }
-
-      &--introduction {
-        width: 100%;
-        height: 200px;
-        padding: 16px;
-        border: 1px solid #988d8d;
-        font-size: 14px;
-        border-radius: 3px;
-        resize: none;
-        font-weight: 400;
-        text-align: center;
-      }
-
-      &--category, &--tag, &--calemdar {
-        width: 60%;
-        height: 40px;
-        text-align: center;
-      }
-
-      &--category, &--calemdar {
-        font-size: 15px;
-      }
-
-      &--address {
-        width: 75%;
-        height: 40px;
-        text-align: center;
-        font-size: 15px;
-      }
-    }
-  }
-
-  .status_0 {
-    margin-right: 30px;
-  }
-
-  .form-btn {
-    color: white;
-    font-size: 12px;
-    line-height: 16px;
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #ed7483;
-    background: #ff7f7f;
-    margin: 10px;
-  }
-
-  .actions-btn {
-    margin-top: 30px;
-    height: 30px;
-    width: 300px;
-    padding: 0.3em 1em;
-    text-decoration: none;
-    color: #ff7f7f;;
-    border: solid 2px #ff7f7f;;
-    border-radius: 3px;
-    transition: .4s;
-    background-color: white;
-  }
-
-  .actions-btn:hover {
-    background: #ff7f7f;;
-    color: white;
-  }
-
-  .item_image_btn{
-    display: none;
-  }
-
-
-
-  #img_field {
-    font-size: 25px;
-    font-style: inherit;
-    margin: 0 auto;
-    color: white;
-    background-color: #5bc0de;
-    border-radius: 5px;
-    width: 300px;
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
-  }
-
-}
 
 // 地図表示
 #map {

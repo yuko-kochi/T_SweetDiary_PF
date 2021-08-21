@@ -75,20 +75,21 @@
   .home-posts {
     width: 95%;
     margin: 6em auto;
-    font-family: "ヒラギノ明朝 ProN";
-
 
     &__title {
+      width: 350px;
       font-size: 30px;
       letter-spacing: 3px;
-      padding: 20px;
-      margin: 20px;
-      text-decoration: underline;
-      text-decoration-thickness: 2px;
+      padding-top: 20px;
+      margin: 20px auto;
+      color: #8A7566;
+      border-bottom: 1px solid #8A7566;
+      font-family: "ヒラギノ明朝 ProN";
     }
 
     .post-index__posts-introduction {
       text-align: start;
+      
     }
 
     &__btn {
