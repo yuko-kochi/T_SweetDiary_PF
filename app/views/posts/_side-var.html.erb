@@ -17,9 +17,13 @@
   <ul class="side-var__list-name">
     <% tag_list.each do |tag| %>
       <li class="side-var__list-link">
-        <%= link_to tag.name, tag_path(tag) %>
-        <%="(#{tag.posts.where(status: 0).count})" %>
+       <%= link_to tag_path(tag.id) do %>
+          #<%= tag.name %>
+        <% end %>
       </li>
+    <% end %>
+    <%= link_to tags_path do %>
+      タグ一覧はこちらから>>
     <% end %>
   </ul>
 </div>

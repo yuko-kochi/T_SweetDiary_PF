@@ -7,8 +7,12 @@
   width: 100%;
   margin: 100px auto 200px;
   padding-top: 20px;
-  font-family: "ヒラギノ明朝 ProN";
+  font-family: "游ゴシック体","YuGothic";
   color: #8C7969;
+
+  a {
+    color: #8A7566;
+  }
 
   &__row {
   width: 90%;
@@ -41,7 +45,6 @@
     grid-area: title;
     margin-top: 10px;
     width: 60%;
-    font-family: system-ui, sans-serif;
 
     &--name{
       margin: 10px 0 4px;
@@ -70,7 +73,8 @@
       display: inline-block;
       font-size: 18px;
       padding: 0 15px;
-      border-right: 1px solid #e7e7e7;
+      border-right: 1px solid #8C7969;
+      font-family: "ヒラギノ明朝 ProN";
     }
 
     &--item:last-child {
@@ -82,12 +86,6 @@
   .itemname {
     font-size: 13px;
     margin-left: 5px;
-  }
-
-  &__edit-area {
-    position: absolute;
-    right: 0;
-    top: 0;
   }
 
   .btn-following {
@@ -121,6 +119,15 @@
     border-radius: 4px;
     border: 1px solid #ed7483;
     background: #ff7f7f;
+  }
+
+  &__edit-area {
+    position: absolute;
+    right: 0;
+    top: 0;
+    a {
+      color: #fffaf0;
+    }
   }
 
   &__edit-btn {
@@ -162,7 +169,7 @@
 
 
     &--item {
-      font-family: system-ui, sans-serif;
+      font-family: "游ゴシック体","YuGothic";
       margin: 10px 0 0;
       display: inline-block;
       font-size: 18px;
@@ -182,3 +189,4 @@
     }
   }
 }
+

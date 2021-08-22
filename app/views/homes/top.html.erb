@@ -1,3 +1,15 @@
+<div class="top">
+  <div class="images">
+      <% @images.each do |image| %>
+      <div class="top-image">
+        <h2 class="top-text">aaaaaaaa</h2>
+        <%= attachment_image_tag image, :image, size: "1600x900"  %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
 <h1 class="home_image"></h1>
 <div class="home">
   <div class="home__header">
@@ -17,11 +29,11 @@
             新たなスイーツ、お店、人と出会えます。<br >
           </p>
           <p>
-          感性が近い投稿者の情報を見て、いいねしたり、コメント欄で質問をして<br >
+          感性が近い投稿者の情報を見て、いいねしたり、コメント欄で質問をしたり<br >
           スイーツ情報を集めるといったことが簡単にできる場です。
           <p>
           投稿にはお店の地図情報もあり、簡単にお店を探せます。<br >
-          投稿したものはカレンダーにて管理ができいつでも探すことができます。
+          投稿したものはカレンダーにて管理ができ簡単に探すことができます。
           </p>
           <p>そんな、求めているスイーツ情報をお届けできる素敵な空間です。</p>
       </div>
@@ -39,3 +51,28 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(".images").skippr({
+  // スライドショーの変化（"fade" or "slide"）
+  transition : 'fade',
+  // 変化にかかる時間（ミリ秒）
+  speed : 1000,
+  // easingの種類
+  easing : 'easeOutQuart',
+  // ナビゲーションの形（"block" or "bubble"）
+  navType : 'block',
+  // 子要素の種類（"div" or "img"）
+  childrenElementType : 'div',
+  // ナビゲーション矢印の表示（trueで表示）
+  arrows : true,
+  // スライドショーの自動再生（falseで自動再生なし）
+  autoPlay : true,
+  // 自動再生時のスライド切替間隔（ミリ秒）
+  autoPlayDuration : 4000,
+  // キーボードの矢印キーによるスライド送りの設定（trueで有効）
+  keyboardOnAlways : true,
+  // 1枚目のスライド表示時に戻る矢印を表示するかどうか [false]:矢印を隠さない [true]:矢印を隠す
+  hidePrevious : false
+});
+</script>

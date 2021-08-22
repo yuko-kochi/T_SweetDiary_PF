@@ -11,7 +11,8 @@
           <%= post.introduction.truncate(30)  %>
         </p>
         <p class="post-index__posts--introduction--create">
-          <%= post.created_at.strftime('%Y.%m.%d') %>
+          <spna class="fas fa-heart like"><%= post.likes.count %></spna>
+          <spna class="created_"><%= post.created_at.strftime('%Y.%m.%d') %></spna>
         </p>
       </div>
     <% end %>

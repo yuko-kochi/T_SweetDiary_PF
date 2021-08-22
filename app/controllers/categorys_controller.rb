@@ -13,6 +13,6 @@ class CategorysController < ApplicationController
     else
       @posts = Post.where(category_id: params[:id], status: 0 ).order(created_at: :desc)
     end
-    @tag_list = Tag.all
+    @tag_list = Tag.find( PostTag.group(:tag_id).order('count(tag_id)desc').limit(10).pluck(:tag_id))
   end
 end

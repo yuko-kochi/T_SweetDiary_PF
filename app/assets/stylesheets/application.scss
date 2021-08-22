@@ -28,6 +28,8 @@ body {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
+  background:#eee;
+  font-family: "游ゴシック体","YuGothic";
 
   main {
     flex: 1;
@@ -54,7 +56,6 @@ li {
 
 a {
   text-decoration: none;
-  color: #A6988D;
 }
 
 
@@ -67,8 +68,11 @@ a {
   width: 100%;
   margin: auto;
   position: fixed;
-  z-index: 9;
+  z-index: 100;
   top: 0;
+  a {
+    color: #fffff0;
+  }
 }
 
 .footer {

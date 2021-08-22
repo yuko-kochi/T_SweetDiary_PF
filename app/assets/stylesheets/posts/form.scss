@@ -1,6 +1,8 @@
 // 投稿登録、編集画面
 .post-actions {
-  max-width: 700px;
+  width: 700px;
+  text-align: center;
+  margin: auto;
 
   &__title {
     font-family: "ヒラギノ明朝 ProN";
