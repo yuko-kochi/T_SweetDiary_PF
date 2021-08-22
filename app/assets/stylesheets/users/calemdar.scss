@@ -1,24 +1,34 @@
-
 // カレンダー画面
 .usercalendar {
-  width: 90%;
-  margin:  30px auto;
+  margin: 100px auto 0px;
+  
+  a {
+    color: #8A7566;
+  }
+
+  .usercalendar-row {
+    width: 90%;
+    margin: auto;
+    padding-top: 30px;
+  }
 
   &__headar {
-    border-bottom: 0.5px solid #c7bcbc;
-    margin-bottom: 32px;
+    border-bottom: 0.5px solid #8C7969;
+    text-align: start;
 
     &--title {
-    font-size: 20px;
+    font-size: 30px;
+    font-weight: 500;
     letter-spacing: 3px;
-    color: #5f5354;
-    margin: 0 40px 5px;
+    line-height: 29px;
+    color: #8A7566;
+    margin: 0 40px 12px;
+    font-family: "ヒラギノ明朝 ProN";
     }
 
   }
 
   &__main {
-    width: 90%;
     margin:  30px auto;
 
     &--post{

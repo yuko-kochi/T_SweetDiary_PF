@@ -3,24 +3,70 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .notifications {
-  width: 70%;
-  margin:  30px auto;
+  width: 100%;
+  margin: 100px auto 0px;
+  padding-top: 20px;
+  font-family: system-ui, sans-serif;
+  text-align: center;
+
+  .notifications-row {
+    width: 800px;
+    margin: auto;
+  }
 
   &__headar {
-    border-bottom: 0.5px solid #c7bcbc;
     margin-bottom: 22px;
 
     &--title {
-    font-size: 20px;
-    letter-spacing: 3px;
-    color: #5f5354;
-    margin: 0 40px 5px;
+      font-family: "ヒラギノ明朝 ProN";
+      border-bottom: 0.5px solid #8C7969;
+      margin-bottom: 32px;
+      text-align: start;
+
+      .title {
+        font-size: 30px;
+        font-weight: 500;
+        letter-spacing: 3px;
+        line-height: 29px;
+        color: #8A7566;
+        margin: 0 20px 12px;
+      }
+    }
+  }
+
+  &__tab {
+    // tabの表示
+    .tab{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .tab li a{
+      display: block;
+      background:#ddd;
+      margin:0 2px;
+      padding:10px 20px;
+    }
+    // liにactiveクラスがついた時
+    .tab li.active a{
+      background:#fff;
     }
 
+    // エリアの表示非表示
+    .area {
+      display: none;/*最初は表示されないようにする*/
+      background: #fff;
+      padding: 50px 20px;
+    }
+
+    //areaにis-activeというクラスがついた時の形状
+    .area.is-active {
+      display: block;/*表示*/
+      animation-name: displayAnime;/*アニメーション*/
+      animation-duration: 2s;/*アニメーションの速さ*/
+    }
   }
 
   &__index {
-    width: 70%;
     margin: 10px auto;
     padding: 10px;
 
@@ -48,7 +94,17 @@
         font-size: 12px;
         letter-spacing: 0.8px;
       }
-
     }
+  }
+}
+
+// アニメーション開始から終了するまでどのようなアニメーションをするのか指定できるCSSの文法
+// 見えない状態から見える状態に表示
+@keyframes displayAnime{
+  from {
+    opacity: 0; /*要素の不透明度*/
+  }
+  to {
+    opacity: 1;
   }
 }

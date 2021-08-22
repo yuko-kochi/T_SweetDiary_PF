@@ -6,6 +6,10 @@
   letter-spacing: 2px;
   color: #8A7566;
 
+  a {
+    color: #8A7566;
+  }
+
   .signup-header h2, .signin-header h2 {
     width: 300px;
     margin: 0 auto;
@@ -65,3 +69,4 @@
   transition: .4s;
   border-radius: 3px;
 }
+

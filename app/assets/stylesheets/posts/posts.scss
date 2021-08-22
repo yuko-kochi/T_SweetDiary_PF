@@ -6,7 +6,10 @@
   width: 100%;
   margin: 100px auto 0px;
   padding-top: 20px;
-  font-family: system-ui, sans-serif;
+
+  a {
+    color: #8A7566;
+  }
 }
 
 .main-post-row {
@@ -46,14 +49,11 @@
 }
 
 // 投稿詳細画面
-.post-show, .post-actions {
+.post-show {
+  width: 700px;
   text-align: center;
   margin: auto;
-
-  &__content, &__adress, &__edit-destroy {
-    width: 600px;
-    margin: auto;
-  }
+  color: #5f5354;
 
   &__info {
     width: 640px;
@@ -62,7 +62,7 @@
     align-items: center;
     margin: 10px auto;
     padding: 0 15px 10px;
-    border-bottom: 1px solid #e7e7e7;
+    border-bottom: 1px solid #8A7566;
   }
 
   &__info-user {
@@ -82,6 +82,7 @@
 
     &--name {
       font-size: 13px;
+      color: #999;
     }
   }
 
@@ -115,13 +116,14 @@
   }
 
   &__adress {
-    border-top: 1px solid #e7e7e7;
+    border-top: 1px solid #8A7566;
     padding: 15px 0;
     text-align: start;
     color: #666666
   }
 
   &__edit-destroy {
+    width: 640px;
     text-align: end;
     margin: 10px auto;
     font-size: 15px;
@@ -129,7 +131,7 @@
 
   &__edit {
     padding-right: 10px;
-    border-right: 1px solid #e7e7e7;
+    border-right: 1px solid #8A7566;
   }
 
   &__destroy {
@@ -139,33 +141,32 @@
   // コメント欄
   &__comments {
     width: 640px;
-    border-top: 1px solid #e7e7e7;
+    border-top: 1px solid #8A7566;
     margin: 20px auto;
     padding: 10px;
 
-    .comment-count {
-      font-size: 10px;
-      margin-left: 5px;
-      letter-spacing: 5px;
-    }
-
     &--title {
-      border-left: 3px solid #ed7483;
+      border-left: 3px solid #8A7566;
       font-size: 20px;
       line-height: 32px;
       letter-spacing: 0.8px;
-      color: #2d2926;
       padding-left: 16px;
       margin: 15px 0;
       font-weight: 700;
       text-align: start;
+
+      .comment-count {
+        font-size: 10px;
+        margin-left: 5px;
+        letter-spacing: 5px;
+      }
     }
 
     &--list {
       list-style-type: none;
       padding: 0 0 24px 16px;
       margin: 0;
-      border-bottom: 1px solid #e7e7e7;
+      border-bottom: 1px solid #8A7566;
       text-align: left;
 
       .comments-item {
@@ -180,7 +181,7 @@
         }
 
         &__contents {
-          background-color: #f5f5f5;
+          background-color: #B4D3D6;
           border-radius: 8px;
           padding: 12px 16px;
           font-size: 14px;
@@ -254,23 +255,19 @@
       width: 100px;
       padding: 0.3em 1em;
       text-decoration: none;
-      color: #ff7f7f;;
-      border: solid 2px #ff7f7f;;
+      color: #B4D3D6;
+      border: solid 2px #B4D3D6;
       border-radius: 3px;
       transition: .4s;
       background-color: white;
     }
 
     .actions-btn:hover {
-      background: #ff7f7f;;
+      background: #B4D3D6;
       color: white;
     }
   }
 }
-
-
-
-
 
 // 地図表示
 #map {
@@ -284,3 +281,4 @@
   width: 600px;
   margin: 0 auto 30px;
 }
+

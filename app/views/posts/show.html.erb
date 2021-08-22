@@ -44,7 +44,9 @@
       </div>
       <div class="post-show__content-tag">
         <% @post.tags.each do |tag| %>
-          #<%= link_to tag.name, tag_path(tag.id) %>
+          <%= link_to tag_path(tag.id) do %>
+            #<%= tag.name %>
+          <% end %>
         <% end %>
       </div>
     </div>
