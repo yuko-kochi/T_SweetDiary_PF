@@ -83,42 +83,15 @@
     }
   }
 
+  &__follwing {
+    a {
+      color: #fffaf0;
+    }
+  }
+
   .itemname {
     font-size: 13px;
     margin-left: 5px;
-  }
-
-  .btn-following {
-    text-decoration: none;
-    color: #ed7483;
-    display: block;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0;
-    color: #ed7483;
-    font-weight: 400;
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #ed7483;
-  }
-
-  .btn-following:hover {
-    background: #ff7f7f;
-    color: white;
-  }
-
-  .btn-followed {
-    text-decoration: none;
-    color: white;
-    display: block;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0;
-    font-weight: 400;
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #ed7483;
-    background: #ff7f7f;
   }
 
   &__edit-area {
@@ -189,4 +162,3 @@
     }
   }
 }
-

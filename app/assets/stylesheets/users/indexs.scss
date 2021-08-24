@@ -3,6 +3,9 @@
   margin: 100px auto 0px;
   padding-top: 20px;
   font-family: "游ゴシック体","YuGothic";
+  a {
+    color: #fffaf0;
+  }
 
   &__row {
     width: 90%;
@@ -71,43 +74,6 @@
 
     &--follow {
       text-align: end;
-    }
-
-    &--following {
-      color: #FFF8F2;
-      padding: 5px;
-      border: 1px solid #FFF8F2;
-      font-size: 12px;
-      text-transform: uppercase;
-      margin: 10px 10px;
-      padding: 10px;
-      display: inline-block;
-      opacity: 0.65;
-      text-align: center;
-      text-decoration: none;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-
-    &--following:hover {
-      opacity: 10;
-    }
-
-    &--followed {
-      background-color: #5B858C;
-      color: #FFF8F2;
-      padding: 5px;
-      border: 1px solid #5B858C;
-      font-size: 12px;
-      text-transform: uppercase;
-      margin: 10px 10px;
-      padding: 10px;
-      display: inline-block;
-      opacity: 0.65;
-      text-align: center;
-      text-decoration: none;
-      font-weight: 600;
-      letter-spacing: 1px;
     }
 
     &--followed:hover {

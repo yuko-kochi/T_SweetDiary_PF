@@ -1,22 +1,21 @@
 <% users.each do |user| %>
   <div class="user-index__card">
-    <div class="user-index__card-image">
+    <%= link_to user_path(user.id) do %>
+      <div class="user-index__card-image">
         <div class="user-index__card--profile-image">
-        <%= link_to user_path(user.id) do %>
-          <%= attachment_image_tag( user, :profile_image, size: "200x200", fallback: "no_image.jpg" ) %>
-        <% end %>
+          <%= attachment_image_tag user, :profile_image, size: "200x200", fallback: "no_image.jpg"  %>
         </div>
         <div class="user-index__card--color"></div>
-
-    </div>
-    <div class="user-index__card--info">
-      <p class="user-index__card--name">
-        <%= user.name %>
-      </p>
-      <p class="user-index__card--introduction">
-        <%= user.introduction %>
-      </p>
-    </div>
+      </div>
+      <div class="user-index__card--info">
+        <p class="user-index__card--name">
+          <%= user.name %>
+        </p>
+        <p class="user-index__card--introduction">
+          <%= user.introduction %>
+        </p>
+      </div>
+    <% end %>
     <div id="relationship_<%= user.id %>">
       <%= render partial: "relationships/relationships", locals: { user: user } %>
     </div>

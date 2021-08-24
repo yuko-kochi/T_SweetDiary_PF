@@ -1,8 +1,15 @@
 <div class="main-post">
+
   <div class="post-show">
+    <p id="notice">
+     <% if flash[:notice] %>
+      <%= flash[:notice] %>
+     <% end %>
+    </p>
     <div class="post-show__image">
       <%=  attachment_image_tag @post, :image, format: 'jpg', size: "640x360", class: "post-show__image" %>
     </div>
+
     <!--showページhaeder-->
     <div class="post-show__info">
       <!--ユーザー-->
@@ -15,9 +22,7 @@
         <% end %>
       </div>
 
-
       <div class="post-show__info-list">
-
         <!--いいね機能-->
         <div class="post-show__info-list--like">
           <div id="likes_buttons_<%= @post.id %>">
@@ -35,8 +40,8 @@
           <%= @post.created_at.strftime('%Y.%m.%d') %>
         </div>
       </div>
-
     </div>
+
     <!--showページmain-->
     <div class="post-show__content">
       <div class="post-show__content-main">
@@ -51,16 +56,13 @@
       </div>
     </div>
 
-
     <!--showページ地図機能-->
-
     <% if @post.address.present? %>
       <div class="post-show__adress">
         住所：<%= @post.address %>
       </div>
       <div id="show_map"></div>
     <% end %>
-
 
     <!--showページ編集・削除機能-->
     <div class="post-show__edit-destroy">
@@ -76,8 +78,8 @@
         <%= render "post_comments/post_comments", post: @post, post_comment: @post_comment  %>
       </div>
     </div>
-
-
-
+    <div class="back">
+      <%= link_to '<< 戻る', :back %>
+    </div>
   </div>
 </div>

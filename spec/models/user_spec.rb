@@ -35,12 +35,12 @@ RSpec.describe 'Userモデルのテスト', type: :model do
     end
 
     context 'introductionカラム' do
-      it '50文字以下であること: 50文字は〇' do
-        user.introduction = Faker::Lorem.characters(number: 50)
+      it '80文字以下であること: 80文字は〇' do
+        user.introduction = Faker::Lorem.characters(number: 80)
         is_expected.to eq true
       end
-      it '50文字以下であること: 51文字は×' do
-        user.introduction = Faker::Lorem.characters(number: 51)
+      it '80文字以下であること: 81文字は×' do
+        user.introduction = Faker::Lorem.characters(number: 81)
         is_expected.to eq false
       end
     end

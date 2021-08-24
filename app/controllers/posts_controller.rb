@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     # params[:post][:tag_name]：formから、@postオブジェクトを参照してタグの名前も一緒に送信するコード
     # "ケーキ"　"プリン"　"タルト"のように送られて、取得する
     # split(",")は送信されてきた値を、スペースで区切って配列化する
-    tag_list = params[:post][:tag_ids].split(',')
+    tag_list = params[:post][:tag_ids].split(/[[:space:]]/)
     if @post.save
       # 先ほど取得したタグの配列をsave_tagというインスタンスメソッドを使ってデータベースに保存する処理
       # save_tagインスタンスメソッドの中身はpost.rbで定義
@@ -54,14 +54,15 @@ class PostsController < ApplicationController
     @lng = @post.longitude
     gon.lat = @lat
     gon.lng = @lng
-    @tag_list = @post.tags.pluck(:name).join(',')
+    @tag_list = @post.tags.pluck(:name).join(" ")
   end
 
   def update
     @post = Post.find(params[:id])
-    tag_list = params[:post][:tag_ids].split(',')
+    tag_list = params[:post][:tag_ids].split(/[[:space:]]/)
     if @post.update(post_params)
       @post.save_tag(tag_list)
+      flash[:notice] = "変更を保存しました。"
       redirect_to post_path(@post)
     else
       render :edit

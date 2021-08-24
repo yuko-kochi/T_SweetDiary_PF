@@ -53,6 +53,7 @@ ja:
     - :year
     - :month
     - :day
+    Previous: 前月
   datetime:
     distance_in_words:
       about_x_hours:
@@ -99,3 +100,15 @@ ja:
       day: 日
       month: 月
       year: 年
+
+  activerecord:
+    attributes:
+      post:
+       image: 画像
+       introduction: 説明
+       start_time: 日付
+       category_id: カテゴリー
+  simple_calendar:
+    previous: "<<"
+    next: ">>"
+    week: Woche

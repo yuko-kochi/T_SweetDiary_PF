@@ -8,6 +8,9 @@
   padding-top: 20px;
   font-family: system-ui, sans-serif;
   text-align: center;
+  a {
+    color: #8A7566;
+  }
 
   .notifications-row {
     width: 800px;
@@ -36,33 +39,31 @@
 
   &__tab {
     // tabの表示
-    .tab{
+    #tab-menu{
       display: flex;
       flex-wrap: wrap;
-    }
-    .tab li a{
-      display: block;
-      background:#ddd;
-      margin:0 2px;
-      padding:10px 20px;
-    }
-    // liにactiveクラスがついた時
-    .tab li.active a{
-      background:#fff;
+
+      li {
+        list-style-type: none;
+      }
+
+      a {
+        display: block;
+        background: #ddd;
+        margin: 0 2px;
+        padding: 10px 20px;
+        text-align: center;
+      }
     }
 
-    // エリアの表示非表示
-    .area {
-      display: none;/*最初は表示されないようにする*/
+    #tab-menu .active {
+      background: #fff;
+    }
+
+    #tab-contents {
       background: #fff;
       padding: 50px 20px;
-    }
-
-    //areaにis-activeというクラスがついた時の形状
-    .area.is-active {
-      display: block;/*表示*/
-      animation-name: displayAnime;/*アニメーション*/
-      animation-duration: 2s;/*アニメーションの速さ*/
+      margin-bottom: 50px;
     }
   }
 
@@ -95,16 +96,5 @@
         letter-spacing: 0.8px;
       }
     }
-  }
-}
-
-// アニメーション開始から終了するまでどのようなアニメーションをするのか指定できるCSSの文法
-// 見えない状態から見える状態に表示
-@keyframes displayAnime{
-  from {
-    opacity: 0; /*要素の不透明度*/
-  }
-  to {
-    opacity: 1;
   }
 }

@@ -1,6 +1,10 @@
 <div class="main-post">
+  <p id="notice">
+   <% if flash[:notice] %>
+    <%= flash[:notice] %>
+   <% end %>
+  </p>
   <div class="main-post-row">
-
     <div class="post-index">
       <div class="post-index__title">
         <h2 class="title">Post List</h2>

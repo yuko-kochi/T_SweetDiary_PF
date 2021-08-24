@@ -112,8 +112,4 @@ class Post < ApplicationRecord
    end
    # ------------------------------------------------
 
-  def self.search_for(keyword)
-    Post.where(['introduction LIKE(?) or address LIKE(?)', "%#{keyword}%","%#{keyword}%"])
-  end
-
 end
