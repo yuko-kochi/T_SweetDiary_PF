@@ -3,26 +3,26 @@
 <% post.post_comments.each do |comment| %>
   <li class="comments-item">
     <% if comment.user == post.user %>
-    <div class="comments-item__container current_user_comment">
+    <div class="comments-item__container post_user_comment">
       <p class="comments-item__contents">
-        <span class="comments-item__nickname"><%= comment.user.name %></span>
-        <%= comment.comment %>
+        <span class="nickname"><%= comment.user.name %></span>
+        <%= safe_join(comment.comment.split("\n"),tag(:br)) %>
       </p>
-      <p class="comments-item__current_user-created-at"><%= comment.created_at.strftime('%Y.%m.%d') %>
+      <p class="comments-item__post_user-created"><%= comment.created_at.strftime('%Y.%m.%d') %>
         <% if comment.user == current_user %>
           <%= link_to "", post_post_comment_path(comment.post, comment), method: :delete, remote: true, class: "far fa-trash-alt" %>
         <% end %>
       </p>
     </div>
-      <%= attachment_image_tag  @user, :profile_image, format: 'jpg', fallback: "no_image.jpg" , class: "post-show__info-user--image user-image current_user" %>
+      <%= attachment_image_tag  @user, :profile_image, format: 'jpg', fallback: "no_image.jpg" , class: "post-show__info-user--image post_user-image" %>
     <% else %>
       <%= attachment_image_tag  @user, :profile_image, format: 'jpg', fallback: "no_image.jpg" , class: "post-show__info-user--image user-image" %>
       <div class="comments-item__container">
         <p class="comments-item__contents">
-          <span class="comments-item__nickname"><%= comment.user.name %></span>
-          <%= comment.comment %>
+          <span class="nickname"><%= comment.user.name %></span>
+          <%= safe_join(comment.comment.split("\n"),tag(:br)) %>
         </p>
-        <p class="comments-item__current_user-created-at"><%= comment.created_at.strftime('%Y.%m.%d') %>
+        <p class="comments-item__current_user-created"><%= comment.created_at.strftime('%Y.%m.%d') %>
           <% if comment.user == current_user %>
             <%= link_to "", post_post_comment_path(comment.post, comment), method: :delete, remote: true, class: "far fa-trash-alt" %>
           <% end %>
@@ -33,9 +33,10 @@
   <% end %>
 </ul>
 
+
 <div class="new-comment-area">
   <% if user_signed_in? %>
-    <%= form_with(model:[post,post_comment], class: "comment-form ") do |f| %>
+    <%= form_with(model:[post,post_comment], class: "comment-form") do |f| %>
       <%= f.text_area :comment,placeholder: "コメントをここに", class: "new-comment" %>
       <%= f.submit "送信する", class: "actions-btn" %>
     <% end %>

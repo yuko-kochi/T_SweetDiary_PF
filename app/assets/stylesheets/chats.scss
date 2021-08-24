@@ -1,0 +1,72 @@
+// Place all the styles related to the chats controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.chats {
+  width: 100%;
+  margin: 80px auto 0px;
+  padding-top: 20px;
+  font-family: "游ゴシック体","YuGothic";
+  a {
+    color: #fffaf0;
+  }
+
+  &__row {
+    width: 700px;
+    margin: auto;
+  }
+
+    &__headar {
+    line-height: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #8C7969;
+
+    &--title {
+      font-family: "ヒラギノ明朝 ProN";
+      font-size: 25px;
+      letter-spacing: 7px;
+      margin: 20px 20px 25px ;
+      color: #8A7566;
+    }
+  }
+
+  &__message{
+    width: 80%;
+    height: 400px;
+    margin: 20px auto;
+    padding: 10px;
+    overflow: auto;
+  }
+  &__form {
+    border-top: 1px solid #8C7969;
+    padding-top: 20px;
+    text-align: end;
+  }
+
+  .chat-message{
+    width: 250px;
+    height: 50px;
+    padding: 12px 16px;
+    font-size: 14px;
+    letter-spacing: 0.4px;
+    font-weight: 400;
+    color: #2d2926;
+    border-radius: 4px;
+    resize: none;
+    border: 0.5px solid #8A7566;
+  }
+
+  p {
+    background: #B4D3D6;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 15px;
+    margin-left: 50%;
+  }
+
+  .no-current_user {
+    margin-left: 0;
+    margin-right: 50%;
+  }
+
+}

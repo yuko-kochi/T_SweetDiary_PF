@@ -18,6 +18,8 @@ module NotificationsHelper
       else
         tag.a(@visitor.name, href: user_path(@visitor))+"さんが"+(notification.post.user.name)+"さんの"+tag.a('投稿', href: post_path(notification.post_id))+"にコメントしました"
       end
+    when "chat" then
+       tag.a(@visitor.name, href: user_path(@visitor))+"さんが"+tag.a('Chatに', href: chat_path(notification.visitor))+"にメッセージを送りました"
     end
   end
 
