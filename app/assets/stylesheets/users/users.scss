@@ -103,7 +103,7 @@
     }
   }
 
-  &__edit-btn {
+  &__btn {
     text-decoration: none;
     color: white;
     display: block;
@@ -119,20 +119,8 @@
     text-align: center;
   }
 
-  &__calendar-btn {
-    text-decoration: none;
-    color: white;
-    display: block;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0;
-    font-weight: 400;
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #5B858C;
-    background: #5B858C;
-    margin: 10px;
-    text-align: center;
+  .chat {
+    width: 100px;
   }
 
   // sort機能

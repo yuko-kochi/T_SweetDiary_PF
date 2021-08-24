@@ -41,10 +41,10 @@
         <div class="user-show__edit-area">
           <% if @user.id == current_user.id %>
             <div>
-              <%= link_to "プロフィール編集", edit_user_path(@user), class: "user-show__edit-btn" %>
+              <%= link_to "プロフィール編集", edit_user_path(@user), class: "user-show__btn" %>
             </div>
             <div>
-              <%= link_to "カレンダー", user_calendar_path(@user), class: "user-show__calendar-btn" %>
+              <%= link_to "カレンダー", user_calendar_path(@user), class: "user-show__btn" %>
             </div>
           <% end %>
           <p id="notice">

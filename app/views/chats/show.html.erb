@@ -1,0 +1,24 @@
+<div class="chats">
+  <div class="chats__row">
+    <div class="chats__headar">
+      <div class="chats__headar--title">
+        <span><%= @user.name %>さんとのChat</span>
+      </div>
+    </div>
+    <div class="chats__message message">
+        <% @chats.each do |chat| %>
+          <% if chat.user_id == current_user.id %>
+            <p style="text-align: right;"><%= chat.message %></p>
+          <% else %>
+            <p style="text-align: left;" class="no-current_user"><%= chat.message %></p>
+          <% end %>
+        <% end %>
+    </div>
+    <div class="chats__form">
+      <%= form_with model: @chat, remote: true do |f| %>
+        <%= f.text_field :message, placeholder: "Enterキーで送信できます", class: "chat-message"%>
+        <%= f.hidden_field :room_id %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_17_100736) do
+ActiveRecord::Schema.define(version: 2021_08_24_052424) do
+
+  create_table "chats", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
@@ -24,6 +32,8 @@ ActiveRecord::Schema.define(version: 2021_08_17_100736) do
     t.integer "visited_id"
     t.integer "post_id"
     t.integer "post_comment_id"
+    t.integer "room_id"
+    t.integer "chat_id"
     t.string "action"
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
@@ -59,7 +69,7 @@ ActiveRecord::Schema.define(version: 2021_08_17_100736) do
     t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "status", default: 0, null: false
+    t.integer "status", default: 1, null: false
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -69,8 +79,20 @@ ActiveRecord::Schema.define(version: 2021_08_17_100736) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_rooms", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

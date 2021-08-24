@@ -1,9 +1,17 @@
-<% unless current_user == user %>
-  <div class="user-index__card--follow">
-    <% if current_user.following?(user) %>
-      <%= link_to " フォロー中 ", user_relationships_path(user.id), method: :delete, remote: true, class: 'followed fas fa-user-check' %>
-    <% else %>
-      <%= link_to " フォローする ", user_relationships_path(user.id), method: :post, remote: true, class: 'following fas fa-user-plus index-followin' %>
+<div class="card-area">
+  <% unless current_user == user %>
+    <div class="user-index__card--follow">
+      <% if current_user.following?(user) %>
+        <%= link_to " フォロー中 ", user_relationships_path(user.id), method: :delete, remote: true, class: 'followed fas fa-user-check' %>
+      <% else %>
+        <%= link_to " フォローする ", user_relationships_path(user.id), method: :post, remote: true, class: 'following fas fa-user-plus index-followin' %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="user-index__card--chat">
+    <% if current_user != @user && current_user.following?(@user) && @user.following?(current_user) %>
+      <%= link_to 'Chat', chat_path(@user.id), class: "user-show__btn chat" %>
     <% end %>
   </div>
-<% end %>
+</div>
