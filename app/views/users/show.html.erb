@@ -47,6 +47,11 @@
               <%= link_to "カレンダー", user_calendar_path(@user), class: "user-show__calendar-btn" %>
             </div>
           <% end %>
+          <p id="notice">
+           <% if flash[:notice] %>
+            <%= flash[:notice] %>
+           <% end %>
+          </p>
          </div>
       </div>
     </div>

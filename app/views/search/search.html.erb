@@ -1,30 +1,84 @@
 <div class="main-post">
   <div class="main-post-row">
-      <div class="post-index">
-        <div class="post-index__title">
-          <h2 class="title">《<%= @keyword %>》の検索結果<span class="count_body"> (全 <%=  @posts.count %> 件)</span></h2>
-        </div>
-        <% if @posts.empty? %>
-          <div class="post-index__posts-no">
-            <div class="post-index__posts-no--title">
-              <p class="post-index__posts-no--not">Not Found</p>
-              <p class="post-index__posts-no--find">お探しの投稿が見当たりません。</p>
-              <p class="post-index__posts-no--find">変更または削除された可能性があります。</p>
-            </div>
-          </div>
-        <% else %>
-          <!--投稿並べ替えリンク-->
-          <div class="post-index__posts-links">
-            <%= render 'posts/post-links' %>
-          </div>
-          <!--投稿一覧-->
-          <div class="post-index__posts">
-            <%= render 'posts/index', posts: @posts %>
-          </div>
-        <% end %>
+    <div class="post-index">
+      <div class="post-index__title">
+        <h2 class="title">《<%= @keyword %>》の検索結果</h2>
       </div>
+
+      <div class="notifications__tab">
+        <ul id="tab-menu">
+          <li><a href="#tab1" class="active">Posts</a></li>
+          <li><a href="#tab2" class="">Tags</a></li>
+          <li><a href="#tab3" class="">Users</a></li>
+        </ul>
+
+        <div id="tab-contents">
+          <div id="tab1" class="tab">
+            <% if @posts.empty? %>
+              <div class="post-index__posts-no">
+                <div class="post-index__posts-no--title">
+                  <p class="post-index__posts-no--not">Not Found</p>
+                  <p class="post-index__posts-no--find">お探しの投稿が見当たりません。</p>
+                  <p class="post-index__posts-no--find">変更または削除された可能性があります。</p>
+                </div>
+              </div>
+            <% else %>
+              <!--投稿一覧-->
+              <div class="post-index__posts">
+                <%= render 'posts/index', posts: @posts %>
+              </div>
+            <% end %>
+          </div>
+
+          <div id="tab2" class="tab">
+            <% if @tags.empty? %>
+              <div class="post-index__posts-no">
+                <div class="post-index__posts-no--title">
+                  <p class="post-index__posts-no--not">Not Found</p>
+                  <p class="post-index__posts-no--find">お探しの投稿が見当たりません。</p>
+                  <p class="post-index__posts-no--find">変更または削除された可能性があります。</p>
+                </div>
+              </div>
+            <% else %>
+              <!--投稿一覧-->
+              <div class="post-index__posts">
+                <%= render 'posts/index', posts: @tags %>
+              </div>
+            <% end %>
+          </div>
+
+          <div id="tab3" class="tab">
+            <% if @users.exists? %>
+              <!--ユーザー一覧-->
+              <div class="user-index">
+                <%= render 'users/users', users: @users %>
+              </div>
+            <% else %>
+              <div class="post-index__posts-no">
+                <div class="post-index__posts-no--title">
+                  <p class="post-index__posts-no--not">Not Found</p>
+                  <p class="post-index__posts-no--find">お探しのユーザーが見当たりません。</p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="side-var">
       <%= render 'posts/side-var', category: @category, tag_list: @tag_list %>
     </div>
   </div>
 </div>
+
+<script>
+$('#tab-contents .tab[id != "tab1"]').hide();
+
+$('#tab-menu a').on('click', function(event) {
+  $("#tab-contents .tab").hide();
+  $("#tab-menu .active").removeClass("active");
+  $(this).addClass("active");
+  $($(this).attr("href")).show();
+  event.preventDefault();
+});
+</script>

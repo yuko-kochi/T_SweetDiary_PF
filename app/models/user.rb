@@ -37,12 +37,14 @@ class User < ApplicationRecord
   end
 
   def unfollow(user_id)
+    # ユーザーのフォローを外す
     # relationshipsテーブルには対応するレコードはただ一つ
     # そのためfind_byによって1レコードを特定し、destroyメソッドで削除する
     relationships.find_by(followed_id: user_id).destroy
   end
 
   def following?(user)
+    # フォローしていればtrueを返す
     # include?は対象の配列に引数のものが含まれていればtrue、含まれていなければfalseを返す
     followings.include?(user)
   end

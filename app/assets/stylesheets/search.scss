@@ -5,3 +5,71 @@
 .count_body {
   font-size: 15px;
 }
+
+.notifications__tab {
+  margin-top: 30px;
+// tabの表示
+ #tab-menu{
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      list-style-type: none;
+    }
+
+    a {
+      display: block;
+      background: #ddd;
+      margin: 0 2px;
+      padding: 10px 20px;
+      text-align: center;
+    }
+  }
+
+  #tab-menu .active {
+    background: #fff;
+  }
+
+  #tab-contents {
+    background: #fff;
+    padding: 50px 20px;
+    margin-bottom: 50px;
+
+    .user-index__card {
+      margin-bottom: 20px;
+
+      &--follow, &--follow {
+        a {
+          color: #fffff0;
+        }
+      }
+    }
+  }
+}
+
+.input-group {
+
+  .btn {
+    height: 30px;
+    width: 60px;
+    display: inline-block;
+    color: white;
+    border: solid 2px #B8D4D9;
+    background: #B8D4D9;
+    border-radius: 5px;
+    transition: .5s;
+  }
+
+  .btn:hover {
+    background: #5B858C;
+    border: solid 2px #5B858C;
+  }
+
+  #keyword {
+    border: 0.5px solid #8A7566;
+    height: 30px;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+  }
+}

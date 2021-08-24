@@ -3,17 +3,17 @@
     <div class="tag__title">
       <h2 class="title">Tag List</h2>
     </div>
-
-<ul>
-<% @tag_list.each do |tag| %>
-<li class="tag__name">
-  <%= link_to tag_path(tag.id) do %>
-    #<%= tag.name %>
-  <% end %>
-<% end %>
-</li>
-<ul>
-
-
+    <ul>
+      <% @tag_list.each do |tag| %>
+        <li class="tag__name">
+          <%= link_to tag_path(tag.id) do %>
+            #<%= tag.name %>
+          <% end %>
+        </li>
+      <% end %>
+    <ul>
+  </div>
+  <div class="back">
+    <%= link_to '<< 戻る', :back %>
   </div>
 </div>

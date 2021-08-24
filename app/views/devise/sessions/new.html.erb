@@ -4,11 +4,10 @@
       <h2> Log In</h2>
     </div>
   </div>
+
   <div class="form-body">
     <%= form_with model: @user, url: user_session_path, local: true do |f| %>
-      <% if alert %>
-        <p class="alert alert-error"><%= alert %></p>
-      <% end %>
+
       <div class="form-body__field">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: 'sign-form' %>
       </div>
@@ -29,6 +28,7 @@
       </div>
     <% end %>
   </div>
+
   <div class="sign-link">
     <div class="signin-link">
       アカウントをお持ちでない方は<%= link_to "こちらから新規登録", new_user_session_path, class: "link" %>してください
@@ -36,5 +36,8 @@
     <div class="password">
       パスワードの再設定は<%= link_to "こちらから変更", new_user_password_path, class: "link" %>してください
     </div>
+  </div>
+  <div class="back">
+    <%= link_to '<< 戻る', :back %>
   </div>
 </div>

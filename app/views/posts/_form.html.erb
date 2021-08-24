@@ -1,4 +1,16 @@
 <%= form_with model: post, local: true do |f| %>
+
+ <% if post.errors.any? %>
+   <div id= error_explanation >
+    <h2><%= pluralize(post.errors.count, "error") %> 件のエラーが発生しました。</h2>
+    <ul>
+     <% post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+     <% end %>
+     </ul>
+    </div>
+  <% end %>
+
   <div class="post-actions__form-field image-field">
     <p class="post-actions__form-field--title">画像を登録</p>
     <%= attachment_image_tag post, :image, fallback: "no-image.png", id: "img_prev", size: "520x293", class: "post-actions__form-field--image" %><br />
@@ -17,7 +29,7 @@
   <div class="post-actions__form-field tag-field">
     <p class="post-actions__form-field--title">タグを追加</p>
   <%= f.text_field :tag_ids, value: @tag_list, class: "form-control", id: 'tag_ids',\
-  placeholder: "タグをつける。複数つけるには','で区切ってください。", class: "post-actions__form-field--tag" %>
+  placeholder: "タグをつけるには全角スペースで区切ってください", class: "post-actions__form-field--tag" %>
   </div>
 
   <div class="post-actions__form-field calemdar-field">

@@ -32,6 +32,7 @@
   </li>
   <% end %>
 </ul>
+
 <div class="new-comment-area">
   <% if user_signed_in? %>
     <%= form_with(model:[post,post_comment], class: "comment-form ") do |f| %>

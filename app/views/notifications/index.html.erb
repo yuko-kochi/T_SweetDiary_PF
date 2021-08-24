@@ -7,12 +7,13 @@
     </div>
 
     <div class="notifications__tab">
-      <ul class="tab">
-        <li><a href="#false">新着通知</a></li>
-        <li><a href="#true ">既読通知</a></li>
+      <ul id="tab-menu">
+        <li><a href="#tab1" class="active">新着通知</a></li>
+        <li><a href="#tab2" class="">既読通知</a></li>
       </ul>
 
-      <div id="false" class="area false-area">
+    <div id="tab-contents">
+      <div id="tab1" class="tab">
         <% if @notifications.present? %>
           <div class="notifications__index">
             <%= render "notifications/notifications", notifications: @notifications  %>
@@ -23,8 +24,8 @@
           </div>
       　<% end %>
       </div>
-
-      <div id="true" class="area">
+  
+      <div id="tab2" class="tab">
         <% if @checked_notifications.present? %>
           <div class="notifications__index">
             <div class="notifications__index--destroy_all">
@@ -38,37 +39,22 @@
           </div>
       　<% end %>
       </div>
-
+    </div>
+    </div>
+    <div class="back">
+      <%= link_to '<< 戻る', :back %>
     </div>
   </div>
 </div>
 
-
-
-
 <script>
-function GethashID (hashIDName){
-  if(hashIDName){
-    //タブ設定
-    $('.tab li').find('a').each(function() { //タブ内のaタグ全てを取得
-      var idName = $(this).attr('href'); //タブ内のaタグのリンク名（例）#falseの値を取得
-      if(idName == hashIDName){ //リンク元の指定されたURLのハッシュタグ（例）/notifications/#false←この#の値とタブ内のリンク名（例）#falseが同じかをチェック
-        var parentElm = $(this).parent(); //タブ内のaタグの親要素（li）を取得
-        $('.tab li').removeClass("active"); //タブ内のliについているactiveクラスを取り除き(removeClassが取り除くコード)
-        $(parentElm).addClass("active"); //リンク元の指定されたURLのハッシュタグとタブ内のリンク名が同じであれば、liにactiveクラスを追加(addClassが追加コード)
+$('#tab-contents .tab[id != "tab1"]').hide();
 
-        //表示させるエリア設定
-        $(".area").removeClass("is-active"); //もともとついているis-activeクラスを取り除き
-        $(hashIDName).addClass("is-active"); //表示させたいエリアのタブリンク名をクリックしたら、表示エリアにis-activeクラスを追加
-      }
-    });
-  }
-}
-
-//タブをクリックしたら
-$('.tab a').on('click', function() {
-  var idName = $(this).attr('href'); //タブ内のリンク名を取得
-  GethashID (idName);//設定したタブの読み込み
-  return false;//aタグを無効にする(再読み込みしないように)
+$('#tab-menu a').on('click', function(event) {
+  $("#tab-contents .tab").hide();
+  $("#tab-menu .active").removeClass("active");
+  $(this).addClass("active");
+  $($(this).attr("href")).show();
+  event.preventDefault();
 });
 </script>

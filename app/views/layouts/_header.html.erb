@@ -6,10 +6,10 @@
     <ul class="header__navbar-menu">
       <% if user_signed_in? %>
         <li class="header__navbar-men-title">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          <%= link_to "投稿一覧", posts_path %>
         </li>
         <li class="header__navbar-men-title">
-          <%= link_to "投稿一覧", posts_path %>
+          <%= link_to "ユーザー一覧", users_path %>
         </li>
         <li class="header__navbar-men-title">
           <%= link_to "新規投稿", new_post_path %>
@@ -22,6 +22,9 @@
             <i class="fa fa-circle" style="color: gold;"></i>
         <% end %>
           <%= link_to '通知', notifications_path %>
+        </li>
+        <li class="header__navbar-men-title">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         </li>
       <% else %>
         <li class="header__navbar-men-title">

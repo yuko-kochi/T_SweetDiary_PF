@@ -5,7 +5,7 @@
     </div>
     <% if @user.errors.any? %>
       <div id= error_explanation>
-       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this  obj from being saved:</h2>
+       <h2><%= pluralize(@user.errors.count, "error") %> 件のエラーが発生しました</h2>
        <ul>
           <% @user.errors.full_messages.each do |message| %>
             <li class=><%= message %></li>
@@ -31,8 +31,12 @@
         <%= f.submit "登録する", class: "actions-btn" %>
       <% end %>
     </div>
+    <div class="back">
+      <%= link_to '<< 戻る', :back %>
+    </div>
   </div>
 </div>
+
 
 <script>
 $(document).on("turbolinks:load", function(){
