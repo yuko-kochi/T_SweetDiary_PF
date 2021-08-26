@@ -6,11 +6,11 @@ class Room < ApplicationRecord
   # room内では多くのchatがあるので、１対多
   has_many :chats
 
-  def create_notification_chat(current_user, chat_id, room_id)
+  def create_notification_chat(current_user, chat_id, room_id, visited_id)
     # チャットしている相手を取得し、通知を送る
     temp_ids = Chat.select(:user_id).where(room_id: room_id).where.not(user_id: current_user.id).distinct
     temp_ids.each do |temp_id|
-      save_notification_chat(current_user, chat_id, temp_id['user_id'], room_id)
+      save_notification_chat(current_user, chat_id, temp_id['user_id'],room_id)
     end
   end
 
