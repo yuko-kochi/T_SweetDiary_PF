@@ -7,7 +7,9 @@
 
   <div class="form-body">
     <%= form_with model: @user, url: user_session_path, local: true do |f| %>
-
+      <% if alert %>
+        <p class="alert alert-error"><%= alert %></p>
+      <% end %>
       <div class="form-body__field">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: 'sign-form' %>
       </div>

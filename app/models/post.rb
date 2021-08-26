@@ -1,8 +1,10 @@
 class Post < ApplicationRecord
 
-  # validates :image, presence: true
+  validates :image, presence: true
   validates :introduction, presence: true, length: { in: 2..300 }
-  # validates :start_time, presence: true
+  validates :start_time, presence: true
+  #ジャンルの選択が「--」の時は保存できないようにする
+  validates :category_id, numericality: { other_than: 1 }
 
   belongs_to :user
   attachment :image
@@ -20,8 +22,6 @@ class Post < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
-  #ジャンルの選択が「--」の時は保存できないようにする
-  # validates :category_id, numericality: { other_than: 1 }
 
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user

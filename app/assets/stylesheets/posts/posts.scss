@@ -113,11 +113,15 @@
   }
 
   &__content-tag{
+    width: 640px;
+    margin: 0 auto;
     text-align: start;
     color: #666666
   }
 
   &__adress {
+    width: 640px;
+    margin: 10px auto;
     border-top: 1px solid #8A7566;
     padding: 15px 0;
     text-align: start;
