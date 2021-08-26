@@ -1,3 +1,5 @@
+
+
 .users {
   width: 100%;
   margin: 100px auto 0px;
@@ -55,6 +57,10 @@
     &--profile-image {
       margin: 20px 10px 10px 50px;
       position: absolute;
+
+      .profile_image {
+        object-fit: cover;
+      }
     }
 
     &--info {

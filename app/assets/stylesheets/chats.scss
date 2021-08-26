@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
 .chats {
   width: 100%;
   margin: 80px auto 0px;
@@ -19,7 +21,7 @@
     &__headar {
     line-height: 15px;
     margin-bottom: 20px;
-    border-bottom: 1px solid #8C7969;
+    border-bottom: 1px solid #8A7566;
 
     &--title {
       font-family: "ヒラギノ明朝 ProN";
@@ -38,7 +40,7 @@
     overflow: auto;
   }
   &__form {
-    border-top: 1px solid #8C7969;
+    border-top: 1px solid #8A7566 #8C7969;
     padding-top: 20px;
     text-align: end;
   }

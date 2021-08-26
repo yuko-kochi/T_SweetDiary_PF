@@ -18,7 +18,9 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
- * {
+
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -41,7 +43,7 @@ body {
 
 
 input:focus, textarea:focus {
-  border: 1px solid #B4D3D6;
+  border: 1px solid #8A7566;
   outline: 0;
 }
 

@@ -1,3 +1,5 @@
+
+
 .signup, .signin {
   margin: 60px auto 0;
   text-align: center;
@@ -51,7 +53,7 @@
     color: #8A7566;
 
     .link {
-      border-bottom: solid 1px #8A7566;
+      border-bottom: 1px solid #8A7566;
     }
     .signin-link {
       margin-bottom: 15px;
@@ -68,7 +70,7 @@
   font-size: 14px;
   color: #8A7566;
   padding: 8px 16px;
-  border: 0.5px solid #8A7566;
+  border: 1px solid #8A7566;
   transition: .4s;
   border-radius: 3px;
 }
