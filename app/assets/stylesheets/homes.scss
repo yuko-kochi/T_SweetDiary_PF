@@ -68,14 +68,12 @@ $border-color:  1px solid #8A7566;
 
     .about-area{
       margin: 20px;
-      border: 1px
-      #ffffff;
+      border: 1px solid #ffffff;
       display: flex;
     }
 
     .about-image {
       width: 15em;
-      height: 45vh;
       border-right: none;
       object-fit: cover;
       background-image: image-url("cake2.jpg");
