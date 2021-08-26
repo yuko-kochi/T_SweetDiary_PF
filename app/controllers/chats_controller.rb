@@ -32,10 +32,7 @@ class ChatsController < ApplicationController
   def create
     @chat = current_user.chats.new(chat_params)
     if @chat.save
-      room_user = @chat.room.user_rooms.all
-      room_user.each do |user|
-        @chat.room.create_notification_chat(current_user,@chat.id, @chat.room_id, user.user_id)
-      end
+      @chat.room.create_notification_chat(current_user,@chat.id, @chat.room_id)
       @chat = current_user.chats.new(chat_params)
     end
   end

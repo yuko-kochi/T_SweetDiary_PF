@@ -1,5 +1,8 @@
 <footer class="footer">
   <div class="footer-bar">
+  <footer id="footer">
+    <p id="page-top"><a href="#"><%= image_tag 'top.png', class: "top-page" %></a></p>
+  </footer>
     <ul class="sns">
       <li class="fab fa-facebook-f"></li>
       <li class="fab fa-twitter"></li>
@@ -9,5 +12,34 @@
       Copyright © T_SweetDiary. All rights reserved.
     </div>
   </div>
-
 </footer>
+
+<script>
+function PageTopAnime() {
+	var scroll = $(window).scrollTop();
+	if (scroll >= 200){//上から200pxスクロールしたら
+		$('#page-top').removeClass('DownMove');//#page-topについているDownMoveというクラス名を除く
+		$('#page-top').addClass('UpMove');//#page-topについているUpMoveというクラス名を付与
+	}else{
+		if($('#page-top').hasClass('UpMove')){//すでに#page-topにUpMoveというクラス名がついていたら
+			$('#page-top').removeClass('UpMove');//UpMoveというクラス名を除き
+			$('#page-top').addClass('DownMove');//DownMoveというクラス名を#page-topに付与
+		}
+	}
+}
+
+// 画面をスクロールをしたら動かしたい場合の記述
+$(window).scroll(function () {
+  // スクロールした際の動きの関数を呼ぶ
+	PageTopAnime();
+});
+
+// #page-topをクリックした際の設定
+$('#page-top a').click(function () {
+    $('body,html').animate({
+        scrollTop: 0//ページトップまでスクロール
+    }, 800);//ページトップスクロールの速さ。数字が大きいほど遅くなる
+    event.preventDefault() //aタグの機能を無効にするメソッド
+});
+
+</script>

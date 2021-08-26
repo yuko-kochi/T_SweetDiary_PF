@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$main-color: #B8D4D9;
+$border-color:  1px solid #8A7566;
+
 .count_body {
   font-size: 15px;
 }
@@ -54,8 +57,8 @@
     width: 60px;
     display: inline-block;
     color: white;
-    border: solid 2px #B8D4D9;
-    background: #B8D4D9;
+    border: solid 2px $main-color;
+    background: $main-color;
     border-radius: 5px;
     transition: .5s;
   }
@@ -66,7 +69,7 @@
   }
 
   #keyword {
-    border: 0.5px solid #8A7566;
+    border: $border-color;
     height: 30px;
     border-radius: 5px;
     padding: 5px;

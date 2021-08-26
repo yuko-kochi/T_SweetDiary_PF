@@ -1,13 +1,16 @@
+$sub-color: #8A7566;
+$border-color:  1px solid #8A7566;
+
 .signup, .signin {
   margin: 60px auto 0;
   text-align: center;
   padding-top: 80px;
   font-family: "ヒラギノ明朝 ProN";
   letter-spacing: 2px;
-  color: #8A7566;
+  color: $sub-color;
 
   a {
-    color: #8A7566;
+    color: $sub-color;
   }
 
   .signup-header h2, .signin-header h2 {
@@ -15,8 +18,8 @@
     margin: 0 auto;
     font-size: 30px;
     letter-spacing: 3px;
-    border-bottom: 1px solid #8A7566;
-    color: #8A7566;
+    border-bottom: $border-color;
+    color: $sub-color;
   }
 
   .form-body {
@@ -48,10 +51,10 @@
 
   .sign-link {
     margin-top: 20px;
-    color: #8A7566;
+    color: $sub-color;
 
     .link {
-      border-bottom: solid 1px #8A7566;
+      border-bottom: $border-color;
     }
     .signin-link {
       margin-bottom: 15px;
@@ -66,9 +69,9 @@
   height: 38px;
   width: 300px;
   font-size: 14px;
-  color: #8A7566;
+  color: $sub-color;
   padding: 8px 16px;
-  border: 0.5px solid #8A7566;
+  border: $border-color;
   transition: .4s;
   border-radius: 3px;
 }

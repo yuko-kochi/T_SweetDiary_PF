@@ -22,9 +22,9 @@ module NotificationsHelper
        tag.a(@visitor.name, href: user_path(@visitor))+"さんが"+tag.a('Chat', href: chat_path(notification.visitor))+"にメッセージを送りました"
     end
   end
-
-def unchecked_notifications
+  
+  def unchecked_notifications
     @notifications = current_user.passive_notifications.where(checked: false)
-end
+  end
 
 end

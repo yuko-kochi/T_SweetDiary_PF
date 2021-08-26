@@ -1,9 +1,12 @@
+$main-color: #B8D4D9;
+$sub-color: #8A7566;
+
 // カレンダー画面
 .usercalendar {
   margin: 100px auto 0px;
 
   a {
-    color: #8A7566;
+    color: $sub-color;
   }
 
   .usercalendar-row {
@@ -21,7 +24,7 @@
     font-weight: 500;
     letter-spacing: 3px;
     line-height: 29px;
-    color: #8A7566;
+    color: $sub-color;
     margin: 0 40px 12px;
     font-family: "ヒラギノ明朝 ProN";
     }
@@ -54,7 +57,7 @@
   }
 
   .simple-calendar .prev-month, .next-month {
-    background: #B8D4D9;
+    background: $main-color;
   }
 
   .simple-calendar .day {
