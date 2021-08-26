@@ -36,7 +36,8 @@
   line-height: 1.4em;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
+
 
   &__card {
     background-color: #B8D4D9;
@@ -83,11 +84,4 @@
   .card-area {
     display: block;
   }
-}
-
-.user-index::after{
-  content:"";
-  display: block;
-  width: 270px;
-  padding: 5px;
 }

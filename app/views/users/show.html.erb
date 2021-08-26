@@ -26,7 +26,7 @@
               <% end %>
             </li>
             <li class="user-show__usercount--item">
-              <%= @user.posts.count %><span class="itemname">投稿</span>
+              <%= @user.posts.where(status: 0).count %><span class="itemname">投稿</span>
             </li>
             <li class="user-show__usercount--item">
               <div class="user-show__follwing">

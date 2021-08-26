@@ -12,19 +12,19 @@
 }
 
 .top-text {
-  position:  absolute;        /* 要素の配置方法を指定 */
-  background-color:  #555;    /* 背景色指定 */
-  color:  #fff;               /* 文字色指定 */
-  padding: 20px;              /* 余白指定 */
-  width:  200px;              /* 幅指定 */
-  height: 45px;               /* 高さ指定 */
-  text-align:  center;        /* 文字を中央揃えに */
-  font-size: 30px;            /* フォントサイズ指定 */
-  top:  0;                    /* 上からの位置指定 */
-  bottom:  0;                 /* 下からの位置指定 */
-  left:  0;                   /* 左からの位置指定 */
-  right:  0;                  /* 右からの位置指定 */
-  margin:  auto;              /* 位置調整と組み合わせて上下中央に */
+  position:  absolute;
+  background-color:  #555;
+  color:  #fff;
+  padding: 20px;
+  width:  200px;
+  height: 45px;
+  text-align:  center;
+  font-size: 30px;
+  top:  0;
+  bottom:  0;
+  left:  0;
+  right:  0;
+  margin:  auto;
 }
 
 .home {
@@ -95,6 +95,10 @@
     margin: 6em auto;
   a {
     color: #8A7566;
+  }
+
+  .post-index__posts {
+    justify-content: space-evenly;
   }
 
     &__title {

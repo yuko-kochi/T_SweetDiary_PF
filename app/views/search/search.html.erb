@@ -9,7 +9,7 @@
         <ul id="tab-menu">
           <li><a href="#tab1" class="active">Posts</a></li>
           <li><a href="#tab2" class="">Tags</a></li>
-          <li><a href="#tab3" class="">Users</a></li>
+          <% if user_signed_in? %><li><a href="#tab3" class="">Users</a></li><% end %>
         </ul>
 
         <div id="tab-contents">
@@ -46,22 +46,23 @@
               </div>
             <% end %>
           </div>
-
-          <div id="tab3" class="tab">
-            <% if @users.exists? %>
-              <!--ユーザー一覧-->
-              <div class="user-index">
-                <%= render 'users/users', users: @users %>
-              </div>
-            <% else %>
-              <div class="post-index__posts-no">
-                <div class="post-index__posts-no--title">
-                  <p class="post-index__posts-no--not">Not Found</p>
-                  <p class="post-index__posts-no--find">お探しのユーザーが見当たりません。</p>
+          <% if user_signed_in? %>
+            <div id="tab3" class="tab">
+              <% if @users.exists? %>
+                <!--ユーザー一覧-->
+                <div class="user-index">
+                  <%= render 'users/users', users: @users %>
                 </div>
-              </div>
-            <% end %>
-          </div>
+              <% else %>
+                <div class="post-index__posts-no">
+                  <div class="post-index__posts-no--title">
+                    <p class="post-index__posts-no--not">Not Found</p>
+                    <p class="post-index__posts-no--find">お探しのユーザーが見当たりません。</p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
