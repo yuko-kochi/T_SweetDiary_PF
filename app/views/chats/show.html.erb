@@ -5,7 +5,7 @@
         <span><%= @user.name %>さんとのChat</span>
       </div>
     </div>
-    <div class="chats__message message">
+    <div class="chats__message message" id="scroll-inner">
         <% @chats.each do |chat| %>
           <% if chat.user_id == current_user.id %>
             <p style="text-align: right;"><%= chat.message %></p>
