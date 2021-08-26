@@ -2,7 +2,7 @@
 
  <% if post.errors.any? %>
    <div id= error_explanation >
-    <h2><%= pluralize(post.errors.count, "error") %> 件のエラーが発生しました。</h2>
+    <h2><%= pluralize(post.errors.count, "件") %> のエラーが発生しました。</h2>
     <ul>
      <% post.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -18,7 +18,7 @@
   </div>
   <div class="post-actions__form-field introduction-field">
     <p class="post-actions__form-field--title">投稿追加</p>
-    <%= f.text_area :introduction, class: "post-actions__form-field--introduction" %>
+    <%= f.text_area :introduction, class: "post-actions__form-field--introduction" , id: "post-introduction" %>
   </div>
 
   <div class="post-actions__form-field category-field">

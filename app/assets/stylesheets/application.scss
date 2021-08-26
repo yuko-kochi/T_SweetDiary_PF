@@ -68,10 +68,15 @@ a {
   width: 100%;
   margin: auto;
   position: fixed;
-  z-index: 100;
+  z-index: 90;
   top: 0;
   a {
     color: #fffff0;
+  }
+  .logo {
+    margin-top: 12px;
+    width: 80px;
+    height: 80px;
   }
 }
 

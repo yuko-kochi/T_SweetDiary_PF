@@ -16,7 +16,7 @@ class PostsController < ApplicationController
       # 先ほど取得したタグの配列をsave_tagというインスタンスメソッドを使ってデータベースに保存する処理
       # save_tagインスタンスメソッドの中身はpost.rbで定義
       @post.save_tag(tag_list)
-      flash[:notice] = "新規投稿が完了しました。"
+      flash[:notice] = "登録が完了しました。"
       redirect_to post_path(@post)
     else
      render :new
