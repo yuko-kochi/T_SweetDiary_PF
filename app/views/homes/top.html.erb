@@ -2,7 +2,10 @@
   <div class="images">
       <% @images.each do |image| %>
       <div class="top-image">
-        <h2 class="top-text">aaaaaaaa</h2>
+        <div class="top-text">
+          <h2 class="main">T_SweetDairy</h2>
+          <h4>求めているスイーツとの出会いを</h4>
+        </div>
         <%= attachment_image_tag image, :image, size: "1600x900"  %>
       </div>
     <% end %>
