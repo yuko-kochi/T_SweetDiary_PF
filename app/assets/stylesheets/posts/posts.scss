@@ -2,7 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+$sub-color: #8A7566;
+$border-color:  1px solid #8A7566;
 
 .main-post {
   width: 100%;
@@ -10,7 +11,7 @@
   padding-top: 20px;
 
   a {
-    color: #8A7566;
+    color: $sub-color;
   }
 }
 
@@ -32,7 +33,7 @@
   }
 
   &__title {
-    border-bottom: 1px solid #8A7566;
+    border-bottom: $border-color;
     font-size: 20px;
     text-align: center;
     padding-bottom: 10px;
@@ -64,7 +65,7 @@
     align-items: center;
     margin: 10px auto;
     padding: 0 15px 10px;
-    border-bottom: 1px solid #8A7566;
+    border-bottom: $border-color;
   }
 
   &__info-user {
@@ -124,7 +125,7 @@
   &__adress {
     width: 640px;
     margin: 10px auto;
-    border-top: 1px solid #8A7566;
+    border-top: $border-color;
     padding: 15px 0;
     text-align: start;
     color: #666666
@@ -139,7 +140,7 @@
 
   &__edit {
     padding-right: 10px;
-    border-right: 1px solid #8A7566;
+    border-right: $border-color;
   }
 
   &__destroy {

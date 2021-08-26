@@ -19,6 +19,10 @@
 @import "font-awesome";
 
 
+$sub-color: #8A7566;
+$border-color:  1px solid #8A7566;
+$cha-color: #D9C7B8;
+
 
 * {
   margin: 0;
@@ -43,7 +47,7 @@ body {
 
 
 input:focus, textarea:focus {
-  border: 1px solid #8A7566;
+  border: $border-color;
   outline: 0;
 }
 
@@ -64,7 +68,7 @@ a {
 .header {
   display: flex;
   height: 80px;
-  background: #D9C7B8;
+  background: $cha-color;
   color:　#ffffff;
   align-items: center;
   width: 100%;
@@ -84,7 +88,7 @@ a {
 
 .footer {
   color: #fff;
-  background: #D9C7B8;
+  background: $cha-color;
   height: 70px;
   width: 100%;
   text-align: center;
@@ -111,6 +115,54 @@ a {
       margin-right: 10px;
     }
   }
+
+  .top-page {
+    width: 60px;
+    height: 60px;
+    // 与えられた要素を回転、拡大縮小、傾斜、移動することできる
+    transform: translate(0px,10px);
+  }
+  // リンクを右下に固定
+  #page-top {
+  	position: fixed;
+  	right: 10px;
+  	bottom: 10px;
+  	z-index: 2;
+    // はじめは非表示
+  	opacity: 0;
+  	transform: translateY(100px);
+  }
+
+  // 上に上がる動き
+  #page-top.UpMove{
+  	animation: UpAnime 0.5s forwards;
+  }
+  @keyframes UpAnime{
+    from {
+      opacity: 0;
+  	transform: translateY(100px);
+    }
+    to {
+      opacity: 1;
+  	transform: translateY(0);
+    }
+  }
+
+  // 下に下がる動き
+  #page-top.DownMove{
+  	animation: DownAnime 0.5s forwards;
+  }
+  @keyframes DownAnime{
+    from {
+    	opacity: 1;
+  	transform: translateY(0);
+    }
+    to {
+    	opacity: 1;
+  	transform: translateY(100px);
+    }
+  }
+
 }
 
 .header__logo {
@@ -143,6 +195,6 @@ nav ul {
   text-align: start;
   margin-top: 20px;
   a {
-    color: #8A7566;
+    color: $sub-color;
   }
 }

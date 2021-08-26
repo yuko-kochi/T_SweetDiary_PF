@@ -2,7 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+$sub-color: #8A7566;
+$border-color:  1px solid #8A7566;
 
 .chats {
   width: 100%;
@@ -21,14 +22,14 @@
     &__headar {
     line-height: 15px;
     margin-bottom: 20px;
-    border-bottom: 1px solid #8A7566;
+    border-bottom: $border-color;
 
     &--title {
       font-family: "ヒラギノ明朝 ProN";
       font-size: 25px;
       letter-spacing: 7px;
       margin: 20px 20px 25px ;
-      color: #8A7566;
+      color: $sub-color;
     }
   }
 
@@ -40,7 +41,7 @@
     overflow: auto;
   }
   &__form {
-    border-top: 1px solid #8A7566 #8C7969;
+    border-top: $border-color;
     padding-top: 20px;
     text-align: end;
   }
@@ -55,7 +56,7 @@
     color: #2d2926;
     border-radius: 4px;
     resize: none;
-    border: 0.5px solid #8A7566;
+    border: $border-color;
   }
 
   p {

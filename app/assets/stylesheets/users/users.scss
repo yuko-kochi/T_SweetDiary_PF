@@ -2,7 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+$sub-color: #8A7566;
+$border-color:  1px solid #8A7566;
 
 // ユーザー詳細画面（マイページ）
 .user-show {
@@ -10,10 +11,10 @@
   margin: 100px auto 200px;
   padding-top: 20px;
   font-family: "游ゴシック体","YuGothic";
-  color: #8C7969;
+  color: $sub-color;
 
   a {
-    color: #8A7566;
+    color: $sub-color;
   }
 
   &__row {
@@ -75,7 +76,7 @@
       display: inline-block;
       font-size: 18px;
       padding: 0 15px;
-      border-right: 1px solid #8C7969;
+      border-right: $border-color;
       font-family: "ヒラギノ明朝 ProN";
     }
 
@@ -127,7 +128,7 @@
 
   // sort機能
   &__posts-link {
-    border-top: 1px solid #8A7566;
+    border-top: $border-color;
     margin: 15px 10px;
 
 
