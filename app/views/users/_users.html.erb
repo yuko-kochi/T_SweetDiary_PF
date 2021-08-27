@@ -3,7 +3,7 @@
     <%= link_to user_path(user.id) do %>
       <div class="user-index__card-image">
         <div class="user-index__card--profile-image">
-          <%= attachment_image_tag user, :profile_image, size: "200x200", fallback: "no_image.jpg"  %>
+          <%= attachment_image_tag user, :profile_image,format: 'jpg', size: "200x200", fallback: "no_image.jpg"  %>
         </div>
         <div class="user-index__card--color"></div>
       </div>
@@ -12,7 +12,7 @@
           <%= user.name %>
         </p>
         <p class="user-index__card--introduction">
-          <%= user.introduction %>
+          <%= safe_join("#{user.introduction}".split("\n"),tag(:br)) %>
         </p>
       </div>
     <% end %>

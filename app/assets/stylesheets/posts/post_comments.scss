@@ -37,13 +37,14 @@ $border-color:  1px solid #8A7566;
 
     .comments-item {
       display: flex;
+      margin: 24px auto 16px;
 
       .user-image {
         margin-top: 10px;
       }
 
       .post_user-image {
-        margin: 40px 0 0 8px;
+        margin: 10px 0 0 8px;
       }
 
       &__contents {
@@ -81,7 +82,7 @@ $border-color:  1px solid #8A7566;
     }
 
     .post_user_comment {
-      margin: 24px 0 16px 80px;
+      margin: 0px 0px 0px 80px;
     }
   }
 }

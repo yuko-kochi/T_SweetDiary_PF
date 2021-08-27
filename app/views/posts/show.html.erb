@@ -45,7 +45,7 @@
     <!--showページmain-->
     <div class="post-show__content">
       <div class="post-show__content-main">
-        <%= safe_join(@post.introduction.split("\n"),tag(:br))%>
+        <%= safe_join("#{@post.introduction}".split("\n"),tag(:br))%>
       </div>
       <div class="post-show__content-tag">
         <% @post.tags.each do |tag| %>
