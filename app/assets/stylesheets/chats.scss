@@ -69,12 +69,13 @@ $border-color:  1px solid #8A7566;
     margin: 5px;
     padding: 10px;
     border-radius: 15px;
+    display: inline-block;
   }
 
   .time, .time2 {
     background: none;
     font-size: 10px;
-    margin-top: 0;
+    margin-bottom: 10px;
     padding-top: 0;
     text-align: end;
   }
@@ -86,8 +87,7 @@ $border-color:  1px solid #8A7566;
   }
 
   .current_user {
-    display: flex;
-    -webkit-justify-content: flex-end;
+    text-align: right;
   }
 
   .no-current_user {
