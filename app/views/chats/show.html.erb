@@ -2,15 +2,26 @@
   <div class="chats__row">
     <div class="chats__headar">
       <div class="chats__headar--title">
-        <span><%= @user.name %>さんとのChat</span>
+        <%= link_to user_path(@user.id) do %>
+          <%= attachment_image_tag  @user, :profile_image, fallback: "no_image.jpg" , class: "post-show__info-user--image image" %>
+        <% end %>
+        <div class="name"><%= @user.name %>さんとのChat</div>
       </div>
     </div>
     <div class="chats__message message" id="scroll-inner">
         <% @chats.each do |chat| %>
           <% if chat.user_id == current_user.id %>
-            <p style="text-align: right;"><%= chat.message %></p>
+            <div class="current_user">
+              <p style="text-align: right;"><%= chat.message %></p>
+              <%= attachment_image_tag  chat.user, :profile_image, fallback: "no_image.jpg" , class: "post-show__info-user--image" %>
+            </div>
+            <p class="time"><%= chat.created_at.strftime("%Y/%m/%d (%H:%M)") %></p>
           <% else %>
-            <p style="text-align: left;" class="no-current_user"><%= chat.message %></p>
+          <div class="no-current_user">
+            <%= attachment_image_tag  chat.user, :profile_image, fallback: "no_image.jpg" , class: "post-show__info-user--image" %>
+            <p style="text-align: left;" class="no-current_user-message"><%= chat.message %></p>
+          </div>
+            <p class="time2"><%= chat.created_at.strftime("%Y/%m/%d (%H:%M)") %></p>
           <% end %>
         <% end %>
     </div>
