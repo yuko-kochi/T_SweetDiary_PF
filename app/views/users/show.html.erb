@@ -9,7 +9,7 @@
             <%= @user.name %>
           </h7>
           <p class="user-show__profile-title--introduction">
-            <%= @user.introduction %>
+            <%= safe_join("#{@user.introduction}".split("\n"),tag(:br)) %>
           </p>
         </div>
         <!--フォロー機能-->
