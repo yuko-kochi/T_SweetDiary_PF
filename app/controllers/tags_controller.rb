@@ -1,11 +1,12 @@
 class TagsController < ApplicationController
+  before_action :redirect_to_tags, only: [:show]
 
   def index
     @tag_list = Tag.find( PostTag.group(:tag_id).order('count(tag_id)desc').pluck(:tag_id))
   end
 
   def show
-    @tag = Tag.find(params[:id])
+    @tag = Tag.find_by(id: params[:id])
     case params[:sort]
     when "likes_count desc"
       to  = Time.current.at_end_of_day
@@ -20,6 +21,14 @@ class TagsController < ApplicationController
     @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
   end
 
+  private
+
+  def redirect_to_tags
+    @tag = Tag.find_by(id: params[:id])
+    if @tag.blank?
+      redirect_to tags_path
+    end
+  end
 
 
 end
