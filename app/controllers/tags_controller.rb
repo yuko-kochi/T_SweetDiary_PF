@@ -6,7 +6,7 @@ class TagsController < ApplicationController
   end
 
   def show
-    @tag = Tag.find_by(id: params[:id])
+    @tag = Tag.find(params[:id])
     case params[:sort]
     when "likes_count desc"
       to  = Time.current.at_end_of_day
