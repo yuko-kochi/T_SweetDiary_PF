@@ -18,16 +18,25 @@
 </div>
 
 <script>
+// 「document」は、documentオブジェクトと呼ばれ、Chrome等のブラウザ上で表示されたドキュメントを操作する事ができます。
+// プログラミング言語で操作ができるデータを意味
+// 「addEventListener()」は、JavaScriptからさまざまなイベント処理を実行することができるメソッド
+// urbolinksとは画面遷移を高速化させるライブラリ
+// 「turbolinks:load」というオプションを使用することで、読み込みが正常に行われる
 document.addEventListener("turbolinks:load", () => {
   function scrollToEnd() {
       const messageDetails = document.getElementById('scroll-inner');
+      /*getElementByIdは、任意のHTMLタグで指定したIDにマッチするドキュメント要素を取得するメソッド*/
       messageDetails.scrollTop = messageDetails.scrollHeight;
+      /*Element.scrollHeight は読み取り専用のプロパティで、あふれて画面上に表示されない部分を含めた、要素の中身の幅の寸法*/
   }
   scrollToEnd();
   //監視する対象(この場合は"scroll-inner")
   var renderer = document.getElementById("scroll-inner");
     //要素が変化したときの処理を書く(この場合は下までスクロール)
   const observer = new MutationObserver((render) => {
+    /*MutationObserver は DOM 要素を監視し、変更があった場合にコールバックを起動する組み込みのオブジェクト*/
+    /*Document Object Model (DOM) は、ウェブ上の文書のコンテンツと構造からなるオブジェクトのデータ表現*/
   scrollToEnd();
   });
   //監視する条件を書く
