@@ -1,4 +1,6 @@
 <!--.messageを部分更新。appendメソッドで要素を追加 -->
-$('.message').append("<p style='text-align: end;;'><%= @chat.message %></p>");
+<!--apeendを使う場合、()内側は""で囲み、<>のstyleやclassは''で囲み、使い分ける-->
+<!--$('.chats__message').append("<div class='current_user'>");-->
+$('.chats__message').append("<div class='current_user'><p style='text-align: end;'><%= @chat.message %></p><div class='time'><%= @chat.created_at.strftime('%Y/%m/%d (%H:%M)') %>");
 <!--チャット投稿後、フォームの値に前回の投稿内容が残らないようにする-->
 $('input[type=text]').val("")

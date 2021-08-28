@@ -1,4 +1,5 @@
 class ChatsController < ApplicationController
+  before_action :authenticate_user!
   before_action :follow_each_other, only: [:show]
 
   def show
@@ -33,7 +34,6 @@ class ChatsController < ApplicationController
     @chat = current_user.chats.new(chat_params)
     if @chat.save
       @chat.room.create_notification_chat(current_user,@chat.id, @chat.room_id)
-      @chat = current_user.chats.new(chat_params)
     end
   end
 

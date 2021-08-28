@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
+  before_action :post_set, only: [:show, :edit, :update, :destroy, :ensure_correct_user,:redirect_to_posts, :post_draft]
   before_action :ensure_correct_user, only: [:update, :edit, :destroy]
-   before_action :post_draft, only: [:show]
+  before_action :authenticate_user!, only: [:new]
+  before_action :redirect_to_posts, only: [:show]
+  before_action :post_draft, only: [:show]
 
   def new
     @post = Post.new
@@ -32,14 +35,13 @@ class PostsController < ApplicationController
     when "followings desc"
       @posts = Post.where(user_id: [current_user.id, *current_user.following_ids], status: 0).order(created_at: :desc)
     else
-      @posts = Post.all.order(created_at: :desc).where(status: 0)
+      @posts = Post.order(created_at: :desc).where(status: 0)
     end
     @tag_list = Tag.find( PostTag.group(:tag_id).order('count(tag_id)desc').limit(10).pluck(:tag_id))
     @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
   end
 
   def show
-    @post = Post.find(params[:id])
     @lat = @post.latitude
     @lng = @post.longitude
     gon.lat = @lat
@@ -49,7 +51,6 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
     @lat = @post.latitude
     @lng = @post.longitude
     gon.lat = @lat
@@ -58,7 +59,6 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
     tag_list = params[:post][:tag_ids].split(/[[:space:]]/)
     if @post.update(post_params)
       @post.save_tag(tag_list)
@@ -70,7 +70,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path
   end
@@ -80,20 +79,28 @@ class PostsController < ApplicationController
     params.require(:post).permit(:image, :introduction, :category_id, :address, :latitude, :longitude, :start_time, :status)
   end
 
+  def post_set
+    @post = Post.find_by(id: params[:id])
+  end
+
+
   def ensure_correct_user
-    @post = Post.find(params[:id])
     unless @post.user == current_user
       redirect_to posts_path
     end
   end
 
+  def redirect_to_posts
+    if @post.blank?
+      redirect_to posts_path
+    end
+  end
+
   def post_draft
-    @post = Post.find(params[:id])
     unless @post.status == "投稿する"
       unless @post.user == current_user
         redirect_to posts_path
       end
     end
   end
-
 end
