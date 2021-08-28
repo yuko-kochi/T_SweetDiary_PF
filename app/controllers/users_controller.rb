@@ -2,9 +2,10 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:update, :edit]
   before_action :calendar_correct_user, only: [:calendar]
+  before_action :redirect_to_users, only: [:show]
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
     case params[:sort]
     when "likes_count desc"
       @posts = @user.posts.where(status: 0).includes(:liked_users).sort {|a,b| b.liked_users.size <=> a.liked_users.size}
@@ -56,6 +57,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:user_id])
     unless @user == current_user
       redirect_to user_path(current_user)
+    end
+  end
+
+  def redirect_to_users
+    @user = User.find_by(id: params[:id])
+    if @user.blank?
+      redirect_to users_path
     end
   end
 

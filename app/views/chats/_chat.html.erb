@@ -1,10 +1,10 @@
-<div class="chats__message message" id="scroll-inner">
+<div class="chats__message" id="scroll-inner">
   <% @chats.each do |chat| %>
     <% if chat.user_id == current_user.id %>
-      <div class="current_user">
+      <div class='current_user'>
         <p style="text-align: end;"><%= chat.message %></p>
+        <div class='time'><%= chat.created_at.strftime('%Y/%m/%d (%H:%M)') %></div>
       </div>
-      <div class="time"><%= chat.created_at.strftime("%Y/%m/%d (%H:%M)") %></div>
     <% else %>
       <div class="no-current_user">
         <%= link_to user_path(chat.user.id) do %>
@@ -16,3 +16,24 @@
     <% end %>
   <% end %>
 </div>
+
+<script>
+document.addEventListener("turbolinks:load", () => {
+  function scrollToEnd() {
+      const messageDetails = document.getElementById('scroll-inner');
+      messageDetails.scrollTop = messageDetails.scrollHeight;
+  }
+  scrollToEnd();
+  //監視する対象(この場合は"scroll-inner")
+  var renderer = document.getElementById("scroll-inner");
+    //要素が変化したときの処理を書く(この場合は下までスクロール)
+  const observer = new MutationObserver((render) => {
+  scrollToEnd();
+  });
+  //監視する条件を書く
+  //この場合、"scroll-inner"に子要素が追加されたとき
+  observer.observe(renderer, {
+    childList: true,
+  });
+})
+</script>

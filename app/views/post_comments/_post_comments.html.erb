@@ -36,13 +36,3 @@
   </li>
   <% end %>
 </ul>
-
-
-<div class="new-comment-area">
-  <% if user_signed_in? %>
-    <%= form_with(model:[post,post_comment], class: "comment-form") do |f| %>
-      <%= f.text_area :comment,placeholder: "コメントをここに", class: "new-comment" %>
-      <%= f.submit "送信する", class: "actions-btn" %>
-    <% end %>
-  <% end %>
-</div>

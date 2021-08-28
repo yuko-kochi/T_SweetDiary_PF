@@ -75,7 +75,15 @@
     <!--コメント機能-->
     <div class="post-show__comments">
       <div id="comments-area_<%= @post.id %>">
-        <%= render "post_comments/post_comments", post: @post, post_comment: @post_comment  %>
+        <%= render "post_comments/post_comments", post: @post  %>
+      </div>
+      <div class="new-comment-area">
+        <% if user_signed_in? %>
+          <%= form_with(model:[@post,@post_comment], class: "comment-form") do |f| %>
+            <%= f.text_area :comment,placeholder: "コメントをここに", class: "new-comment" %>
+            <%= f.submit "送信する", class: "actions-btn" %>
+          <% end %>
+        <% end %>
       </div>
     </div>
     <div class="back">
