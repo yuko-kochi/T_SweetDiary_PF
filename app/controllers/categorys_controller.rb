@@ -3,7 +3,7 @@ class CategorysController < ApplicationController
 
   def show
     @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
-    @categorys = Category.find_by(id: params[:id])
+    @categorys = Category.find(params[:id])
     case params[:sort]
     when "likes_count desc"
       to  = Time.current.at_end_of_day
@@ -19,7 +19,7 @@ class CategorysController < ApplicationController
 
   private
   def redirect_to_posts
-    @categorys = Category.find_by(id: params[:id])
+    @category = Category.find_by(id: params[:id])
     if @category.blank?
       redirect_to posts_path
     end
