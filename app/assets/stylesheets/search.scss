@@ -4,6 +4,7 @@
 
 $main-color: #B8D4D9;
 $border-color:  1px solid #8A7566;
+$sub-linecolor: #fffff0;
 
 .count_body {
   font-size: 15px;
@@ -43,7 +44,7 @@ $border-color:  1px solid #8A7566;
 
       &--follow, &--follow {
         a {
-          color: #fffff0;
+          color: $sub-linecolor;
         }
       }
     }

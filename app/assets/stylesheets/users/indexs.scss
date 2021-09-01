@@ -1,6 +1,7 @@
 $main-color: #B8D4D9;
 $sub-color: #8A7566;
 $border-color:  1px solid #8A7566;
+$white-color: #ffffff;
 
 .users {
   width: 100%;
@@ -35,7 +36,7 @@ $border-color:  1px solid #8A7566;
   width: 90%;
   font-family: 'Roboto', Arial, sans-serif;
   margin: auto;
-  color: #ffffff;
+  color: $white-color;
   text-align: left;
   line-height: 1.4em;
   display: flex;
@@ -54,7 +55,7 @@ $border-color:  1px solid #8A7566;
       width: 200px;
       height: 200px;
       margin: 10px 5px 5px 25px;
-      background-color: #ffffff;
+      background-color: $white-color;
     }
     &--profile-image {
       margin: 20px 10px 10px 50px;

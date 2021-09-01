@@ -5,6 +5,7 @@
 $main-color: #B8D4D9;
 $sub-color: #8A7566;
 $border-color:  1px solid #8A7566;
+$white-color: #ffffff;
 
 .top {
   height: 700px;
@@ -63,12 +64,12 @@ $border-color:  1px solid #8A7566;
     margin: 20px auto;
     background: #5B858C;
     width: 60%;
-    border: thick double #ffffff;
+    border: thick double $white-color;
     letter-spacing: 1px;
 
     .about-area{
       margin: 20px;
-      border: 1px solid #ffffff;
+      border: 1px solid $white-color;
       display: flex;
     }
 
