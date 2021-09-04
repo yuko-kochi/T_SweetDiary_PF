@@ -74,8 +74,8 @@ gem 'gon'
 gem 'active_hash'
 gem "simple_calendar", "~> 2.0"
 gem 'rails-i18n', '~> 5.1'
-gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
 gem 'pry-rails'
+gem "refile-s3"
