@@ -6,7 +6,7 @@
           <h2 class="main">T_SweetDairy</h2>
           <h4>求めているスイーツとの出会いを</h4>
         </div>
-        <%= attachment_image_tag image, :image, size: "1600x900"  %>
+        <%= attachment_image_tag image, :image %>
       </div>
     <% end %>
   </div>
@@ -17,7 +17,6 @@
  <% end %>
 </p>
 
-<h1 class="home_image"></h1>
 <div class="home">
   <div class="home__header">
     <h1>素敵なスイーツ、素敵なお店、素敵な人との出会いを</h1>
@@ -29,20 +28,26 @@
     <div class="about-area">
       <%= image_tag asset_path("cake2.jpg"), class: "about-image" %>
       <div class="container">
-          <h1>About</h1>
-          <p>
-            普段スイーツを発信する機会はあまりないかもしれませんが、<br >
-            共有すると共感をもらえたり、共有した仲間から新しい情報がもらえたりと、<br >
-            新たなスイーツ、お店、人と出会えます。<br >
-          </p>
-          <p>
+        <h1>About</h1>
+        <div class="container__text">
+          普段スイーツを発信する機会はあまりないかもしれませんが、<br >
+          共有すると共感をもらえたり、共有した仲間から新しい情報がもらえたりと、<br >
+          新たなスイーツ、お店、人と出会えます。<br >
+          <br >
+        </div>
+        <div class="container__text">
           感性が近い投稿者の情報を見て、いいねしたり、コメント欄で質問をしたり<br >
-          スイーツ情報を集めるといったことが簡単にできる場です。
-          <p>
+          スイーツ情報を集めるといったことが簡単にできる場です。<br >
+          <br >
+        </div>
+        <div class="container__text">
           投稿にはお店の地図情報もあり、簡単にお店を探せます。<br >
-          投稿したものはカレンダーにて管理ができ簡単に探すことができます。
-          </p>
-          <p>そんな、求めているスイーツ情報をお届けできる素敵な空間です。</p>
+          投稿したものはカレンダーにて管理ができ簡単に探すことができます。<br >
+          <br >
+        </div>
+        <div class="container__text">
+          そんな、求めているスイーツ情報をお届けできる素敵な空間です。<br >
+        </div>
       </div>
     </div>
   </div>
