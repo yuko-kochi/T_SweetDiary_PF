@@ -2,7 +2,7 @@
   <h1 class="header__logo">
     <a class="header__logo-link" href="/" ><%= image_tag 'Logo.png', class: "logo" %></a>
   </h1>
-  <nav class="header__navbar">
+  <nav class="header__navbar" id="sp-menu">
     <ul class="header__navbar-menu">
       <% if user_signed_in? %>
         <li class="header__navbar-men-title">
@@ -38,8 +38,32 @@
         </li>
       <% end %>
     </ul>
-    <div class="header__search">
+    <ul class="header__navbar-menu header__search">
       <%= render 'layouts/search' %>
-    </div>
+    </ul>
   </nav>
+
+  <div id="hm-icon">
+    <a class="menu-trigger" href="#">
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/script.js"></script>
 </header>
+
+<script>
+$(function() {
+  // .menu-triggerクリック時に行われる処理
+  $('.menu-trigger').on('click', function(event) {
+    // toggleClass()を設定すると、アイコンがクリックされたときにactiveクラスが追加され、もう一度クリックすると削除され
+    $(this).toggleClass('active');
+    // .fadeToggle()は、要素のフェードイン・フェードアウトを切り替えるメソッド
+    $('#sp-menu').fadeToggle();
+    event.preventDefault();
+  });
+});
+</script>
