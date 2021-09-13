@@ -13,7 +13,6 @@ $border-color:  1px solid #8A7566;
     padding: 0;
   }
 
-
   // Post List
   &__title {
     line-height: 15px;
@@ -68,6 +67,9 @@ $border-color:  1px solid #8A7566;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    @media screen and (max-width: 767px) {
+      justify-content: center;
+    }
 
     &--link {
       background: $main-color;
