@@ -28,12 +28,9 @@ $border-color:  1px solid #8A7566;
   width: 200px;
   margin-top: 20px;
 
-
-
   &__list {
     margin-bottom: 40px;
-    position: sticky;
-    top: 100px;
+    position: fixed;
     &--sticky {
       top: 500px;
     }
