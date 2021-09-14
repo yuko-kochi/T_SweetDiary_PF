@@ -8,6 +8,8 @@ class NotificationsController < ApplicationController
       notification.update_attributes(checked: true)
     end
     @checked_notifications = Notification.where(visited_id: current_user.id, checked: true ).where.not(visitor_id: current_user.id)
+    @tag_list = Tag.find( PostTag.group(:tag_id).order('count(tag_id)desc').limit(10).pluck(:tag_id))
+    @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])  
   end
 
   def destroy

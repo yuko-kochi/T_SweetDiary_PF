@@ -7,6 +7,8 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @tag_list = Tag.find( PostTag.group(:tag_id).order('count(tag_id)desc').limit(10).pluck(:tag_id))
+    @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
   end
 
   def create
@@ -48,6 +50,8 @@ class PostsController < ApplicationController
     gon.lng = @lng
     @post_comment = PostComment.new
     @user = @post.user
+    @tag_list = Tag.find( PostTag.group(:tag_id).order('count(tag_id)desc').limit(10).pluck(:tag_id))
+    @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
   end
 
   def edit
@@ -55,7 +59,9 @@ class PostsController < ApplicationController
     @lng = @post.longitude
     gon.lat = @lat
     gon.lng = @lng
-    @tag_list = @post.tags.pluck(:name).join(" ")
+    @tag_lists = @post.tags.pluck(:name).join(" ")
+    @tag_list = Tag.find( PostTag.group(:tag_id).order('count(tag_id)desc').limit(10).pluck(:tag_id))
+    @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
   end
 
   def update

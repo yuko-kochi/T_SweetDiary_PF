@@ -8,6 +8,31 @@
         <li class="header__navbar-men-title">
           <%= link_to "投稿一覧", posts_path %>
         </li>
+        <li class="header__navbar-men-title dropdown">カテゴリー検索 ▼
+          <ul class="side-var__list-name">
+            <% @category.each do |category| %>
+              <li class="side-var__list-link">
+                <%= link_to category.name, category_path(category) %>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+        <li class="header__navbar-men-title dropdown">タグ検索 ▼
+          <ul class="side-var__list-name">
+            <% @tag_list.each do |tag| %>
+              <li class="side-var__list-link">
+               <%= link_to tag_path(tag.id) do %>
+                  #<%= tag.name %>
+                <% end %>
+              </li>
+            <% end %>
+            <%= link_to tags_path do %>
+              <li class="side-var__list-link">
+                タグ一覧はこちらから>>
+              </li>
+            <% end %>
+          </ul>
+        </li>
         <li class="header__navbar-men-title">
           <%= link_to "ユーザー一覧", users_path %>
         </li>
@@ -59,7 +84,7 @@
 $(function() {
   // .menu-triggerクリック時に行われる処理
   $('.menu-trigger').on('click', function(event) {
-    // toggleClass()を設定すると、アイコンがクリックされたときにactiveクラスが追加され、もう一度クリックすると削除され
+    // toggleClass()を設定すると、アイコンがクリックされたときにactiveクラスが追加され、もう一度クリックすると削除される
     $(this).toggleClass('active');
     // .fadeToggle()は、要素のフェードイン・フェードアウトを切り替えるメソッド
     $('#sp-menu').fadeToggle();
