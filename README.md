@@ -31,26 +31,18 @@ Sweet好きな人、訪れたパティスリーの記録を残しておきたい
 
 ### 主な利用シーン
 Sweet好きな人がSweet情報を交換する場面、メモや日記の代わりにお店などの記録を行う場面
+以前訪れたお店の情報や購入品を調べる時
+今人気のSweet情報を調べる時
+Sweet情報を交換する時
+Sweet情報を手軽に管理したい時
 
 ## 設計書
-ER図  https://drive.google.com/drive/folders/1MDbMBoIcw4MCXsnxeRC7DTHht7Zm88Bt
-テーブル定義書  https://docs.google.com/spreadsheets/d/1Q_dE_3j5eBtJenT77av9nMCzkljYTsDxJZMDLMS31oI/edit?usp=sharing >
-アプリケーション詳細設計書  https://docs.google.com/spreadsheets/d/1lCEr5yS1AVFm9VL0ObwIPEEcCt5t34oV700cUF0i4n0/edit?usp=sharing
+ER図  https://drive.google.com/drive/folders/1MDbMBoIcw4MCXsnxeRC7DTHht7Zm88Bt <br >
+テーブル定義書  https://docs.google.com/spreadsheets/d/1Q_dE_3j5eBtJenT77av9nMCzkljYTsDxJZMDLMS31oI/edit?usp=sharing <br >
+アプリケーション詳細設計書  https://docs.google.com/spreadsheets/d/1lCEr5yS1AVFm9VL0ObwIPEEcCt5t34oV700cUF0i4n0/edit?usp=sharing <br >
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1Ala7BV5UcOTXIJDd2KvC1Uq2sbx785jwJhhR8oCV8T8/edit#gid=0
-以前訪れたお店の情報や購入品を調べる時。
-今人気のSweet情報を調べる時。
-Sweet情報を交換する時。
-Sweet情報を手軽に管理したい時。
-
-## 設計書
-ER図  https://drive.google.com/drive/folders/1MDbMBoIcw4MCXsnxeRC7DTHht7Zm88Bt
-テーブル定義書  https://docs.google.com/spreadsheets/d/1Q_dE_3j5eBtJenT77av9nMCzkljYTsDxJZMDLMS31oI/edit?usp=sharing
-アプリケーション詳細設計書  https://docs.google.com/spreadsheets/d/1lCEr5yS1AVFm9VL0ObwIPEEcCt5t34oV700cUF0i4n0/edit?usp=sharing
-
-## チャレンジ要素一覧
-https://docs.google.com/spreadsheets/d/1Ala7BV5UcOTXIJDd2KvC1Uq2sbx785jwJhhR8oCV8T8/edit?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
