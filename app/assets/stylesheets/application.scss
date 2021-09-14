@@ -101,6 +101,7 @@ a:hover{
 @media screen and (max-width: 767px) {
   .logo {
       margin-left: 5px;
+      margin-top: 10px;
     }
     .dropdown {
       display: block;
@@ -130,20 +131,38 @@ a:hover{
   }
 
   .copyright {
-    font-size: 12px;
+    font-size: 15px;
     height: 60px;
-    line-height: 60px;
+    padding: 25px 0;
     text-align: center;
+    br {
+      display: none;
+    }
   }
 
   .sns {
     font-size: 30px;
     height: 60px;
-    line-height: 60px;
+    padding: 10px 0;
     position: absolute;
 
     li {
       margin-right: 10px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .sns {
+      font-size: 20px;
+      padding: 18px 0;
+    }
+    .copyright {
+      font-size: 13px;
+      padding: 15px 0;
+    }
+    .copyright br{
+      display: block;
+      padding: 10px 0;
     }
   }
 
