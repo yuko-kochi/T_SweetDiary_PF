@@ -4,7 +4,7 @@
       <h2 class="title">Tag List</h2>
     </div>
     <ul>
-      <% @tag_list.each do |tag| %>
+      <% @tag_lists.each do |tag| %>
         <li class="tag__name">
           <%= link_to tag_path(tag.id) do %>
             #<%= tag.name %>

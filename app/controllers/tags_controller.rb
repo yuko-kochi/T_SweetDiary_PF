@@ -2,7 +2,9 @@ class TagsController < ApplicationController
   before_action :redirect_to_tags, only: [:show]
 
   def index
-    @tag_list = Tag.find( PostTag.group(:tag_id).order('count(tag_id)desc').pluck(:tag_id))
+    @tag_lists = Tag.find( PostTag.group(:tag_id).order('count(tag_id)desc').pluck(:tag_id))
+    @tag_list = Tag.find( PostTag.group(:tag_id).order('count(tag_id)desc').limit(10).pluck(:tag_id))
+    @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
   end
 
   def show
