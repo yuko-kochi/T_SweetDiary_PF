@@ -8,11 +8,27 @@
         <li class="header__navbar-men-title">
           <%= link_to "投稿一覧", posts_path %>
         </li>
-        <li class="header__navbar-men-title category"><a href="#">カテゴリー検索</a>
+        <li class="header__navbar-men-title dropdown">カテゴリー検索 ▼
           <ul class="side-var__list-name">
             <% @category.each do |category| %>
               <li class="side-var__list-link">
                 <%= link_to category.name, category_path(category) %>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+        <li class="header__navbar-men-title dropdown">タグ検索 ▼
+          <ul class="side-var__list-name">
+            <% @tag_list.each do |tag| %>
+              <li class="side-var__list-link">
+               <%= link_to tag_path(tag.id) do %>
+                  #<%= tag.name %>
+                <% end %>
+              </li>
+            <% end %>
+            <%= link_to tags_path do %>
+              <li class="side-var__list-link">
+                タグ一覧はこちらから>>
               </li>
             <% end %>
           </ul>
