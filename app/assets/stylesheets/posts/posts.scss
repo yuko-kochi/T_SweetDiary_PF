@@ -30,10 +30,6 @@ $border-color:  1px solid #8A7566;
 
   &__list {
     margin-bottom: 40px;
-    position: fixed;
-    &--sticky {
-      top: 500px;
-    }
   }
 
   &__title {
