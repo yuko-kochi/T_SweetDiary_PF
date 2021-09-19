@@ -3,6 +3,8 @@ class ChatsController < ApplicationController
   before_action :follow_each_other, only: [:show]
 
   def show
+    @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
+     @tag_list = Tag.find( PostTag.group(:tag_id).order('count(tag_id)desc').limit(10).pluck(:tag_id))
     @user = User.find(params[:id])
     # カレントユーザーのuser_roomにあるroom_idの値の配列で取得しroomsに代入
     rooms = current_user.user_rooms.pluck(:room_id)
