@@ -139,6 +139,11 @@ $border-color:  1px solid #8A7566;
       font-size: 20px;
       padding: 10px;
     }
+
+    @media screen and (max-width: 767px) {
+      width: 100%;
+    }
+
   }
 
   &__posts::after{

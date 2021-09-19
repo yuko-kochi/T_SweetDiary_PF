@@ -73,10 +73,6 @@ $white-color: #ffffff;
   }
 }
 
-
-
-
-
 .home {
   width: 100%;
   text-align: center;
@@ -184,7 +180,7 @@ $white-color: #ffffff;
     h1 {
       font-size: 22px;
     }
-    p {
+    &__header p {
       font-size: 18.8px;
     }
 

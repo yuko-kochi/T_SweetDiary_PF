@@ -28,6 +28,10 @@ $white-color: #ffffff;
       letter-spacing: 7px;
       margin: 20px 20px 25px ;
       color: $sub-color;
+
+      @media screen and (max-width: 767px) {
+        text-align: center;
+      }
     }
   }
 }
@@ -42,6 +46,9 @@ $white-color: #ffffff;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
 
 
   &__card {
@@ -51,18 +58,36 @@ $white-color: #ffffff;
     padding: 5px;
     height: 470px;
 
+    @media screen and (max-width: 767px) {
+      width: 200px;
+      padding: 5px;
+      height: 350px;
+    }
+
     &--color {
       width: 200px;
       height: 200px;
       margin: 10px 5px 5px 25px;
       background-color: $white-color;
+     @media screen and (max-width: 767px) {
+        height: 130px;
+        width: 130px;
+      }
     }
+
     &--profile-image {
       margin: 20px 10px 10px 50px;
       position: absolute;
 
       .profile_image {
         object-fit: cover;
+        height: 200px;
+        width: 200px;
+        @media screen and (max-width: 767px) {
+          height: 130px;
+          width: 130px;
+        }
+
       }
     }
 
@@ -73,6 +98,9 @@ $white-color: #ffffff;
     &--name {
       margin: 0 5px 10px;
       font-size: 20px;
+      @media screen and (max-width: 767px) {
+        font-size: 15px;
+      }
     }
 
     &--introduction {
@@ -80,6 +108,9 @@ $white-color: #ffffff;
       font-size: 0.8em;
       letter-spacing: 1px;
       opacity: 0.8;
+      @media screen and (max-width: 767px) {
+        font-size: 0.3em;
+      }
     }
 
     &--follow {
