@@ -1,4 +1,5 @@
 class SearchController < ApplicationController
+  before_action :set_category_tag, only: [:search]
 
   def search
     # キーワードが入力されていないとトップページに飛ぶ
@@ -10,8 +11,6 @@ class SearchController < ApplicationController
     @tags = search_tag(@keyword).order(created_at: :desc).where(status: 0)
     # ユーザー検索結果
     @users = search_user(@keyword)
-    @tag_list = Tag.find( PostTag.group(:tag_id).order('count(tag_id)desc').limit(10).pluck(:tag_id))
-    @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
   end
 
   private

@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
   before_action :redirect_to_posts, only: [:show]
   before_action :post_draft, only: [:show]
-  before_action :set_category_tag, only: [:new, :index, :show, :edit]
+  before_action :set_category_tag
 
   def new
     @post = Post.new
@@ -82,10 +82,6 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
   end
 
-  def set_category_tag
-    @tag_list = Tag.find( PostTag.group(:tag_id).order('count(tag_id)desc').limit(10).pluck(:tag_id))
-    @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
-  end
 
   def ensure_correct_user
     unless @post.user == current_user

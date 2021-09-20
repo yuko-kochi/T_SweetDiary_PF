@@ -1,9 +1,9 @@
 class CategorysController < ApplicationController
   before_action :redirect_to_posts, only: [:show]
+  before_action :set_category_tag, only: [:show]
 
   def show
-    @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
-    @categorys = Category.find(params[:id])
+    @category = Category.find(params[:id])
     case params[:sort]
     when "likes_count desc"
       to  = Time.current.at_end_of_day
