@@ -10,7 +10,7 @@
         </li>
         <li class="header__navbar-men-title dropdown">カテゴリー検索 ▼
           <ul class="side-var__list-name">
-            <% @category.each do |category| %>
+            <% @categorys.each do |category| %>
               <li class="side-var__list-link">
                 <%= link_to category.name, category_path(category) %>
               </li>

@@ -9,4 +9,10 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
+
+  def set_category_tag
+    @tag_list = Tag.find( PostTag.group(:tag_id).order('count(tag_id)desc').limit(10).pluck(:tag_id))
+    @categorys = Category.find([2, 3, 4, 5, 6,7,8,9,10])
+  end
+
 end

@@ -1,19 +1,23 @@
 <div class="users">
   <div class="users__row">
-      <div class="users__headar">
-        <div class="users__headar--title">
-          <p>Followers</p>
-        </div>
+    <div class="users__headar">
+      <div class="users__headar--title">
+        <p>Followers</p>
       </div>
-      <% if @users.exists? %>
+    </div>
+    <% if @users.exists? %>
       <div class="user-index">
         <%= render 'users/users', users: @users %>
       </div>
-      <% else %>
-        <div class="no-users">
-          <p class="no-user">まだフォワーはいません</p>
-          <p class="no-userless">フォローされるとここに表示されます</p>
-        </div>
+    <% else %>
+      <div class="no-users">
+        <p class="no-user">まだフォワーはいません</p>
+        <p class="no-userless">フォローされるとここに表示されます</p>
+      </div>
   　<% end %>
+  　<div class="back">
+      <%= link_to '<< 戻る', :back %>
+    </div>
 　</div>
+
 </div>

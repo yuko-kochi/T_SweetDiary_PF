@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:update, :edit]
   before_action :calendar_correct_user, only: [:calendar]
   before_action :redirect_to_users, only: [:show]
-  before_action :set_category_tag, only: [:index, :show, :edit, :calendar]
+  before_action :set_category_tag
 
   def show
     @user = User.find_by(id: params[:id])
@@ -66,11 +66,6 @@ class UsersController < ApplicationController
     if @user.blank?
       redirect_to users_path
     end
-  end
-
-  def set_category_tag
-    @tag_list = Tag.find( PostTag.group(:tag_id).order('count(tag_id)desc').limit(10).pluck(:tag_id))
-    @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
   end
 
 end
