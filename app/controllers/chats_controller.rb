@@ -1,6 +1,7 @@
 class ChatsController < ApplicationController
   before_action :authenticate_user!
   before_action :follow_each_other, only: [:show]
+  before_action :set_category_tag, only: [:show]
 
   def show
     @user = User.find(params[:id])

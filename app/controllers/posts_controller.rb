@@ -4,11 +4,10 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
   before_action :redirect_to_posts, only: [:show]
   before_action :post_draft, only: [:show]
+  before_action :set_category_tag
 
   def new
     @post = Post.new
-    @tag_list = Tag.find( PostTag.group(:tag_id).order('count(tag_id)desc').limit(10).pluck(:tag_id))
-    @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
   end
 
   def create
@@ -39,8 +38,6 @@ class PostsController < ApplicationController
     else
       @posts = Post.order(created_at: :desc).where(status: 0)
     end
-    @tag_list = Tag.find( PostTag.group(:tag_id).order('count(tag_id)desc').limit(10).pluck(:tag_id))
-    @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
   end
 
   def show
@@ -50,8 +47,6 @@ class PostsController < ApplicationController
     gon.lng = @lng
     @post_comment = PostComment.new
     @user = @post.user
-    @tag_list = Tag.find( PostTag.group(:tag_id).order('count(tag_id)desc').limit(10).pluck(:tag_id))
-    @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
   end
 
   def edit
@@ -60,8 +55,6 @@ class PostsController < ApplicationController
     gon.lat = @lat
     gon.lng = @lng
     @tag_lists = @post.tags.pluck(:name).join(" ")
-    @tag_list = Tag.find( PostTag.group(:tag_id).order('count(tag_id)desc').limit(10).pluck(:tag_id))
-    @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
   end
 
   def update

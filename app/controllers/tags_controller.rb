@@ -1,10 +1,10 @@
 class TagsController < ApplicationController
   before_action :redirect_to_tags, only: [:show]
+  before_action :set_category_tag, only: [:index, :show]
+
 
   def index
     @tag_lists = Tag.find( PostTag.group(:tag_id).order('count(tag_id)desc').pluck(:tag_id))
-    @tag_list = Tag.find( PostTag.group(:tag_id).order('count(tag_id)desc').limit(10).pluck(:tag_id))
-    @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
   end
 
   def show
@@ -19,8 +19,6 @@ class TagsController < ApplicationController
     else
       @posts = @tag.posts.order(created_at: :desc).where(status: 0)
     end
-    @tag_list = Tag.find( PostTag.group(:tag_id).order('count(tag_id)desc').limit(10).pluck(:tag_id))
-    @category = Category.find([2, 3, 4, 5, 6,7,8,9,10])
   end
 
   private
@@ -31,6 +29,5 @@ class TagsController < ApplicationController
       redirect_to tags_path
     end
   end
-
 
 end

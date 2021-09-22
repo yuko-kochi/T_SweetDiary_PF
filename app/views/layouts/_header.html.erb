@@ -10,7 +10,7 @@
         </li>
         <li class="header__navbar-men-title dropdown">カテゴリー検索 ▼
           <ul class="side-var__list-name">
-            <% @category.each do |category| %>
+            <% @categorys.each do |category| %>
               <li class="side-var__list-link">
                 <%= link_to category.name, category_path(category) %>
               </li>
@@ -75,11 +75,9 @@
       <span></span>
     </a>
   </div>
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/script.js"></script>
 </header>
 
+<!--レスポンシブ対応時のヘッダー カテゴリー、タグ検索時-->
 <script>
 $(function() {
   // .menu-triggerクリック時に行われる処理
