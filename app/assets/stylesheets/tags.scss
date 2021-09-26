@@ -57,6 +57,9 @@ $border-color:  1px solid #8A7566;
 
   .back {
     margin-left: 50px;
+    @media screen and (max-width: 767px) {
+       margin-left: 25px;
+    }
   }
 }
 
