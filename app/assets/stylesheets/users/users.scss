@@ -25,6 +25,9 @@ $border-color:  1px solid #8A7566;
   &__header {
     width: 90%;
     margin: 0 auto 32px;
+    @media screen and (max-width: 767px) {
+      width: 100%;
+    }
   }
 
   &__profile {
@@ -35,6 +38,14 @@ $border-color:  1px solid #8A7566;
     grid-template-areas:
         "profIcon title"
         "profIcon userCount"
+  }
+
+  @media screen and (max-width: 767px) {
+    &__profile {
+      width: 90%;
+      margin: auto;
+      display: block;
+    }
   }
 
   &__profile-image{
@@ -48,6 +59,9 @@ $border-color:  1px solid #8A7566;
     grid-area: title;
     margin-top: 10px;
     width: 60%;
+    @media screen and (max-width: 767px) {
+      width: 100%;
+    }
 
     &--name{
       margin: 10px 0 4px;
@@ -59,7 +73,6 @@ $border-color:  1px solid #8A7566;
     }
 
     &--introduction{
-      display: inline-block;
       letter-spacing: 0.4px;
       color: #999;
       font-weight: 400;
@@ -79,6 +92,17 @@ $border-color:  1px solid #8A7566;
       border-right: $border-color;
       font-family: "ヒラギノ明朝 ProN";
     }
+
+    @media screen and (max-width: 767px) {
+      li:first-child {
+        padding: 0 15px 0 0;
+      }
+
+      li:last-child {
+        display: none;
+      }
+    }
+
 
     &--item:last-child {
       border: none;
@@ -104,6 +128,7 @@ $border-color:  1px solid #8A7566;
     a {
       color: #fffaf0;
     }
+
   }
 
   &__btn {
@@ -140,6 +165,10 @@ $border-color:  1px solid #8A7566;
       padding: 10px;
       border-left: 1px solid #e7e7e7;
       cursor: pointer;
+      @media screen and (max-width: 767px) {
+        font-size: 15px;
+        padding: 5px;
+      }
     }
 
     &--item:hover{
@@ -156,5 +185,14 @@ $border-color:  1px solid #8A7566;
   .post-index__posts {
     justify-content: space-evenly;
   }
+}
 
+.follwer {
+  display: none;
+  @media screen and (max-width: 767px) {
+    display: block;
+    .card-area {
+      display: block;
+    }
+  }
 }
