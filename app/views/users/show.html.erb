@@ -53,6 +53,13 @@
            <% end %>
           </p>
          </div>
+         <div class="user-show__edit-area follwer">
+            <div class="user-show__follwing">
+              <div id="relationship_<%= @user.id %>">
+                <%= render partial: "relationships/relationships", locals: { user: @user } %>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
 

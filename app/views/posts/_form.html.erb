@@ -13,7 +13,7 @@
 
   <div class="post-actions__form-field image-field">
     <p class="post-actions__form-field--title">画像を登録</p>
-    <%= attachment_image_tag post, :image, fallback: "no-image.png", id: "img_prev", size: "520x293", class: "post-actions__form-field--image" %><br />
+    <%= attachment_image_tag post, :image, fallback: "no-image.png", id: "img_prev", class: "post-actions__form-field--image" %><br />
     <%= f.attachment_field :image %>
   </div>
   <div class="post-actions__form-field introduction-field">

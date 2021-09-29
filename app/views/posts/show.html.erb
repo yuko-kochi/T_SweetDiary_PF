@@ -6,8 +6,8 @@
       <%= flash[:notice] %>
      <% end %>
     </p>
-    <div class="post-show__image">
-      <%=  attachment_image_tag @post, :image, format: 'jpg', size: "640x360", class: "post-show__image" %>
+    <div>
+      <%=  attachment_image_tag @post, :image, format: 'jpg', class: "post-show__image" %>
     </div>
 
     <!--showページhaeder-->
