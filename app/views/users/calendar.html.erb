@@ -11,7 +11,7 @@
          <% posts.each do |post| %>
          <div class="usercalendar__main--post">
             <%= link_to post_path(post.id) do %>
-              <%= attachment_image_tag post, :image, format: 'jpg', size: "130x130" , class: "usercalendar__main--image" %>
+              <%= attachment_image_tag post, :image, format: 'jpg', class: "usercalendar__main--image" %>
             <% end %>
           </div>
         <% end %>
