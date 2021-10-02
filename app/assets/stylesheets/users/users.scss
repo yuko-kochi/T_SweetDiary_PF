@@ -39,12 +39,16 @@ $border-color:  1px solid #8A7566;
         "profIcon title"
         "profIcon userCount"
   }
-
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     &__profile {
-      width: 90%;
-      margin: auto;
-      display: block;
+      width: 100%;
+    }
+    @media screen and (max-width: 768px) {
+      &__profile {
+        width: 90%;
+        margin: auto;
+        display: block;
+      }
     }
   }
 
@@ -128,7 +132,6 @@ $border-color:  1px solid #8A7566;
     a {
       color: #fffaf0;
     }
-
   }
 
   &__btn {
@@ -187,6 +190,9 @@ $border-color:  1px solid #8A7566;
 
   .post-index__posts {
     justify-content: space-evenly;
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
   }
 }
 

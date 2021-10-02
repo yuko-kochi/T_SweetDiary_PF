@@ -103,6 +103,9 @@ $white-color: #ffffff;
     width: 60%;
     border: thick double $white-color;
     letter-spacing: 1px;
+    @media screen and (max-width: 1024px) {
+      width: 80%;
+    }
 
     .about-area{
       margin: 20px;
@@ -134,6 +137,9 @@ $white-color: #ffffff;
   .home-posts {
     width: 95%;
     margin: 6em auto;
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
   a {
     color: $sub-color;
   }
