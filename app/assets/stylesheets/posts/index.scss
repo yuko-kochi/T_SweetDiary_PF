@@ -8,7 +8,7 @@ $border-color:  1px solid #8A7566;
   width: calc(100% - 200px);
   padding: 0 40px 0 0;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     width: 100%;
     padding: 0;
   }
@@ -26,7 +26,7 @@ $border-color:  1px solid #8A7566;
       color: $sub-color;
     }
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
       text-align: center;
       line-height: 30px;
     }
@@ -55,7 +55,7 @@ $border-color:  1px solid #8A7566;
       border: none;
     }
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
       text-align: center;
       font-size: 15px;
     }
@@ -68,7 +68,7 @@ $border-color:  1px solid #8A7566;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
       justify-content: center;
     }
 
@@ -141,7 +141,7 @@ $border-color:  1px solid #8A7566;
       padding: 10px;
     }
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
       width: 100%;
     }
 

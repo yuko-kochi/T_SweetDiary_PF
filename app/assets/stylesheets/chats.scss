@@ -17,7 +17,7 @@ $border-color:  1px solid #8A7566;
   &__row {
     width: 700px;
     margin: auto;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
       width: 95%;
     }
   }
@@ -37,7 +37,7 @@ $border-color:  1px solid #8A7566;
 
       .name {
         margin-top: 20px;
-        @media screen and (max-width: 767px) {
+        @media screen and (max-width: 768px) {
           font-size: 18px;
           margin-left: 5px;
         }
@@ -116,7 +116,7 @@ $border-color:  1px solid #8A7566;
     width: 50px;
     height: 50px;
     margin-top: 0px;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
       width: 40px;
       height: 40px;
     }
