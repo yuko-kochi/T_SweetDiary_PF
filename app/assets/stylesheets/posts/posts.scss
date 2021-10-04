@@ -57,14 +57,14 @@ $border-color:  1px solid #8A7566;
   text-align: center;
   margin: auto;
   color: #5f5354;
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     width: 90%;
   }
 
   &__image {
     height: 360px;
     width: 640px;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 425px) {
       width: 100%;
       height: 200px;
     }
@@ -78,7 +78,7 @@ $border-color:  1px solid #8A7566;
     margin: 10px auto;
     padding: 0 15px 10px;
     border-bottom: $border-color;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 425px) {
       width: 100%;
       display: block;
     }
@@ -89,7 +89,7 @@ $border-color:  1px solid #8A7566;
     &--link{
       display: flex;
       align-items: center;
-      @media screen and (max-width: 767px) {
+      @media screen and (max-width: 425px) {
         display: block;
       }
     }
@@ -100,7 +100,7 @@ $border-color:  1px solid #8A7566;
       border-radius: 50%;
       object-fit: cover;
       margin: 0 8px 0 0;
-      @media screen and (max-width: 767px) {
+      @media screen and (max-width: 425px) {
         margin: auto;
       }
     }
@@ -108,7 +108,7 @@ $border-color:  1px solid #8A7566;
     &--name {
       font-size: 13px;
       color: #999;
-      @media screen and (max-width: 767px) {
+      @media screen and (max-width: 425px) {
         margin-bottom: 10px;
       }
     }
@@ -126,7 +126,7 @@ $border-color:  1px solid #8A7566;
     &--category, &--like {
       padding-right: 10px;
       border-right: 1px solid #e7e7e7;
-      @media screen and (max-width: 767px) {
+      @media screen and (max-width: 768px) {
         border-right: none;
         padding-right: 20px;
         margin: auto;
@@ -134,13 +134,13 @@ $border-color:  1px solid #8A7566;
     }
 
     &--creat {
-      @media screen and (max-width: 767px) {
+      @media screen and (max-width: 768px) {
         padding-left: 20px;
       }
     }
 
     &--category {
-      @media screen and (max-width: 767px) {
+      @media screen and (max-width: 768px) {
        border-right: 1px solid #e7e7e7;
        border-left: 1px solid #e7e7e7;
        padding-left: 20px;
@@ -165,7 +165,7 @@ $border-color:  1px solid #8A7566;
     margin: 0 auto;
     text-align: start;
     color: #666666;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
       width: 100%;
     }
   }
@@ -177,7 +177,7 @@ $border-color:  1px solid #8A7566;
     padding: 15px 0;
     text-align: start;
     color: #666666;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
       width: 100%;
     }
   }
@@ -187,7 +187,7 @@ $border-color:  1px solid #8A7566;
     text-align: end;
     margin: 10px auto;
     font-size: 15px;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
       width: 100%;
     }
   }
@@ -207,7 +207,7 @@ $border-color:  1px solid #8A7566;
   height: 400px;
   width: 600px;
   margin: 0 auto 30px;
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     width: 100%;
     height: 400px;
   }
@@ -217,7 +217,7 @@ $border-color:  1px solid #8A7566;
   height: 400px;
   width: 600px;
   margin: 0 auto 30px;
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     width: 100%;
     height: 400px;
   }

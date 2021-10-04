@@ -13,7 +13,7 @@ $border-color:  1px solid #8A7566;
   &__edit {
     margin: 30px auto;
     max-width: 700px;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
       width: 95%;
     }
   }
@@ -23,7 +23,7 @@ $border-color:  1px solid #8A7566;
     border-bottom: $border-color;
     margin-bottom: 32px;
     text-align: start;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
       text-align: center;
     }
 

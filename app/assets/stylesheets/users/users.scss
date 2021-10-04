@@ -25,7 +25,7 @@ $border-color:  1px solid #8A7566;
   &__header {
     width: 90%;
     margin: 0 auto 32px;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
       width: 100%;
     }
   }
@@ -39,12 +39,16 @@ $border-color:  1px solid #8A7566;
         "profIcon title"
         "profIcon userCount"
   }
-
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1024px) {
     &__profile {
-      width: 90%;
-      margin: auto;
-      display: block;
+      width: 100%;
+    }
+    @media screen and (max-width: 768px) {
+      &__profile {
+        width: 90%;
+        margin: auto;
+        display: block;
+      }
     }
   }
 
@@ -59,7 +63,7 @@ $border-color:  1px solid #8A7566;
     grid-area: title;
     margin-top: 10px;
     width: 60%;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
       width: 100%;
     }
 
@@ -93,7 +97,7 @@ $border-color:  1px solid #8A7566;
       font-family: "ヒラギノ明朝 ProN";
     }
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
       li:first-child {
         padding: 0 15px 0 0;
       }
@@ -128,7 +132,6 @@ $border-color:  1px solid #8A7566;
     a {
       color: #fffaf0;
     }
-
   }
 
   &__btn {
@@ -165,7 +168,10 @@ $border-color:  1px solid #8A7566;
       padding: 10px;
       border-left: 1px solid #e7e7e7;
       cursor: pointer;
-      @media screen and (max-width: 767px) {
+      @media screen and (max-width: 768px) {
+        margin-left: 10px;
+      }
+      @media screen and (max-width: 425px) {
         font-size: 15px;
         padding: 5px;
       }
@@ -184,12 +190,15 @@ $border-color:  1px solid #8A7566;
 
   .post-index__posts {
     justify-content: space-evenly;
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
   }
 }
 
 .follwer {
   display: none;
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     display: block;
     .card-area {
       display: block;

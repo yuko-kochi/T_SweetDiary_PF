@@ -18,7 +18,7 @@ $border-color:  1px solid #8A7566;
   .notifications-row {
     width: 800px;
     margin: auto;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
       width: 90%;
     }
   }
@@ -32,7 +32,7 @@ $border-color:  1px solid #8A7566;
       margin-bottom: 32px;
       text-align: start;
 
-      @media screen and (max-width: 767px) {
+      @media screen and (max-width: 768px) {
         text-align: center;
       }
 
@@ -81,7 +81,7 @@ $border-color:  1px solid #8A7566;
     margin: 10px auto;
     padding: 10px;
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 425px) {
       margin: 0;
       padding: 0;
     }
@@ -89,7 +89,7 @@ $border-color:  1px solid #8A7566;
     &--destroy_all {
       text-align: end;
       margin: 10px 50px;
-      @media screen and (max-width: 767px) {
+      @media screen and (max-width: 425px) {
         margin: auto;
       }
     }
@@ -100,14 +100,14 @@ $border-color:  1px solid #8A7566;
       margin: 0 8px 0 0;
       height: 50px;
       width: 50px;
-      @media screen and (max-width: 767px) {
+      @media screen and (max-width: 425px) {
         margin: auto;
       }
     }
 
     &--list {
       padding: 10px;
-      @media screen and (max-width: 767px) {
+      @media screen and (max-width: 425px) {
         padding: 15px 0;
       }
     }
@@ -116,7 +116,7 @@ $border-color:  1px solid #8A7566;
       align-items: center;
       display: flex;
       font-size: 15px;
-      @media screen and (max-width: 767px) {
+      @media screen and (max-width: 425px) {
         display: block;
         span {
           display: block;
