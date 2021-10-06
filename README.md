@@ -37,7 +37,7 @@ Sweet情報を交換する時
 Sweet情報を手軽に管理したい時
 
 ## 設計書
-ER図  https://drive.google.com/drive/folders/1MDbMBoIcw4MCXsnxeRC7DTHht7Zm88Bt <br >
+ER図  https://app.diagrams.net/#G1uIHUn42fOR6u5CVcotVXB22_rDn9Sef4 <br >
 テーブル定義書  https://docs.google.com/spreadsheets/d/1Q_dE_3j5eBtJenT77av9nMCzkljYTsDxJZMDLMS31oI/edit?usp=sharing <br >
 アプリケーション詳細設計書  https://docs.google.com/spreadsheets/d/1lCEr5yS1AVFm9VL0ObwIPEEcCt5t34oV700cUF0i4n0/edit?usp=sharing <br >
 
