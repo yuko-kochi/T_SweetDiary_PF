@@ -56,12 +56,22 @@ $border-color:  1px solid #8A7566;
     .link {
       border-bottom: $border-color;
     }
+
+    @media screen and (max-width: 425px) {
+      .link::before {
+  			content: "\A" ;
+  			white-space: pre ;
+  		}
+    }
     .signin-link {
       margin-bottom: 15px;
     }
   }
   .back {
     margin-left: 30%;
+    @media screen and (max-width: 768px) {
+      margin-left: 10%;
+    }
   }
 }
 
