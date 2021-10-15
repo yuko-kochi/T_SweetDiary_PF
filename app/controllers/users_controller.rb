@@ -42,6 +42,17 @@ class UsersController < ApplicationController
     @posts = @user.posts
   end
 
+  def hide
+    @user = User.find(params[:user_id])
+    #is_validカラムにフラグを立てる(defaultはfalse)
+    @user.update(is_valid: true)
+    #ログアウトさせる
+    reset_session
+    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
+  end
+
+
   private
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
