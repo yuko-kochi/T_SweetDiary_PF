@@ -10,6 +10,7 @@
       <% if alert %>
         <p class="alert alert-error"><%= alert %></p>
       <% end %>
+      <%= flash[:error] %>
       <div class="form-body__field">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: 'sign-form' %>
       </div>
