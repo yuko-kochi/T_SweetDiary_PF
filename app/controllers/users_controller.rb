@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:update, :edit]
   before_action :calendar_correct_user, only: [:calendar]
   before_action :redirect_to_users, only: [:show]
+  before_action :is_valid_users, only: [:show]
   before_action :set_category_tag
 
   def show
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.where(is_valid: false)
   end
 
   def edit
@@ -41,6 +42,17 @@ class UsersController < ApplicationController
     @user = User.find(params[:user_id])
     @posts = @user.posts
   end
+
+  def hide
+    @user = User.find(params[:user_id])
+    #is_validカラムにフラグを立てる(defaultはfalse)
+    @user.update(is_valid: true)
+    #ログアウトさせる
+    reset_session
+    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
+  end
+
 
   private
   def user_params
@@ -64,6 +76,13 @@ class UsersController < ApplicationController
   def redirect_to_users
     @user = User.find_by(id: params[:id])
     if @user.blank?
+      redirect_to users_path
+    end
+  end
+
+  def is_valid_users
+    @user = User.find_by(id: params[:id])
+    unless @user.is_valid == false
       redirect_to users_path
     end
   end

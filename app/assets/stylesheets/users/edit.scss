@@ -87,7 +87,6 @@ $border-color:  1px solid #8A7566;
       width: 300px;
       display: inline-block;
       padding: 0.3em 1em;
-      text-decoration: none;
       color: #B4D3D6;
       border: solid 2px #B4D3D6;
       border-radius: 3px;
@@ -97,6 +96,25 @@ $border-color:  1px solid #8A7566;
 
     .actions-btn:hover {
       background: #B4D3D6;
+      color: white;
+    }
+
+    .hide {
+      a {
+        color: #B3C6E3;
+      }
+    }
+
+    .hide-btn {
+      margin-top: 30px;
+      border: solid 2px #B3C6E3;
+      width: 150px;
+      height: 30px;
+      font-size: 13px;
+    }
+
+    .hide-btn:hover {
+      background: #B3C6E3;
       color: white;
     }
   }

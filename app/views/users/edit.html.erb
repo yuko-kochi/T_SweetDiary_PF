@@ -30,6 +30,9 @@
         </div>
         <%= f.submit "登録する", class: "actions-btn" %>
       <% end %>
+      <div class="hide">
+        <%= link_to "退会する", user_users_hide_path(@user), method: :put, "data-confirm" => "本当に退会しますか？", class: "actions-btn hide-btn" %>
+      </div>
     </div>
     <div class="back">
       <%= link_to '<< 戻る', :back %>
