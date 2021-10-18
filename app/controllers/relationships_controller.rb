@@ -17,12 +17,12 @@ class RelationshipsController < ApplicationController
   #————————フォロー・フォロワー一覧を表示する——————
   def followings
     user = User.find(params[:user_id])
-    @users = user.followings
+    @users = user.followings.where(is_valid: false)
   end
 
   def followers
     user = User.find(params[:user_id])
-    @users = user.followers
+    @users = user.followers.where(is_valid: false)
   end
 
 end
