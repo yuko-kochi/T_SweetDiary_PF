@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
   before_action :redirect_to_posts, only: [:show]
   before_action :post_draft, only: [:show]
+  before_action :is_valid_users, only: [:show]
   before_action :set_category_tag
 
   def new
@@ -102,6 +103,12 @@ class PostsController < ApplicationController
       end
     end
   end
-  
-  
+
+  def is_valid_users
+    @post = Post.find_by(id: params[:id])
+    unless @post.user.is_valid == false
+      redirect_to posts_path
+    end
+  end
+
 end

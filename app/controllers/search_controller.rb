@@ -31,7 +31,7 @@ class SearchController < ApplicationController
 
   # ユーザー検索
   def search_user(keyword)
-    User.where(['name LIKE(?)', "%#{keyword}%"])
+    User.where(['name LIKE(?)', "%#{keyword}%"]).where(is_valid: false)
   end
 
 end
